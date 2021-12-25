@@ -3,7 +3,7 @@ library<-c("gdalUtils", "glcm","raster","rgdal", "mapview", "leaflet",
            "leafem", "sp", "spData", "sf", "tools", "RStoolbox", "rgeos", "lattice",
            "ggplot2", "RColorBrewer", "signal", "rootSolve", "link2GI", "CAST",
            "caret", "doParallel", "data.table", "dplyr", "tidyverse",
-           "LEGION", "CENITH", "IKARUS", "ForestTools")
+           "LEGION", "CENITH", "IKARUS", "ForestTools", "rrtools")
 
 # Install CRAN packages if needed
 inst <- library %in% installed.packages()

@@ -1,5 +1,5 @@
 Package: detectATE
-Title: Detecting Alpine Treeline Ecotones  – an Automated Remote Sensing Approach
+Title: Detecting Alpine Treeline Ecotones - an Automated Remote Sensing Approach
 Version: 0.0.0.9000
 Authors@R:
     person(given = "Agnes",
