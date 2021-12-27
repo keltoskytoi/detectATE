@@ -1,0 +1,116 @@
+---
+title: " "
+output:
+  bookdown::pdf_book:
+      df_print: kable
+      latex_engine: lualatex
+      number_sections: TRUE
+      extra_dependencies: "subfig"
+toc: false #very important!!!!
+geometry: "left = 2.5cm, right = 2cm, top = 2cm, bottom = 2cm"
+fontsize: 12pt
+header-includes:
+  - \usepackage{float}
+  - \usepackage{sectsty}
+  - \usepackage{paralist}
+  - \usepackage{setspace}\spacing{1.5}
+  - \usepackage{fancyhdr}
+  - \usepackage{lastpage}
+  - \usepackage{dcolumn}
+  - \usepackage{ragged2e}
+  - \usepackage{graphicx}
+  - \usepackage{lscape}
+  - \usepackage{longtable}
+  - \graphicspath{ {./figures/} }
+  - \usepackage{natbib}\bibliographystyle{agsm}
+  - \usepackage[nottoc, numbib]{tocbibind}
+  - \renewcommand{\contentsname}{} 
+bibliography: references.bib
+csl: antiquity.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE, 
+  tidy = TRUE, tidy.opts = list(comment = FALSE))
+options(tinytex.verbose = TRUE)
+```
+
+\newpage
+
+\allsectionsfont{\centering}
+\subsectionfont{\raggedright}
+\subsubsectionfont{\raggedright}
+
+\pagenumbering{gobble}
+
+\begin{centering}
+
+\vspace{4cm}
+
+```{r uni_logo, echo=F, out.width="75%", out.height="75%",}
+knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png')
+```
+
+\vspace{4cm}
+
+
+\Large
+
+\doublespacing
+\textbf{Detecting Alpine Treeline Ecotones – an Automated Remote Sensing Approach} \\
+
+\vspace{3 cm}
+
+\normalsize
+\singlespacing
+
+  
+Thesis Paper for the Project Seminar: Treelines of the World in SS 2020  
+
+\vspace{4 cm}
+\end{centering}
+
+\textbf{University Lecturer:}\space\space\ Dr. Maaike Bader, Physical Geography, Philipps-Universität Marburg
+\newline
+\textbf{Student:}\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\ Agnes Schneider
+\newline
+\textbf{Matriculation number:} 2689766
+\newline
+\textbf{E-Mail:} \space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\ Schnei7v@students.uni-marburg.de; euboia@gmail.com
+\newline
+\textbf{Date of Submission:} \space\space\space\ 01.01.2022
+
+\newpage
+
+\vspace{5mm}
+\justifying
+
+```{r abstract, child = '00-Abstract.Rmd'}
+```
+
+\newpage
+
+\vspace{5mm}
+
+
+```{r introduction, child = '01-Introduction.Rmd'}
+```
+
+\newpage
+
+\vspace{5mm}
+
+
+```{r overview, child = '02-Overview.Rmd'}
+```
+
+\newpage 
+
+\vspace{5mm}
+
+
+```{r methodology, child = '03-Methodology.Rmd'}
+```
+
+

@@ -304,7 +304,7 @@ crs(vp_1)
 #8  0.07  0.1     4          19 11 / 15     2     6  530.   0.733     0.105    0.316 0.73 @ 0.26   0.1 CHM_1_3
 
 ```
-##  **III.2.3 Cross-validation of test areas and Segmentation of ROI (.R file:                           3_segmentation_validation_area_1_ROI.R)**
+##  **III.2.3 Cross-validation of test areas and Segmentation of ROI (.R file: 3_segmentation_validation_area_1_ROI.R)**
 
 The segmentation of test area 1 resulted in 8 possible segmentations which are going to be tested if they fit the other test areas. Up to some degree it is a kind of guess work to test the possibly best segmentation which fits the other test areas and also fits the ROI. That is why all 8 results from **best_seg_vp_1_filt** were processed. The 8 results contain also results with h=3.5 m, so it can be checked which height can really represent the whole ROI. After the visual check in QGIS it became clear, that h=3.5 m is too low because it may result in segmenting some of the shrub too. Of course this depends on the definition of tree height and if one wants to segment also the seedlings. Because of the similar height of the seedlings and shrubs it is practically impossible to distinguish shrubs and seedlings based purely on height. 
 
@@ -389,7 +389,7 @@ segm_ROI_8 <- CENITH::TreeSeg(CHM, a=0.07, b=0.1, h=4, MIN = 0.1, CHM=3)
 #clipped: 61 polygons. 786 trees remaining
 writeOGR(obj=segm_ROI_8, dsn="segm", layer="segm_ROI_8", driver="ESRI Shapefile")
 ```
-##  **III.2.4 Data preparation for the Classification (.R file:                           4_data_prep_classification:area_1.R)**
+##  **III.2.4 Data preparation for the Classification (.R file: 4_data_prep_classification:area_1.R)**
 
 For the preparation for the spectral classification first we will compute RGB and then multi-spectral (MS) indices, which we will filter and then test on correlation. Then 10 predictor sets are built which will be tested in the next step. 
 The indices are used to enhance the spectral differences between the different object classes which are to be detected. Currently 11 RGB and 4 MS indices are implemented.
