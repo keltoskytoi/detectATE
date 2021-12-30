@@ -26,7 +26,7 @@ header-includes:
   - \usepackage[nottoc, numbib]{tocbibind}
   - \renewcommand{\contentsname}{} 
 bibliography: references.bib
-csl: antiquity.csl
+csl: journal-of-biogeography.csl
 ---
 
 ```{r setup, include=FALSE}
@@ -92,7 +92,7 @@ Thesis Paper for the Project Seminar: Treelines of the World in SS 2020
 \newpage
 
 \vspace{5mm}
-
+\justifying
 
 ```{r introduction, child = '01-Introduction.Rmd'}
 ```
@@ -100,17 +100,32 @@ Thesis Paper for the Project Seminar: Treelines of the World in SS 2020
 \newpage
 
 \vspace{5mm}
-
+\justifying
 
 ```{r overview, child = '02-Overview.Rmd'}
 ```
 
-\newpage 
+\newpage
 
 \vspace{5mm}
-
+\justifying
 
 ```{r methodology, child = '03-Methodology.Rmd'}
 ```
 
+\newpage
+
+\vspace{5mm}
+\justifying
+
+```{r results, child = '04-Results.Rmd'}
+```
+
+\newpage
+
+\vspace{5mm}
+\justifying
+
+# References 
+\bibliography{references}
 

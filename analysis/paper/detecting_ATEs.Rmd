@@ -108,7 +108,7 @@ Automated methods imply the use of specific algorithms to extract information fr
 
 **Weinstein – Marconi – Bohlman – Zare – White 2020**+ build on the results from Weinstein – Marconi – Bohlman – Zare – White 2019 and tested if training datasets can be generalized and be used on completely different forested areas. Generally the performance of the model performance decreased, but when they were applied to spatially and spectrally similar forested areas the performance increased. Best was again, when the CNN was retrained by a handful of hand-annotated data from the same area.
 
-# **III. A reproducible workflow for the semi-automatic detection of ATEs** 
+# **III. Methods: A reproducible workflow for the semi-automatic detection of ATEs** 
 
 As accentuated before, many studies have used proprietary software (or did not specify the software) and thus the results are not reproducible, expect for Fricker – Ventura – Wolf – North – Davis – Franklin 2019 who share data and code. If reproducibility is not given, then the respective workflows are only locally applicable. The use of open source software, open access test data sets and transparent workflows enable researchers to achieve accessible workflows which can be applied globally (with regionally and locally relevant drivers/factors/predictors) to achieve comparable results.
 

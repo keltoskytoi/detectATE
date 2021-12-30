@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.12.27)  27 DEC 2021 18:16
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.12.30)  30 DEC 2021 09:54
  restricted system commands enabled.
 **Index.tex
 (./Index.tex
@@ -550,43 +550,46 @@ Package: ctablestack 2015/10/01 v1.0 Catcode table stable support
 \CatcodeTableOther=\catcodetable12
 \CatcodeTableExpl=\catcodetable13
 )
-Inserting `Suppress ligatures selectively' at position 1 in `ligaturing'.) (./Index.aux)
+Inserting `Suppress ligatures selectively' at position 1 in `ligaturing'.)
+\cslhangindent=\skip96
+\csllabelwidth=\skip97
+(./Index.aux)
 \openout1 = Index.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 94.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 114.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 94.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 114.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 94.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 114.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 94.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 114.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 94.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 114.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 94.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 114.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 94.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 114.
 
 Package fontspec Info: latinmodern-math scale = 0.9999970497384594.
 
@@ -617,7 +620,7 @@ Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
 (fontspec)             \__um_luatex_copy_fontdimens: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 94.
+(Font)              scaled to size 12.0pt on input line 114.
 
 Package fontspec Info: latinmodern-math scale = 0.9999970497384594.
 
@@ -654,15 +657,15 @@ Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
 (fontspec)             \__um_luatex_copy_fontdimens: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 94.
+(Font)              scaled to size 12.0pt on input line 114.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 94.
+(Font)              `operators' in the math version `normal' on input line 114.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 94.
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 114.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 94.
+(Font)              `operators' in the math version `bold' on input line 114.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 94.
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 114.
 
 Package fontspec Info: latinmodern-math scale = 0.9999970497384594.
 
@@ -744,13 +747,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
 (fontspec)             21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 94.
+(Font)              `symbols' in the math version `normal' on input line 114.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 94.
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 114.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 94.
+(Font)              `symbols' in the math version `bold' on input line 114.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 94.
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 114.
 
 Package fontspec Info: latinmodern-math scale = 0.9999970497384594.
 
@@ -814,38 +817,38 @@ Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
 (fontspec)             \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 94.
+(Font)              `largesymbols' in the math version `normal' on input line 114.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 94.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 114.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 94.
+(Font)              `largesymbols' in the math version `bold' on input line 114.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 94.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 114.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 94.
+(Font)              scaled to size 8.4pt on input line 114.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 94.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 94.
+(Font)              scaled to size 6.0pt on input line 114.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 114.
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 94.
+(Font)              scaled to size 12.0011pt on input line 114.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.40076pt on input line 94.
+(Font)              scaled to size 8.40076pt on input line 114.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 94.
+(Font)              scaled to size 6.00055pt on input line 114.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 94.
+(Font)              scaled to size 11.99872pt on input line 114.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.3991pt on input line 94.
+(Font)              scaled to size 8.3991pt on input line 114.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 94.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
+(Font)              scaled to size 5.99936pt on input line 114.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 114.
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 114.
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
@@ -854,7 +857,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 94.
+Package hyperref Info: Link coloring OFF on input line 114.
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
@@ -864,9 +867,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count320
 )
-LaTeX Info: Redefining \ref on input line 94.
-LaTeX Info: Redefining \pageref on input line 94.
-LaTeX Info: Redefining \nameref on input line 94.
+LaTeX Info: Redefining \ref on input line 114.
+LaTeX Info: Redefining \pageref on input line 114.
+LaTeX Info: Redefining \nameref on input line 114.
 (./Index.out) (./Index.out)
 \@outlinefile=\write3
 
@@ -907,57 +910,58 @@ LaTeX Info: Redefining \nameref on input line 94.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 94.
+(lastpage)             ! on input line 114.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png, id=56, 219.7008pt x 75.1608pt>
+<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png, id=68, 219.7008pt x 75.1608pt>
 File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png Graphic file (type png)
 <use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png>
-Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png  used on input line 109.
+Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png  used on input line 129.
 (luatex.def)             Requested size: 364.71327pt x 124.77031pt.
 [1
 
 {c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png>]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [2]
-<C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_1.png, id=71, 737.75626pt x 800.9925pt>
+<C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_1.png, id=83, 737.75626pt x 800.9925pt>
 File: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_1.png Graphic file (type png)
 <use C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_1.png>
-Package luatex.def Info: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_1.png  used on input line 157.
+Package luatex.def Info: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_1.png  used on input line 178.
 (luatex.def)             Requested size: 243.12259pt x 263.96167pt.
-<C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_2.png, id=72, 751.80875pt x 460.72125pt>
+<C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_2.png, id=84, 751.80875pt x 460.72125pt>
 File: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_2.png Graphic file (type png)
 <use C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_2.png>
-Package luatex.def Info: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_2.png  used on input line 157.
+Package luatex.def Info: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_2.png  used on input line 178.
 (luatex.def)             Requested size: 243.13042pt x 148.99448pt.
 
-Overfull \hbox (2.6034pt too wide) in paragraph at lines 157--157
+Overfull \hbox (2.6034pt too wide) in paragraph at lines 178--178
 [][] [] 
  []
 
-<C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png, id=73, 1376.14125pt x 459.7175pt>
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[3<c:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_1.png><c:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_2.png>]
+<C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png, id=90, 1376.14125pt x 459.7175pt>
 File: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png Graphic file (type png)
 <use C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png>
-Package luatex.def Info: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png  used on input line 163.
+Package luatex.def Info: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png  used on input line 184.
 (luatex.def)             Requested size: 243.11713pt x 81.21637pt.
-<C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png, id=74, 963.6pt x 696.6025pt>
+<C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png, id=91, 963.6pt x 696.6025pt>
 File: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png Graphic file (type png)
 <use C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png>
-Package luatex.def Info: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png  used on input line 163.
+Package luatex.def Info: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png  used on input line 184.
 (luatex.def)             Requested size: 243.11961pt x 175.75522pt.
 
-Overfull \hbox (2.58713pt too wide) in paragraph at lines 163--163
+Overfull \hbox (2.58713pt too wide) in paragraph at lines 184--184
 [][] [] 
  []
 
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[3]
+[4<c:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png><c:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png>]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[4<c:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_1.png><c:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_2.png>]
-warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[5<c:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png><c:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png>]
+[5]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [6]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
@@ -970,6 +974,16 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [10]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [11]
+Overfull \hbox (12.1505pt too wide) in paragraph at lines 279--280
+\TU/lmr/m/n/12 The re-pro-ducible work-flow is con-tained in the files: \TU/lmr/bx/n/12 00_li-brary_n_prep.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 0_set_up_work-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 279--280
+\TU/lmr/bx/n/12 ta-tion_val-i-da-tion_ROI.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 4_data_prep_clas-si-fi-ca-tion_area_1.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 5_clas-si-fi-ca-
+ []
+
+
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [12]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
@@ -982,16 +996,57 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [16]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [17]
+No file Index.bbl.
+
+Underfull \hbox (badness 10000) in paragraph at lines 369--371
+[]$\TU/lmr/m/n/12 https://scholar.google.com/scholar_lookup?title=Spatial+and+compositional+pattern+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 369--371
+\TU/lmr/m/n/12 of+alpine+treeline%2C+Glacier+National+Park%2C+Montana&author=Allen%2C+T.
+ []
+
+
+Underfull \hbox (badness 5563) in paragraph at lines 381--383
+\TU/lmr/m/it/12 re-search \TU/lmr/m/n/12 . []$https://scholar.google.com/citations?view_op=view_citation&hl=en&user=
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--383
+\TU/lmr/m/n/12 kgaHKiwAAAAJ&alert_preview_top_rm=2&citation_for_view=kgaHKiwAAAAJ:
+ []
+
+
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [18]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[19] 
+[19]
+Underfull \hbox (badness 1297) in paragraph at lines 444--446
+\TU/lmr/m/it/12 tec-tion of his-tor-i-cal aerial pho-tographs re-veals al-ti-tu-di-nal for-est ex-pan-sion\TU/lmr/m/n/12 . []$https:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 444--446
+\TU/lmr/m/n/12 //www.semanticscholar.org/paper/OBJECT-BASED-CHANGE-DETECTION-OF-
+ []
+
+
+Overfull \hbox (16.3265pt too wide) in paragraph at lines 444--446
+\TU/lmr/m/n/12 HISTORICAL-AERIAL-Middleton-N%C3%A4rhi/373b86df6f5979767ef6adbcfcc0b987fa37693f$[] 
+ []
+
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[20]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[21] 
 AED: lastpage setting LastPage
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[20] (./Index.aux)
+[22] (./Index.aux)
 Package rerunfilecheck Info: File `Index.out' has not changed.
-(rerunfilecheck)             Checksum: 00184C17BF9DB9F706353DCCD12E8486;3097.
+(rerunfilecheck)             Checksum: F8695752CD4CBDCDF0826894E7AE6F92;4409.
 )
 (\end occurred inside a group at level 1)
 
@@ -999,19 +1054,19 @@ Package rerunfilecheck Info: File `Index.out' has not changed.
 ### bottom level
 
 Here is how much of LuaTeX's memory you used:
- 20907 strings out of 477875
+ 20971 strings out of 477875
  125086,953878 words of node,token memory allocated
- 746 words of node memory still in use:
-   7 hlist, 2 vlist, 3 rule, 2 glue, 4 kern, 1 glyph, 9 attribute, 97 glue_spec, 9 attribute_list, 2 write, 1 user_defined nodes
-   avail lists: 1:1,2:228,3:109,4:42,5:370,6:16,7:7725,8:34,9:165,10:27,11:640
- 40676 multiletter control sequences out of 65536+600000
+ 886 words of node memory still in use:
+   7 hlist, 2 vlist, 3 rule, 2 glue, 4 kern, 1 glyph, 22 attribute, 99 glue_spec, 22 attribute_list, 2 write, 1 user_defined, 13 pdf_action nodes
+   avail lists: 1:3,2:304,3:324,4:45,5:382,6:23,7:6759,8:233,9:130,10:25,11:586
+ 40692 multiletter control sequences out of 65536+600000
  43 fonts using 8017283 bytes
- 86i,6n,121p,1329b,3893s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 86i,6n,121p,1219b,3936s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf>
-Output written on Index.pdf (20 pages, 934334 bytes).
+Output written on Index.pdf (22 pages, 952253 bytes).
 
-PDF statistics: 178 PDF objects out of 1000 (max. 8388607)
- 136 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 131072)
- 105 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 304 PDF objects out of 1000 (max. 8388607)
+ 259 compressed objects within 3 object streams
+ 76 named destinations out of 1000 (max. 131072)
+ 129 words of extra memory for PDF output out of 10000 (max. 100000000)
 
