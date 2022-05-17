@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # **Introduction**
 Alpine Treeline Ecotones (ATEs) are transitional zones between subalpine Forest and Alpine (tundra) ecotones (@holtmeierSensitivityResponseNorthern2005, @winingsMappingAlpineTreeline2013) also referred to as upper-treeline (@elliottTreelineEcotones2017) and occur globally (@singhRemoteSensingAlpine2015, @baderGlobalFrameworkLinking2021). They span between the actual Timberline/Economic Forest Line though the Upper/Physiognomic-Biologic Forest Line and the tree species line which is adjoining the actual Alpine zone (@chhetriRemoteSensingGeographic2019, 1543). The position of the treeline is influenced by multiple factors at local and regional level, but  temperature has been identified as the global driving  factor (@kornerReassessmentHighElevation1998, @kornerWorldwideStudyHigh2004, @holtmeierSensitivityResponseNorthern2005, @baderVegetationStructureTemperature2007, @barredocanoImpactsClimateChange2020). The global pattern can be described by spatial patterns in the x-y plane (discrete or diffuse, Figure 1) and by changes in tree stature (abrupt or gradual, Figure 2) in a multi-dimensional space (@harschTreelineFormPotential2011, @baderGlobalFrameworkLinking2021). 
 

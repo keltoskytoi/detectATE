@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.12.30)  30 DEC 2021 09:54
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.12.30)  16 MAY 2022 11:24
  restricted system commands enabled.
 **Index.tex
 (./Index.tex
@@ -914,52 +914,52 @@ Package lastpage Info: Please have a look at the pageslts package at
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-<C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png, id=68, 219.7008pt x 75.1608pt>
-File: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png Graphic file (type png)
-<use C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png>
-Package luatex.def Info: C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png  used on input line 129.
+<figures/UMR-Logo_sw.png, id=68, 219.7008pt x 75.1608pt>
+File: figures/UMR-Logo_sw.png Graphic file (type png)
+<use figures/UMR-Logo_sw.png>
+Package luatex.def Info: figures/UMR-Logo_sw.png  used on input line 129.
 (luatex.def)             Requested size: 364.71327pt x 124.77031pt.
 [1
 
-{c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<c:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png>]
+{c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./figures/UMR-Logo_sw.png>]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [2]
-<C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_1.png, id=83, 737.75626pt x 800.9925pt>
-File: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_1.png Graphic file (type png)
-<use C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_1.png>
-Package luatex.def Info: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_1.png  used on input line 178.
+<figures/Figure_1.png, id=83, 737.75626pt x 800.9925pt>
+File: figures/Figure_1.png Graphic file (type png)
+<use figures/Figure_1.png>
+Package luatex.def Info: figures/Figure_1.png  used on input line 179.
 (luatex.def)             Requested size: 243.12259pt x 263.96167pt.
-<C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_2.png, id=84, 751.80875pt x 460.72125pt>
-File: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_2.png Graphic file (type png)
-<use C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_2.png>
-Package luatex.def Info: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_2.png  used on input line 178.
+<figures/Figure_2.png, id=84, 751.80875pt x 460.72125pt>
+File: figures/Figure_2.png Graphic file (type png)
+<use figures/Figure_2.png>
+Package luatex.def Info: figures/Figure_2.png  used on input line 179.
 (luatex.def)             Requested size: 243.13042pt x 148.99448pt.
 
-Overfull \hbox (2.6034pt too wide) in paragraph at lines 178--178
+Overfull \hbox (2.6034pt too wide) in paragraph at lines 179--179
 [][] [] 
  []
 
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[3<c:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_1.png><c:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_2.png>]
-<C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png, id=90, 1376.14125pt x 459.7175pt>
-File: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png Graphic file (type png)
-<use C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png>
-Package luatex.def Info: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png  used on input line 184.
+[3<./figures/Figure_1.png><./figures/Figure_2.png>]
+<figures/Figure_3.png, id=90, 1376.14125pt x 459.7175pt>
+File: figures/Figure_3.png Graphic file (type png)
+<use figures/Figure_3.png>
+Package luatex.def Info: figures/Figure_3.png  used on input line 185.
 (luatex.def)             Requested size: 243.11713pt x 81.21637pt.
-<C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png, id=91, 963.6pt x 696.6025pt>
-File: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png Graphic file (type png)
-<use C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png>
-Package luatex.def Info: C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png  used on input line 184.
+<figures/Figure_4.png, id=91, 963.6pt x 696.6025pt>
+File: figures/Figure_4.png Graphic file (type png)
+<use figures/Figure_4.png>
+Package luatex.def Info: figures/Figure_4.png  used on input line 185.
 (luatex.def)             Requested size: 243.11961pt x 175.75522pt.
 
-Overfull \hbox (2.58713pt too wide) in paragraph at lines 184--184
+Overfull \hbox (2.58713pt too wide) in paragraph at lines 185--185
 [][] [] 
  []
 
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[4<c:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png><c:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png>]
+[4<./figures/Figure_3.png><./figures/Figure_4.png>]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [5]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
@@ -974,12 +974,12 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [10]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [11]
-Overfull \hbox (12.1505pt too wide) in paragraph at lines 279--280
-\TU/lmr/m/n/12 The re-pro-ducible work-flow is con-tained in the files: \TU/lmr/bx/n/12 00_li-brary_n_prep.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 0_set_up_work-
+Overfull \hbox (5.61449pt too wide) in paragraph at lines 282--283
+\TU/lmr/m/n/12 The re-pro-ducible work-flow is made up of the files: \TU/lmr/bx/n/12 00_li-brary_n_prep.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 0_set_up_work-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--280
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
 \TU/lmr/bx/n/12 ta-tion_val-i-da-tion_ROI.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 4_data_prep_clas-si-fi-ca-tion_area_1.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 5_clas-si-fi-ca-
  []
 
@@ -998,22 +998,22 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [17]
 No file Index.bbl.
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--371
+Underfull \hbox (badness 10000) in paragraph at lines 372--374
 []$\TU/lmr/m/n/12 https://scholar.google.com/scholar_lookup?title=Spatial+and+compositional+pattern+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--371
+Underfull \hbox (badness 10000) in paragraph at lines 372--374
 \TU/lmr/m/n/12 of+alpine+treeline%2C+Glacier+National+Park%2C+Montana&author=Allen%2C+T.
  []
 
 
-Underfull \hbox (badness 5563) in paragraph at lines 381--383
+Underfull \hbox (badness 5563) in paragraph at lines 384--386
 \TU/lmr/m/it/12 re-search \TU/lmr/m/n/12 . []$https://scholar.google.com/citations?view_op=view_citation&hl=en&user=
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 381--383
+Underfull \hbox (badness 10000) in paragraph at lines 384--386
 \TU/lmr/m/n/12 kgaHKiwAAAAJ&alert_preview_top_rm=2&citation_for_view=kgaHKiwAAAAJ:
  []
 
@@ -1022,17 +1022,17 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [18]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [19]
-Underfull \hbox (badness 1297) in paragraph at lines 444--446
+Underfull \hbox (badness 1297) in paragraph at lines 447--449
 \TU/lmr/m/it/12 tec-tion of his-tor-i-cal aerial pho-tographs re-veals al-ti-tu-di-nal for-est ex-pan-sion\TU/lmr/m/n/12 . []$https:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--446
+Underfull \hbox (badness 10000) in paragraph at lines 447--449
 \TU/lmr/m/n/12 //www.semanticscholar.org/paper/OBJECT-BASED-CHANGE-DETECTION-OF-
  []
 
 
-Overfull \hbox (16.3265pt too wide) in paragraph at lines 444--446
+Overfull \hbox (16.3265pt too wide) in paragraph at lines 447--449
 \TU/lmr/m/n/12 HISTORICAL-AERIAL-Middleton-N%C3%A4rhi/373b86df6f5979767ef6adbcfcc0b987fa37693f$[] 
  []
 
@@ -1046,7 +1046,7 @@ AED: lastpage setting LastPage
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [22] (./Index.aux)
 Package rerunfilecheck Info: File `Index.out' has not changed.
-(rerunfilecheck)             Checksum: F8695752CD4CBDCDF0826894E7AE6F92;4409.
+(rerunfilecheck)             Checksum: B561074C33B674C1331FAD244A099F45;4452.
 )
 (\end occurred inside a group at level 1)
 
@@ -1058,12 +1058,12 @@ Here is how much of LuaTeX's memory you used:
  125086,953878 words of node,token memory allocated
  886 words of node memory still in use:
    7 hlist, 2 vlist, 3 rule, 2 glue, 4 kern, 1 glyph, 22 attribute, 99 glue_spec, 22 attribute_list, 2 write, 1 user_defined, 13 pdf_action nodes
-   avail lists: 1:3,2:304,3:324,4:45,5:382,6:23,7:6759,8:233,9:130,10:25,11:586
+   avail lists: 1:2,2:304,3:324,4:45,5:378,6:23,7:6759,8:233,9:130,10:25,11:586
  40692 multiletter control sequences out of 65536+600000
- 43 fonts using 8017283 bytes
+ 43 fonts using 8017323 bytes
  86i,6n,121p,1219b,3936s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf>
-Output written on Index.pdf (22 pages, 952253 bytes).
+Output written on Index.pdf (22 pages, 953187 bytes).
 
 PDF statistics: 304 PDF objects out of 1000 (max. 8388607)
  259 compressed objects within 3 object streams

@@ -1,23 +1,17 @@
-#PREAMBLE: QUITE LATE IN THE PROJECT IT WAS DISCOVERED; THAT THE RASTER PKG
-#ONLY SUPPORTS A SIZE UP TO 12.3 MB FOR ROI (17.1 MB was too big) SO ALL THE
-#CROPPING OF THE TEST AREAS WAS DONE IN QGIS
-
-####################################SHORTCUTS###################################
+####--------------------------------SHORTCUTS-------------------------------####
+#create shortcuts to the folders where de data is stored
 lschm <-list.files(file.path(path_analysis_results_chm), pattern=".tif")
 lssegm <- list.files(file.path(path_analysis_results_segm))
-#make the plot show more than the minimum of rows
-options(max.print=10000)
 
-#AIM: to find an accurate segmentation for one of the test areas, which can
-#be applied to the ROI
-
-                         ####LOAD THE CHMS####
+################################################################################
+#AIM: to find an accurate segmentation for one of the test areas
+####-------------------------#1.IMPORT TEST AREA 1#-------------------------####
 chm_1 <- raster(paste0(path_analysis_results_chm, lschm[[1]]))
 crs(chm_1)
 #+proj=tmerc +lat_0=0 +lon_0=10.3333333333333 +k=1 +x_0=0 +y_0=-5000000 +ellps=bessel +units=m +no_defs
 
 
-                  ####LOAD VERIFICATION POINTS####
+####-----------------------#2.LOAD VERIFICATION POINTS#---------------------####
 #setting vp - verification points: first thing: you have to decide about the
 #minimum height of a tree and stick to it. The question is, if you also want to
 #consider the young trees, then you have to check what the highest point of the

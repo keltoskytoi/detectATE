@@ -49,7 +49,7 @@ options(tinytex.verbose = TRUE)
 \vspace{4cm}
 
 ```{r uni_logo, echo=F, out.width="75%", out.height="75%",}
-knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figures/UMR-Logo_sw.png')
+knitr::include_graphics('C:/Users/kelto/Documents/detectATE/analysis/paper/figures/UMR-Logo_sw.png')
 ```
 
 \vspace{4cm}
@@ -58,7 +58,8 @@ knitr::include_graphics('C:/Users/kelto/Documents/iSEGMound/analysis/thesis/figu
 \Large
 
 \doublespacing
-\textbf{Detecting Alpine Treeline Ecotones – an Automated Remote Sensing Approach} \\
+\textbf{Detecting Alpine Treeline Ecotones – \\
+        an Automated Remote Sensing Approach} \\
 
 \vspace{3 cm}
 

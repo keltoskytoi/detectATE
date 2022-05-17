@@ -1,18 +1,17 @@
-                              #+++PREPARATIONS+++#
-
-#+++removing everything from R, to get a clear working environment
+################################################################################
+####-----------------------------#PREPARATIONS#-----------------------------####
+#------------#clean R history, to get a clear working environment#-------------#
 rm(list=ls())
-
-#+++ preparing a system-independent environment
+#------------------#prepare system independent environment#--------------------#
 #please change the path to the projects library according to where you want to
 #place the R project library on you computer!
+
 if(Sys.info()["sysname"] == "Windows"){
   projRootDir <- "C:/Users/kelto/Documents/detectATE/"
 } else {
   projRootDir <- "/home/keltoskytoi/detectATE/"
 }
-
-#+++ Creating a folder structure
+#---------------------------#creating a folder structure#----------------------#
 paths<-link2GI::initProj(projRootDir = projRootDir,
                          projFolders = c("analysis/data/dsm/",
                                          "analysis/data/dem/",
@@ -48,6 +47,10 @@ paths<-link2GI::initProj(projRootDir = projRootDir,
 #------------------------------#load library#----------------------------------#
 #The source file enables you to install and activate packages in one run
 source("C:/Users/kelto/Documents/detectATE/R/00_library_n_prep.R")
+
+#create shortcuts to the folders where de data is stored
+#to be able to check all results, we have to tell R, to extend the minimum of the printed rows rows
+options(max.print=10000)
 
 #if not installed, please install:
 remotes::install_github("SchoenbergA/IKARUS")
