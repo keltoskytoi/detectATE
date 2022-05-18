@@ -1,5 +1,5 @@
 ####--------------------------------SHORTCUTS-------------------------------####
-#create shortcuts to the folders where de data is stored
+#create shortcuts to the folders where de data and results are stored
 lsdsm <-list.files(file.path(path_analysis_data_dsm), pattern=".tif")
 lsdem <-list.files(file.path(path_analysis_data_dem), pattern=".tif")
 lschm <-list.files(file.path(path_analysis_results_chm), pattern=".tif")
@@ -32,7 +32,7 @@ crs(chm)
 #+ellps=bessel +units=m +no_defs
 mapview(chm)
 
-####-----------------#2.IMPORT TEST AREAS (CHM&SPECTRAL)#-------------------####
+####-----------------#2.LOAD TEST AREAS (CHM&SPECTRAL)#---------------------####
 #Originally masks for each 4 test areas were created in QGIS and based on them,
 #the CHM and the RGB and IR imagery was cropped to the size of the test area masks.
 #When it became clear, that the minimal computable raster size (on grounds of the

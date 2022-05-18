@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.12.30)  16 MAY 2022 11:24
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.12.30)  17 MAY 2022 21:01
  restricted system commands enabled.
 **Index.tex
 (./Index.tex
@@ -974,13 +974,18 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [10]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [11]
-Overfull \hbox (5.61449pt too wide) in paragraph at lines 282--283
+Overfull \hbox (5.61449pt too wide) in paragraph at lines 284--285
 \TU/lmr/m/n/12 The re-pro-ducible work-flow is made up of the files: \TU/lmr/bx/n/12 00_li-brary_n_prep.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 0_set_up_work-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
-\TU/lmr/bx/n/12 ta-tion_val-i-da-tion_ROI.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 4_data_prep_clas-si-fi-ca-tion_area_1.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 5_clas-si-fi-ca-
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
+\TU/lmr/bx/n/12 ing_en-vrnmt.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 1_data_prep_gen-eral.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 2_seg-men-ta-tion_test_area_1.R\TU/lmr/m/n/12 ,
+ []
+
+
+Overfull \hbox (11.00499pt too wide) in paragraph at lines 284--285
+\TU/lmr/bx/n/12 5_clas-si-fi-ca-tion_val-i-da-tion_test_area_1.R \TU/lmr/m/n/12 and \TU/lmr/bx/n/12 6_data_prep_clas-si-fi-ca-tion_ROI.R\TU/lmr/m/n/12 ,
  []
 
 
@@ -988,65 +993,87 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [12]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [13]
+<figures/Figure_6.png, id=136, 817.6146pt x 333.4056pt>
+File: figures/Figure_6.png Graphic file (type png)
+<use figures/Figure_6.png>
+Package luatex.def Info: figures/Figure_6.png  used on input line 327.
+(luatex.def)             Requested size: 486.2684pt x 198.28975pt.
+
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [14]
+Overfull \hbox (1.91383pt too wide) in paragraph at lines 341--341
+[]\TU/lmtt/m/n/12 ## Bounding box:  xmin: -40638.55 ymin: 216053.3 xmax: -40615.55 ymax: 216083.1[] 
+ []
+
+<Index_files/figure-latex/Figure-6-1.pdf, id=141, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-6-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-6-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-6-1.pdf  used on input line 345.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[15]
+[15<./figures/Figure_6.png>]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[16]
+[16<./Index_files/figure-latex/Figure-6-1.pdf>]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [17]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[18]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[19]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[20]
 No file Index.bbl.
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--374
+Underfull \hbox (badness 10000) in paragraph at lines 413--415
 []$\TU/lmr/m/n/12 https://scholar.google.com/scholar_lookup?title=Spatial+and+compositional+pattern+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--374
+Underfull \hbox (badness 10000) in paragraph at lines 413--415
 \TU/lmr/m/n/12 of+alpine+treeline%2C+Glacier+National+Park%2C+Montana&author=Allen%2C+T.
  []
 
 
-Underfull \hbox (badness 5563) in paragraph at lines 384--386
+Underfull \hbox (badness 5563) in paragraph at lines 425--427
 \TU/lmr/m/it/12 re-search \TU/lmr/m/n/12 . []$https://scholar.google.com/citations?view_op=view_citation&hl=en&user=
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--386
+Underfull \hbox (badness 10000) in paragraph at lines 425--427
 \TU/lmr/m/n/12 kgaHKiwAAAAJ&alert_preview_top_rm=2&citation_for_view=kgaHKiwAAAAJ:
  []
 
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[18]
+[21]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[19]
-Underfull \hbox (badness 1297) in paragraph at lines 447--449
+[22]
+Underfull \hbox (badness 1297) in paragraph at lines 488--490
 \TU/lmr/m/it/12 tec-tion of his-tor-i-cal aerial pho-tographs re-veals al-ti-tu-di-nal for-est ex-pan-sion\TU/lmr/m/n/12 . []$https:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--449
+Underfull \hbox (badness 10000) in paragraph at lines 488--490
 \TU/lmr/m/n/12 //www.semanticscholar.org/paper/OBJECT-BASED-CHANGE-DETECTION-OF-
  []
 
 
-Overfull \hbox (16.3265pt too wide) in paragraph at lines 447--449
+Overfull \hbox (16.3265pt too wide) in paragraph at lines 488--490
 \TU/lmr/m/n/12 HISTORICAL-AERIAL-Middleton-N%C3%A4rhi/373b86df6f5979767ef6adbcfcc0b987fa37693f$[] 
  []
 
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[20]
+[23]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[21] 
+[24] 
 AED: lastpage setting LastPage
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[22] (./Index.aux)
+[25] (./Index.aux)
 Package rerunfilecheck Info: File `Index.out' has not changed.
-(rerunfilecheck)             Checksum: B561074C33B674C1331FAD244A099F45;4452.
+(rerunfilecheck)             Checksum: DECE7AEE2D56D8F6CC2EEA4F169C5492;4480.
 )
 (\end occurred inside a group at level 1)
 
@@ -1054,19 +1081,19 @@ Package rerunfilecheck Info: File `Index.out' has not changed.
 ### bottom level
 
 Here is how much of LuaTeX's memory you used:
- 20971 strings out of 477875
+ 21014 strings out of 477875
  125086,953878 words of node,token memory allocated
  886 words of node memory still in use:
    7 hlist, 2 vlist, 3 rule, 2 glue, 4 kern, 1 glyph, 22 attribute, 99 glue_spec, 22 attribute_list, 2 write, 1 user_defined, 13 pdf_action nodes
-   avail lists: 1:2,2:304,3:324,4:45,5:378,6:23,7:6759,8:233,9:130,10:25,11:586
- 40692 multiletter control sequences out of 65536+600000
- 43 fonts using 8017323 bytes
- 86i,6n,121p,1219b,3936s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf>
-Output written on Index.pdf (22 pages, 953187 bytes).
+   avail lists: 1:2,2:304,3:324,4:45,5:386,6:23,7:6759,8:233,9:177,10:25,11:586
+ 40715 multiletter control sequences out of 65536+600000
+ 44 fonts using 8105607 bytes
+ 86i,6n,121p,1219b,3940s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf>
+Output written on Index.pdf (25 pages, 1215737 bytes).
 
-PDF statistics: 304 PDF objects out of 1000 (max. 8388607)
- 259 compressed objects within 3 object streams
- 76 named destinations out of 1000 (max. 131072)
+PDF statistics: 332 PDF objects out of 1000 (max. 8388607)
+ 275 compressed objects within 3 object streams
+ 78 named destinations out of 1000 (max. 131072)
  129 words of extra memory for PDF output out of 10000 (max. 100000000)
 

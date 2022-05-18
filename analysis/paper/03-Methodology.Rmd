@@ -3,6 +3,8 @@
 ## **Description of the research area and the data sets used in the case study**
 The workflow is presented on a case study area in the Vorarlberg, Alps...
 
+Figure 3
+
 ## **The reproducible workflow**
 
 The reproducible workflow is made up of the files: **00_library_n_prep.R**, **0_set_up_working_envrnmt.R**, **1_data_prep_general.R**, **2_segmentation_test_area_1.R**, **3_segmentation_validation_ROI.R**, **4_data_prep_classification_test_area_1.R**, **5_classification_validation_test_area_1.R** and **6_data_prep_classification_ROI.R**, **7_classification_ROI.R**.
@@ -14,7 +16,7 @@ The data used in this project is stored on Google Drive, from where you have to 
 
 The main workflow consist of to sub-workflows, which are equally important: the Object Based Image Analysis (**.R files 2-3**, working with the LiDAR data set) and the Pixel-Based Image Classification (**.R files 4-5-6-7**, working with the Satellite data set), which will be combined at the end (**.R file 8**). 
 
-Flowchart of the workflow
+Flowchart of the workflow (Figure 4)
 
 The .R files are commented in a manner, that they can be used as a manual or tutorial. In this chapter only the ideas behind the workflow and in the next chapter the results will be discussed to keep it short.
 
@@ -31,36 +33,63 @@ Originally masks for each 4 test areas were created in QGIS and based on them, t
 
 The CHM was created by subtracting the Digital Elevation Model (DEM) form the Digital Surface Model (DSM). This way only the LiDAR points connected to the vegetation above ground are preserved and can be used for our calculations.
 
-## **Segmentation of test area 1 (.R file: 2_segmentation_test_area_1.R)**
+## **Segmentation of the test area 1 (.R file: 2_segmentation_test_area_1.R)**
 
 The aim of this step is to find an accurate segmentation for test area 1 which can be tested on the other test areas and then applied to the ROI.
 
 The segmentation is performed using the CENITH package. As CENITH is a wrapper for ForestTools, it also uses the **Watershed Segmentation** using markers (Meyer and Beucher 1990) which is implemented in ForestTools. 
 
-The first task is to set verification points (this can be also done with the ForestTools package, but we preferred to do it by hand so it was not implemented in the CENITH package), called tree positions for chm_1. 
-For this first of all the minimum height of a tree has to be decided (which of course is region and area dependent). In the Alpine region we also have shrubs and Krummholz, which has to be distinguished from trees. If one also would like to consider the young trees, then the highest point of the shrubs has to be determined and the height for the trees has to be set above the highest shrubs. If one would be concentrating on grown trees, still the CHM in QGIS has to be checked and the minimum height of a tree has to be decided on that basis and this cannot be modified. The best is if one classifies the CHM in QGIS based on the tree heights and check with the RGB/IR imagery where the shrubs 'finish' and the trees 'start'. 
+The first task is to set verification points (this can be also done with the ForestTools package, but we preferred to do it by hand so it was not implemented in the CENITH package) - that is locate the positions of the trees (we will call it tree positions but technically they are verification points, that is 'vp') in the test areas using QGIS. 
 
-Fist load CHM_1 and the corresponding tree positions and plot them together:
+Before starting to define the tree positions in each test areas, first of all the minimum height of the trees has to be identified (which of course is region and area dependent). In the Alpine region the vegetation consists of trees but also shrubs and Krummholz, which have to be distinguished from trees. If also young trees trees are present and should be considered, then it is important not to confuse them with shrubs, which is often rather complicated and even impossible. If Satellite Imagery is also available (as in our case), it can help to consider the difference in the spectral and textural signature. 
+The identification of the minimum tree-height can be best determined using QGIS. Thus to distinguish the actual trees, for one the spectral information of the Satellite Imagery (which will be mainly used for the Pixel-based Image Classification) was exploited. Trees demonstrate - apart from their height in the CMHs - much more branches which leads to less homogeneous green color (mixed with black and creme colored pixels) as that of the shrubs which show in their entirety a single color. On the other side the CHMs were displayed by giving each height between < 0.5 m and > 29 ma different color (see the QGIS style file). 
+Combining these two sets of information, the minimum tree height was defined at 4-5 meters (Figure 5). This height included the lowest young trees but not the shrubs and Krummholz. To be able to include the young trees, it was opted for h=4 instead of 5 meters.
 
-Based on the classification of the CHM in QGIS it was decided for CHM_1, that 
-h = 4 is a good height to get the lowest young trees but not to get involved 
-with the shrubs and Krummholz. 
+```{r Figure-5, echo=FALSE,fig.show='hold', fig.align = "default", out.width="100%", out.height="100%", fig.cap="Comparision of RGB Satellite Imagery and LIDAR-derived CHMs classified by height using different colors (blue <  o.5 m; white > 0.5 < 3; yellow > 3 < 4m, red > 4 < 5m;  green to black < 5m) Detail of test area 4."}
+knitr::include_graphics('C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_6.png')
+```
 
-With the function **TreeSeg** it is possible to find the minimal and maximal values 
-for *a*, *b* (horizontal and vertical values (x, y) in meters) and *h* (height in meters) based on the CHM (and vp - verification points/tree positions). This means it is possible to test various settings beforehand and then inspect the results in QGIS. Feeding long variable sequences to **BestSegVal** can make the calculation time long and if one wants to compare what the different settings of the different variables do, it is easier to test it without sequences.  
-It can be tested if there is a need to use a *sum* filtered CHM (see the difference between **test_0** and **test_1**) or how big or small the variable *a*, *b* and *MIN* have to be set. Based on the fact that there are 15 trees in test area 1 we can estimate how accurate the segments might be. Taking a look at test 1, 2 & 3 we can see how the reduction of *a* and *b* elevated the number of trees. 
+The exact position of the individual trees (including young trees) was based for on on the decision of the minimum tree height based on the RGB and IR Satellite Imagery and was determined by looking for the highest point of the chms.
 
-Thus we can move on to function of **BestSegVal**, which works with value sequences for all variables and takes also the tree positions (vp) in account. 
-In the first run we test the following values: 
-**a=seq(0.05, 0.1, 0.01), b=seq(0.05, 0.1, 0.01), h=seq(3.5, 6, 0.5), MIN=seq(0.1, 0.5, 0.1)**, to go a bit lover and above the actual height of the trees and to determine the best *a*, *b* and *MIN* values. *CHMfilter* is set at 3, because we want to do only minimal filtering to close the gaps. 
-In the first run we got 1080 results and 44 maximal segments. Because there are 15 trees in test area 1, the tibble was filtered to 20 segments (a bit above our desired count) and arranged according to the best hitrate (which was 0.733333) and still gave 668 results. These are still too much to decide which combination of settings should be used on the other areas.
-Thus the results were filtered to a **hitrate >= 0.7** and **height <= 4.0.** This resulted in 40 observations, from which the first 4 were actually calculated with *TreeSeg* and compared in QGIS. There was only minimal difference between **test_vp0** and **test_vp1**, based on the difference of 0.5 m height. It became clear that MIN (the size of the smallest segment) has to be set to 0.1.  
+```{r Figure-6, echo=FALSE, message = FALSE, fig.align='center', fig.cap="The defined tree positiions (verification points/vp) in IR Satellite Imagery of test area 1 ."}
+library(raster)
+library(ggplot2)
+library(sf)
+library(cowplot)
+chm_1 <- raster::raster(here::here('analysis/results/chm/chm_1.tif'))
+vp_1 <- sf::st_read(here::here('analysis/data/treepos/treepos_1.shp'))
+chm_1_df <- as.data.frame(chm_1, xy = TRUE)
 
-Thus in the second run the following variables were set to a fix value or respective to the same sequence: **MIN=0.1, h=seq(3.5, 6, 0.5)** and *a* and *b* were tested for a sequence between *0.01 and 0.1 with 0.01 steps*, to find better segment sizes. The second run (600 results) was filtered the same way (filtering to 20 segments lead to 204 results - the best hitrate being still 0.733333; the filtering to **hitrate >= 0.7** and **height <= 4.0**. lead to 8 observations) resulted in the same six results of **head(best_seg_vp_1_filt)** and two additional, so these 8 results will be inspected in the next step and only the second run will be displayed here. You can trace all steps in the respective .R files.
+overlay <- ggplot() +
+           geom_raster(data = chm_1_df, 
+                       aes(x = x, y = y, fill = chm_1)) +
+                       scale_fill_continuous(type = "viridis") +
+           geom_sf(data = vp_1, size = 3, color = "darkorchid4") +
+           ggtitle("Overlay of chm_1 & vp_1 in test area 1")
+plot(overlay)
+```
+The segmentation itself can be executed with the **CENITH::TreeSeg** function. This function works with a MovingWindow of size a * b (x,y) at height h. *a*, *b* are horizontal and vertical values (x, y) in meters and *h* is height in meters on the CHM. 
+This function takes single values, with which different and various values of the segmentation variable can be tested. The results can be checked in QGIS. 
+The variables *MIN* and *MAX* filter the segments to a certain size. Because with the variables used there is small chance to get too big segments, the *MAX* variable is not used, only the *MIN* variable, to filter out small segments. Another variable, which controls and filters out small artifacts and data errors - directly on the chm is the *chmFilter*.
+The tests with **CENITH::TreeSeg** show, that it is very useful to apply a *sum* filtered CHM (see the difference between the results **test_0** and **test_1** in QGIS) and give an estimate of how big or small the variables *a*, *b* and *MIN* have to be set. Based on the fact that there are 15 trees in test area 1 we can estimate how accurate the segments might be. Taking a look at test 1, 2 & 3 we can see how the reduction of *a* and *b* elevated the number of trees. This is useful information for **CENITH::BestSegVal**.
 
-## **Cross-validation of test areas and Segmentation of ROI (.R file: 3_segmentation_validation_area_1_ROI.R)**
+The function **CENITH::BestSegVal** can be fed with long sequences of values for each variable (this is called parameter tuning). N.B. long sequences mean longer calculation time, thus it is best to test out different variable settings with **CENITH::TreeSeg** to narrow down in which setting range a, b and h might move. 
+In the second part of the script *2_segmentation_test_area_1.R*, the use of **CENITH::BestSegVal** is demonstrated. In this function also the tree positions (vps) are taken into account as a validation basis. All calculation in the resulting table are based on the comparison of the vps/tree positions to the segmentation results. The variable *hit.vp* shows explicitly, how many vps/tree positions are 'hit' by the resulting segments.   
 
-The segmentation of test area 1 resulted in 8 possible segmentations which are going to be tested if they fit the other test areas. Up to some degree it is a kind of guess work to test the possibly best segmentation which fits the other test areas and also fits the ROI. That is why all 8 results from **best_seg_vp_1_filt** were processed. The 8 results contain also results with h=3.5 m, so it can be checked which height can really represent the whole ROI. After the visual check in QGIS it became clear, that h=3.5 m is too low because it may result in segmenting some of the shrub too. Of course this depends on the definition of tree height and if one wants to segment also the seedlings. Because of the similar height of the seedlings and shrubs it is practically impossible to distinguish shrubs and seedlings based purely on height. 
+In the first run the values **a=seq(0.05, 0.1, 0.01), b=seq(0.05, 0.1, 0.01), h=seq(3.5, 6, 0.5), MIN=seq(0.1, 0.5, 0.1)** were tested, to go a bit below and above the defined height of the trees and to determine the best *a*, *b* and *MIN* values. *CHMfilter* is set at 3, because we want to do only minimal filtering to minimize small artifacts and gaps in the chm. 
+In the first run we got 1080 results and 45 maximal segments. Because there are 15 trees in test area 1, the tibble was filtered to 20 segments (to count in possible undersegmentation) and arranged according to the best *hitrate* (which was 0.733333) and still got 664 results. These are still too much results to decide which combination of settings should be applied to the other test areas.
+Thus the results were filtered to a **hitrate >= 0.7** (the best results), **height <= 4.0.** (the height of trees) and the total segments were ordered in descending order. This resulted in 40 observations, from which the first four were actually calculated with *TreeSeg* and compared in QGIS. The lesson learend was, that it became clear that MIN (the size of the smallest segment) has to be set to 0.1 and 
+that the range of a & b of the best results is > 0.1. 
+
+Thus a second run of **CENITH::BestSegVal** was set up with the variables **MIN=0.1, a=seq(0.01, 0.1, 0.01), b=seq(0.01, 0.1, 0.01)**, to find better segment sizes and **h=seq(3.5, 6, 0.5)** with the same settings as in the first run, to enable a systematic analysis. 
+The 600 results were filtered the same way as the first run: filtering to 20 segments lead to 204 results, still keeping the best *hitrate* at 0.733333. The filtering to **hitrate >= 0.7** and **height <= 4.0** lead to 8 observations, of which six are the same results of the first round. These correspondence of these 8 results  confirmed, that all should be applied to the other test areas in the next step (*3_segmentation_validation_area_1_ROI.R*). 
+You can compute all steps in the respective .R files.
+
+## **Cross-validated Segmentation of test areas Segmentation of ROI (.R file: 3_segmentation_validation_area_1_ROI.R)**
+
+The segmentation of test area 1 resulted in eight possible segmentations which are going to be tested if they also fit the other test areas. Up to some degree it is a kind of guess work to test the possibly best segmentation which fits the other test areas and also fits the ROI. That is why all 8 results from **best_seg_vp_1_filt_v2** were processed. The eight results contain also h=3.5 m, so it can be checked which height really represents best the whole ROI. After the visual check in QGIS it became clear (as expected), that h=3.5 m is too low because it may result in segmenting some of the shrub too. Of course this depends on the definition of tree height and if one wants to segment also the seedlings. Because of the similar height of the seedlings and shrubs it is practically impossible to distinguish shrubs and seedlings based purely on height. 
+
+## **Segmentation of ROI** 
 
 While inspecting **segm_ROI -> segm_ROI_8** (demonstrating almost the same overall performance) it became clear that **segm_ROI_8** delivers the best result. But what happens with heights a bit above 4 m? 4.5, 5 and 5.1 m were tested to test if the segmentation can be even better than **segm_ROI_8**. We can see - as expected - that with the increase of the tree height less seedling and tree crown area is included. Thus the optimal result is **segm_ROI_8**.
 You can see the results of **segm_ROI_9** to **segm_ROI_12** in the respective script. 

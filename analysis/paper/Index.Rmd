@@ -32,7 +32,8 @@ csl: journal-of-biogeography.csl
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   echo = FALSE, 
-  tidy = TRUE, tidy.opts = list(comment = FALSE))
+  tidy = TRUE, tidy.opts = list(comment = FALSE), 
+  warning = FALSE, message = FALSE, attr.message = NULL)
 options(tinytex.verbose = TRUE)
 ```
 
