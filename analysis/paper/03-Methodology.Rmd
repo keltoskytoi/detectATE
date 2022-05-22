@@ -33,7 +33,8 @@ Originally masks for each 4 test areas were created in QGIS and based on them, t
 
 The CHM was created by subtracting the Digital Elevation Model (DEM) form the Digital Surface Model (DSM). This way only the LiDAR points connected to the vegetation above ground are preserved and can be used for our calculations.
 
-## **Segmentation of the test area 1 (.R file: 2_segmentation_test_area_1.R)**
+## **Segmentation of the test area 1** 
+**(.R file: 2_segmentation_test_area_1.R)**
 
 The aim of this step is to find an accurate segmentation for test area 1 which can be tested on the other test areas and then applied to the ROI.
 
@@ -57,7 +58,7 @@ library(ggplot2)
 library(sf)
 library(cowplot)
 chm_1 <- raster::raster(here::here('analysis/results/chm/chm_1.tif'))
-vp_1 <- sf::st_read(here::here('analysis/data/treepos/treepos_1.shp'))
+vp_1 <- sf::st_read(here::here('analysis/data/treepos/vp_1.shp'))
 chm_1_df <- as.data.frame(chm_1, xy = TRUE)
 
 overlay <- ggplot() +
@@ -74,30 +75,123 @@ The variables *MIN* and *MAX* filter the segments to a certain size. Because wit
 The tests with **CENITH::TreeSeg** show, that it is very useful to apply a *sum* filtered CHM (see the difference between the results **test_0** and **test_1** in QGIS) and give an estimate of how big or small the variables *a*, *b* and *MIN* have to be set. Based on the fact that there are 15 trees in test area 1 we can estimate how accurate the segments might be. Taking a look at test 1, 2 & 3 we can see how the reduction of *a* and *b* elevated the number of trees. This is useful information for **CENITH::BestSegVal**.
 
 The function **CENITH::BestSegVal** can be fed with long sequences of values for each variable (this is called parameter tuning). N.B. long sequences mean longer calculation time, thus it is best to test out different variable settings with **CENITH::TreeSeg** to narrow down in which setting range a, b and h might move. 
-In the second part of the script *2_segmentation_test_area_1.R*, the use of **CENITH::BestSegVal** is demonstrated. In this function also the tree positions (vps) are taken into account as a validation basis. All calculation in the resulting table are based on the comparison of the vps/tree positions to the segmentation results. The variable *hit.vp* shows explicitly, how many vps/tree positions are 'hit' by the resulting segments.   
+In the second part of the script *2_segmentation_test_area_1.R*, the use of **CENITH::BestSegVal** is demonstrated. In this function also the vps (tree positions) are taken into account as a validation basis. All calculation in the resulting table are based on the comparison of the vps/tree positions to the segmentation results. The variable *hit.vp* shows explicitly, how many vps/tree positions are 'hit' by the resulting segments. 
 
 In the first run the values **a=seq(0.05, 0.1, 0.01), b=seq(0.05, 0.1, 0.01), h=seq(3.5, 6, 0.5), MIN=seq(0.1, 0.5, 0.1)** were tested, to go a bit below and above the defined height of the trees and to determine the best *a*, *b* and *MIN* values. *CHMfilter* is set at 3, because we want to do only minimal filtering to minimize small artifacts and gaps in the chm. 
 In the first run we got 1080 results and 45 maximal segments. Because there are 15 trees in test area 1, the tibble was filtered to 20 segments (to count in possible undersegmentation) and arranged according to the best *hitrate* (which was 0.733333) and still got 664 results. These are still too much results to decide which combination of settings should be applied to the other test areas.
-Thus the results were filtered to a **hitrate >= 0.7** (the best results), **height <= 4.0.** (the height of trees) and the total segments were ordered in descending order. This resulted in 40 observations, from which the first four were actually calculated with *TreeSeg* and compared in QGIS. The lesson learend was, that it became clear that MIN (the size of the smallest segment) has to be set to 0.1 and 
-that the range of a & b of the best results is > 0.1. 
+Thus the results were filtered to a **hitrate >= 0.7** (the best results), **height <= 4.0.** (the height of trees) and the total segments were ordered in descending order. This resulted in 40 observations, from which the first four were actually calculated with *TreeSeg* and compared in QGIS. The lesson learend was, that it became clear that MIN (the size of the smallest segment) has to be set to 0.1 and that the range of a & b of the best results is > 0.1. 
 
 Thus a second run of **CENITH::BestSegVal** was set up with the variables **MIN=0.1, a=seq(0.01, 0.1, 0.01), b=seq(0.01, 0.1, 0.01)**, to find better segment sizes and **h=seq(3.5, 6, 0.5)** with the same settings as in the first run, to enable a systematic analysis. 
 The 600 results were filtered the same way as the first run: filtering to 20 segments lead to 204 results, still keeping the best *hitrate* at 0.733333. The filtering to **hitrate >= 0.7** and **height <= 4.0** lead to 8 observations, of which six are the same results of the first round. These correspondence of these 8 results  confirmed, that all should be applied to the other test areas in the next step (*3_segmentation_validation_area_1_ROI.R*). 
-You can compute all steps in the respective .R files.
+All steps can be computed in the respective .R files.
 
-## **Cross-validated Segmentation of test areas Segmentation of ROI (.R file: 3_segmentation_validation_area_1_ROI.R)**
+```{r Table-1, echo=FALSE, fig.align='center'}
+library(dplyr)
+best_seg_vp_1_v2 <- read.csv(here::here('analysis/results/segm/segm_table/best_seg_vp_1_v2.csv'), header = TRUE, sep=",")
 
-The segmentation of test area 1 resulted in eight possible segmentations which are going to be tested if they also fit the other test areas. Up to some degree it is a kind of guess work to test the possibly best segmentation which fits the other test areas and also fits the ROI. That is why all 8 results from **best_seg_vp_1_filt_v2** were processed. The eight results contain also h=3.5 m, so it can be checked which height really represents best the whole ROI. After the visual check in QGIS it became clear (as expected), that h=3.5 m is too low because it may result in segmenting some of the shrub too. Of course this depends on the definition of tree height and if one wants to segment also the seedlings. Because of the similar height of the seedlings and shrubs it is practically impossible to distinguish shrubs and seedlings based purely on height. 
+best_seg_vp_1_v2 <- best_seg_vp_1_v2 %>%
+  select(2:15)%>%
+  arrange(total_seg)%>%
+  filter(total_seg<=20)%>%
+  arrange(desc(hitrate))
 
-## **Segmentation of ROI** 
+best_seg_vp_1_v2_filt <- best_seg_vp_1_v2 %>%
+  filter(hitrate >= 0.7)%>%
+  arrange(desc(total_seg))%>%
+  filter(height <= 4.0)
 
-While inspecting **segm_ROI -> segm_ROI_8** (demonstrating almost the same overall performance) it became clear that **segm_ROI_8** delivers the best result. But what happens with heights a bit above 4 m? 4.5, 5 and 5.1 m were tested to test if the segmentation can be even better than **segm_ROI_8**. We can see - as expected - that with the increase of the tree height less seedling and tree crown area is included. Thus the optimal result is **segm_ROI_8**.
-You can see the results of **segm_ROI_9** to **segm_ROI_12** in the respective script. 
+bestsegval <- knitr::kable(best_seg_vp_1_v2_filt, longtable = T, booktabs = TRUE, caption = "Results of the  second run of CENITH::BestSegVal")
+kableExtra::kable_styling(bestsegval, font_size = 7)
+```
+
+## **Cross-validated Segmentation of test areas** 
+   **(.R file: 3_segmentation_validation_area_1_ROI.R)**
+
+The filtered results of the segmentation of test area 1 resulted in eight possible segmentations which are going to be tested if and how they fit the other test areas. Up to some degree it is an experiment to test which might be the possibly best segmentation which fits the other test areas. That is why all eight results from **best_seg_vp_1_filt_v2_filt** were processed. The eight results contain also h=3.5 m, so it can be checked which height really represents best the whole ROI. The cross-validates segmentation is done by the **CENITH::TreeSegCV** function. 
+The test areas and vps (tree positions) are given as a list to the function. The length of both lists/number of test areas and vps have to equal. The number of test areas and vps set the number of folds used, in this case 4. It gives a similar table as result as **CENITH::BestSegVal**, but calculates also the overall performance of the segmentation quality (which is based on how many and how much of the vps/tree positions were 'hit'), printed out when the cross-validated segmentation has finished.
+All eight settings produce on all test areas an overall performance (mean performance in Table 1) between 0.78 @ 0.31 and 0.78 @ 0.33. This value is given right away by the algorithm as result. Looking at the data frame created by each cross-validated segmentation, the following can be observed (Table 2):  
+```{r Table-2, echo=FALSE, fig.align='center'}
+library(dplyr)
+cv1 <- read.csv(here::here('analysis/results/segm/segm_table/cv1.csv'), header = TRUE, sep=",")
+names(cv1)[1] <- 'cv1'
+cv2 <- read.csv(here::here('analysis/results/segm/segm_table/cv2.csv'), header = TRUE, sep=",")
+names(cv2)[1] <- 'cv2'
+cv3 <- read.csv(here::here('analysis/results/segm/segm_table/cv3.csv'), header = TRUE, sep=",")
+names(cv3)[1] <- 'cv3'
+cv4 <- read.csv(here::here('analysis/results/segm/segm_table/cv4.csv'), header = TRUE, sep=",")
+names(cv4)[1] <- 'cv4'
+cv5 <- read.csv(here::here('analysis/results/segm/segm_table/cv5.csv'), header = TRUE, sep=",")
+names(cv5)[1] <- 'cv5'
+cv6 <- read.csv(here::here('analysis/results/segm/segm_table/cv6.csv'), header = TRUE, sep=",")
+names(cv6)[1] <- 'cv6'
+cv7 <- read.csv(here::here('analysis/results/segm/segm_table/cv7.csv'), header = TRUE, sep=",")
+names(cv7)[1] <- 'cv7'
+cv8 <- read.csv(here::here('analysis/results/segm/segm_table/cv8.csv'), header = TRUE, sep=",")
+names(cv8)[1] <- 'cv8'
+cv_all <- knitr::kable(list(cv1, cv2, cv3, cv4, cv5, cv6, cv7, cv8), caption = "Results of the cross-validations cv1 - cv8")
+kableExtra::kable_styling(cv_all, font_size = 6.5)
+```
+
+Inspecting the performance of the individual test areas, it is visible, that the behave similarly in each segmentation, but also that test area 4 has the lowest values all variables considered. This shows, that the performance of the different test areas depend on each other and balance each other out. 
+
+## **Segmentation of ROI (4_segmentation_ROI.R)** 
+
+Given the explanatory aim of this work, all eight results of **best_seg_vp_1_filt_v2_filt** (created in Chapter 3.4 and tested on all 4 test areas in Chapter 3.5) were applied to the ROI.
+The segmentation results can be visually inspected and compared in QGIS. It became swiftly clear (as expected), that h=3.5 m is too low as tree height because it may result in segmenting some of the shrub as well (note the different colors of the chm heights in QGIS). Because of the similar height of the seedlings and young trees and shrubs it is practically impossible to distinguish shrubs and seedlings based purely on height (as discussed before) and thus the choice of 4 m as tree height was not revised.  
+
+All segmentations demonstrate almost the same overall performance between 0.78 @ 0.31 and 0.78 @ 0.33. Comparing the segmentation results in QGIS visually, **segm_ROI_8** delivers the best result: 
+
+```{r Table-3, echo=FALSE, fig.align='center'}
+library(dplyr)
+best_seg_vp_1_v2 <- read.csv(here::here('analysis/results/segm/segm_table/best_seg_vp_1_v2.csv'), header = TRUE, sep=",")
+
+best_seg_vp_1_v2 <- best_seg_vp_1_v2 %>%
+  select(2:15)%>%
+  arrange(total_seg)%>%
+  filter(total_seg<=20)%>%
+  arrange(desc(hitrate))
+
+best_seg_vp_1_v2_filt <- best_seg_vp_1_v2 %>%
+  filter(hitrate >= 0.7)%>%
+  arrange(desc(total_seg))%>%
+  filter(height <= 4.0)
+
+cv8 <-slice(best_seg_vp_1_v2_filt, -(1:7))
+cv8_2 <-knitr::kable(cv8, "latex", longtable = T, booktabs = TRUE, caption = "Settings of **segm-ROI-8**")
+kableExtra::kable_styling(cv8_2, font_size = 7)
+```
+
+Although **segm_ROI_8** is not so accurate with the number and size/area of the individual trees, it is by far the most accurate segmentation which segments only trees and in some instances young trees.
+
+But what happens with heights above 4 m? 4.5, 5 and 5.1 m (**segm_ROI_9** to **segm_ROI_12**) were tested to test if the results of **segm_ROI_8** can be refined. With a tree-height over 4 m, the number of charted young trees and the tree crown area is decreasing. Thus the optimal result is **segm_ROI_8**.
+You can see the results of the segmentations in the respective script. 
+It has to be underlined, that the chosen segmentation **segm_ROI_8** is of course not perfect - the result is approximately 78% accuracy and it could be 
+improved by choosing smaller steps of *h* e.g.
+It has to be said that it makes no real sense to thoroughly compare the segmentation results with the RGB Imagery - rather the IR Imagery; The segmentation is based on the Canopy Height Model and height data and the RGB and IR Imagery on spectral data. E.g. in the IR Imagery you can see the young trees and seedling in a lighter red. 
+
+```{r Figure-7, echo=FALSE, fig.align='center'}
+library(raster)
+library(ggplot2)
+library(sf)
+library(cowplot)
+chm_ROI <- raster::raster(here::here('analysis/results/chm/chm_ROI.tif'))
+segm_ROI_8 <- sf::st_read(here::here('analysis/results/segm/segm_ROI/segm_ROI_8.shp'))
+chm_ROI_df <- as.data.frame(chm_ROI, xy = TRUE)
+
+overlay2 <- ggplot() +
+           geom_raster(data = chm_ROI_df, 
+                       aes(x = x, y = y, fill = chm_ROI)) +
+                       scale_fill_continuous(type = "viridis") +
+           geom_sf(data = segm_ROI_8, size = 0.25, color = "darkorchid4") +
+           ggtitle("Overlay of chm_1 & vp_1 in test area 1")
+plot(overlay2)
+```
 
 ##  **Data preparation for the Classification (.R file: 4_data_prep_classification:area_1.R)**
 
-For the preparation for the spectral classification first we will compute RGB and then multi-spectral (MS) indices, which we will filter and then test on correlation. Then 10 predictor sets are built which will be tested in the next step. 
-The indices are used to enhance the spectral differences between the different object classes which are to be detected. Currently 11 RGB and 4 MS indices are implemented.
+In this step the RGB and IR Imagery is prepared for the Pixel-based Image Analysis (spectral classification). 
+For the preparation for the spectral classification first we will compute RGB and then multi-spectral (MS) indices, which will be filtered and then tested on correlation. Following that 10 predictor sets are built which will be tested in the next step (Chapter 3.8). 
+Indices are used to enhance the spectral differences between the different object classes which are to be detected. Currently 11 RGB and 4 MS indices are implemented.
 Additionally the filter enhance special properties of indices and the overall homogeneity of spectral areas and enhance the edges and between the different objects. During the testing it was understood, that there are certain indices which contain too homogeneous areas from the beginning thus filtering them would distort the values and they would not be kicked out by the correlation and would deform the prediction. 
 Thus three different index stacks were complied: 
 *RGB_1_ind (VVI, VARI, NDTI, RI, CI, BI,SI,HI, TGI, GLI, NGRDI)*

@@ -1,9 +1,9 @@
 ####--------------------------------SHORTCUTS-------------------------------####
 #create shortcuts to the folders where de data and results are stored
-lsdsm <-list.files(file.path(path_analysis_data_dsm), pattern=".tif")
-lsdem <-list.files(file.path(path_analysis_data_dem), pattern=".tif")
-lschm <-list.files(file.path(path_analysis_results_chm), pattern=".tif")
-lsRGBIR <- list.files(file.path(path_analysis_data_RGB_IR), pattern=".tif")
+lsdsm <-list.files(paste0(path_analysis_data_dsm), pattern=".tif")
+lsdem <-list.files(paste0(path_analysis_data_dem), pattern=".tif")
+lschm <-list.files(paste0(path_analysis_results_chm), pattern=".tif")
+lsRGBIR <- list.files(paste0(path_analysis_data_RGB_IR), pattern=".tif")
 ################################################################################
 ####-----------------------------#1.CREATE CHM#-----------------------------####
 #----------------------------read dem & dsm of the ROI-------------------------#

@@ -1,50 +1,51 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/W32TeX)  (format=lualatex 2021.12.30)  17 MAY 2022 21:01
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.5.17)  22 MAY 2022 10:41
  restricted system commands enabled.
 **Index.tex
 (./Index.tex
 LaTeX2e <2021-11-15> patch level 1
-Lua module: luaotfload 2021-05-21 3.18 Lua based OpenType font support
+Lua module: luaotfload 2022-03-18 3.21 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2021-05-20 2.74 ConTeXt Lua libraries -- extended collection.
 luaotfload | conf : Root cache directory is "C:/Users/kelto/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names".
-luaotfload | init : Loading fontloader "fontloader-2021-05-20.lua" from kpse-resolved path "c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/luatex/luaotfload/fontloader-2021-05-20.lua".
+luaotfload | init : Loading fontloader "fontloader-2022-02-24.lua" from kpse-resolved path "c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/luatex/luaotfload/fontloader-2022-02-24.lua".
 Lua-only attribute luaotfload@noligature = 1
-Lua-only attribute luaotfload@syllabe = 2
-luaotfload | init : Context OpenType loader version 3.116
+luaotfload | init : Context OpenType loader version 3.119
 Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
 Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
 Inserting `luaotfload.glyph_stream' at position 1 in `glyph_stream_provider'.
 Inserting `luaotfload.define_font' at position 1 in `define_font'.
-Lua-only attribute luaotfload_color_attribute = 3
+Lua-only attribute luaotfload_color_attribute = 2
 luaotfload | conf : Root cache directory is "C:/Users/kelto/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names".
 Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_opentype_file'.
 Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' at position 1 in `glyph_stream_provider'.
 Inserting `luaotfload.harf.finalize_vlist' at position 1 in `post_linebreak_filter'.
 Inserting `luaotfload.harf.finalize_hlist' at position 2 in `hpack_filter'.
 Inserting `luaotfload.cleanup_files' at position 1 in `wrapup_run'.
 Inserting `luaotfload.harf.finalize_unicode' at position 1 in `finish_pdffile'.
 Inserting `luaotfload.glyphinfo' at position 1 in `glyph_info'.
-Lua-only attribute luaotfload.letterspace_done = 4
+Lua-only attribute luaotfload.letterspace_done = 3
 Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_font'.
 Inserting `luaotfload.aux.set_font_index' at position 2 in `luaotfload.patch_font'.
 Inserting `luaotfload.aux.patch_cambria_domh' at position 3 in `luaotfload.patch_font'.
 Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_font_unsafe'.
 Inserting `luaotfload.aux.set_capheight' at position 4 in `luaotfload.patch_font'.
 Inserting `luaotfload.aux.set_xheight' at position 5 in `luaotfload.patch_font'.
-Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'. L3 programming layer <2021-11-22>
+Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'. L3 programming layer <2022-05-04>
 Inserting `tracingstacklevels' at position 1 in `input_level_string'. (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
-luaotfload | db : Font names database loaded from C:/Users/kelto/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names/luaotfload-names.luc)
-\c@part=\count181
-\c@section=\count182
-\c@subsection=\count183
-\c@subsubsection=\count184
-\c@paragraph=\count185
-\c@subparagraph=\count186
-\c@figure=\count187
-\c@table=\count188
+luaotfload | db : Font names database loaded from C:/Users/kelto/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
+\c@part=\count183
+\c@section=\count184
+\c@subsection=\count185
+\c@subsubsection=\count186
+\c@paragraph=\count187
+\c@subparagraph=\count188
+\c@figure=\count189
+\c@table=\count190
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen137
@@ -64,13 +65,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2021/08/26 v2.02 operator names
 )
-\inf@bad=\count189
+\inf@bad=\count191
 LaTeX Info: Redefining \frac on input line 236.
-\uproot@=\count190
-\leftroot@=\count191
+\uproot@=\count192
+\leftroot@=\count193
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count192
-\DOTSCASE@=\count193
+\classnum@=\count194
+\DOTSCASE@=\count195
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -79,15 +80,15 @@ LaTeX Info: Redefining \cdots on input line 620.
 \big@size=\dimen140
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count194
-\c@MaxMatrixCols=\count195
+\macc@depth=\count196
+\c@MaxMatrixCols=\count197
 \dotsspace@=\muskip16
-\c@parentequation=\count196
-\dspbrk@lvl=\count197
+\c@parentequation=\count198
+\dspbrk@lvl=\count199
 \tag@help=\toks17
-\row@=\count198
-\column@=\count199
-\maxfields@=\count266
+\row@=\count266
+\column@=\count267
+\maxfields@=\count268
 \andhelp@=\toks18
 \eqnshift@=\dimen141
 \alignsep@=\dimen142
@@ -147,38 +148,38 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2020/03/06 v1.0d TeX engine tests
+Package: iftex 2022/02/03 v1.0f TeX engine tests
 )) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2021-11-22 L3 programming layer (loader) 
+Package: expl3 2022-05-04 L3 programming layer (loader) 
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
-File: l3backend-luatex.def 2021-12-14 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count267
+File: l3backend-luatex.def 2022-04-20 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count269
 \l__pdf_internal_box=\box52
 ))
 Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-luatex.sty
 Package: unicode-math-luatex 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2021-11-12 L3 Experimental document command parser
+Package: xparse 2022-01-12 L3 Experimental document command parser
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2021-11-12 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
-Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
-Lua module: fontspec 2020/02/21 2.7i Font selection for XeLaTeX and LuaLaTeX (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
-Package: fontspec-luatex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
-\l__fontspec_script_int=\count268
-\l__fontspec_language_int=\count269
-\l__fontspec_strnum_int=\count270
-\l__fontspec_tmp_int=\count271
-\l__fontspec_tmpa_int=\count272
-\l__fontspec_tmpb_int=\count273
-\l__fontspec_tmpc_int=\count274
-\l__fontspec_em_int=\count275
-\l__fontspec_emdef_int=\count276
-\l__fontspec_strong_int=\count277
-\l__fontspec_strongdef_int=\count278
+Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+Lua module: fontspec 2022/01/15 2.8a Font selection for XeLaTeX and LuaLaTeX (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
+Package: fontspec-luatex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+\l__fontspec_script_int=\count270
+\l__fontspec_language_int=\count271
+\l__fontspec_strnum_int=\count272
+\l__fontspec_tmp_int=\count273
+\l__fontspec_tmpa_int=\count274
+\l__fontspec_tmpb_int=\count275
+\l__fontspec_tmpc_int=\count276
+\l__fontspec_em_int=\count277
+\l__fontspec_emdef_int=\count278
+\l__fontspec_strong_int=\count279
+\l__fontspec_strongdef_int=\count280
 \l__fontspec_tmpa_dim=\dimen147
 \l__fontspec_tmpb_dim=\dimen148
 \l__fontspec_tmpc_dim=\dimen149
@@ -190,28 +191,15 @@ Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 )) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/lualatex/lualatex-math/lualatex-math.sty
-Package: lualatex-math 2021/07/05 v1.11 Patches for mathematics typesetting with LuaLaTeX
+Package: lualatex-math 2022/01/01 v1.12 Patches for mathematics typesetting with LuaLaTeX
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count279
+\etb@tempcnta=\count281
 )
-Lua module: lualatex-math 2013/08/03 1.3 Patches for mathematics typesetting with LuaLaTeX
-
-LaTeX hooks Warning: Generic hook 'package/before/amsmath' is deprecated.
-(hooks)              Use hook 'package/amsmath/before' instead.
-
-
-LaTeX hooks Warning: Generic hook 'package/after/mathtools' is deprecated.
-(hooks)              Use hook 'package/mathtools/after' instead.
-
-
-LaTeX hooks Warning: Generic hook 'package/after/icomma' is deprecated.
-(hooks)              Use hook 'package/icomma/after' instead.
-
-)
-\g__um_fam_int=\count280
-\g__um_fonts_used_int=\count281
-\l__um_primecount_int=\count282
+Lua module: lualatex-math 2013/08/03 1.3 Patches for mathematics typesetting with LuaLaTeX)
+\g__um_fam_int=\count282
+\g__um_fonts_used_int=\count283
+\l__um_primecount_int=\count284
 \g__um_primekern_muskip=\muskip17
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex))) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
@@ -243,7 +231,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
+Package: hyperref 2022-05-17 v7.00q Hypertext links for LaTeX
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
@@ -263,74 +251,80 @@ Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
+(c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count285
 )
 \@linkdim=\dimen150
-\Hy@linkcounter=\count283
-\Hy@pagecounter=\count284
+\Hy@linkcounter=\count286
+\Hy@pagecounter=\count287
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
-) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
-File: hyperref-langpatches.def 2021-06-07 v7.00m Hyperref: patches for babel languages
+File: pd1enc.def 2022-05-17 v7.00q Hyperref: PDFDocEncoding definition (HO)
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count285
+\Hy@SavedSpaceFactor=\count288
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2022-05-17 v7.00q Hyperref: PDF Unicode definition (HO)
 )
-Package hyperref Info: Option `unicode' set `true' on input line 4073.
-Package hyperref Info: Hyper figures OFF on input line 4192.
-Package hyperref Info: Link nesting OFF on input line 4197.
-Package hyperref Info: Hyper index ON on input line 4200.
-Package hyperref Info: Plain pages OFF on input line 4207.
-Package hyperref Info: Backreferencing OFF on input line 4212.
+Package hyperref Info: Option `unicode' set `true' on input line 4020.
+Package hyperref Info: Hyper figures OFF on input line 4139.
+Package hyperref Info: Link nesting OFF on input line 4144.
+Package hyperref Info: Hyper index ON on input line 4147.
+Package hyperref Info: Plain pages OFF on input line 4154.
+Package hyperref Info: Backreferencing OFF on input line 4159.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count286
+Package hyperref Info: Bookmarks ON on input line 4385.
+\c@Hy@tempcnt=\count289
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4804.
+LaTeX Info: Redefining \url on input line 4723.
 \XeTeXLinkMargin=\dimen151
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count287
+\Fld@menulength=\count290
 \Field@Width=\dimen152
 \Fld@charsize=\dimen153
-Package hyperref Info: Hyper figures OFF on input line 6076.
-Package hyperref Info: Link nesting OFF on input line 6081.
-Package hyperref Info: Hyper index ON on input line 6084.
-Package hyperref Info: backreferencing OFF on input line 6091.
-Package hyperref Info: Link coloring OFF on input line 6096.
-Package hyperref Info: Link coloring with OCG OFF on input line 6101.
-Package hyperref Info: PDF/A mode OFF on input line 6106.
-LaTeX Info: Redefining \ref on input line 6146.
-LaTeX Info: Redefining \pageref on input line 6150.
+Package hyperref Info: Hyper figures OFF on input line 6001.
+Package hyperref Info: Link nesting OFF on input line 6006.
+Package hyperref Info: Hyper index ON on input line 6009.
+Package hyperref Info: backreferencing OFF on input line 6016.
+Package hyperref Info: Link coloring OFF on input line 6021.
+Package hyperref Info: Link coloring with OCG OFF on input line 6026.
+Package hyperref Info: PDF/A mode OFF on input line 6031.
+LaTeX Info: Redefining \ref on input line 6078.
+LaTeX Info: Redefining \pageref on input line 6078.
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count288
-\c@Item=\count289
-\c@Hfootnote=\count290
+\Hy@abspage=\count291
+\c@Item=\count292
+\c@Hfootnote=\count293
 )
 Package hyperref Info: Driver (autodetected): hluatex.
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hluatex.def
-File: hluatex.def 2021-06-07 v7.00m Hyperref driver for luaTeX
+File: hluatex.def 2022-05-17 v7.00q Hyperref driver for luaTeX
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count291
-\c@bookmark@seq@number=\count292
+\Fld@listcount=\count294
+\c@bookmark@seq@number=\count295
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -344,9 +338,9 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count293
-\Gm@cntv=\count294
-\c@Gm@tempcnt=\count295
+\Gm@cnth=\count296
+\Gm@cntv=\count297
+\c@Gm@tempcnt=\count298
 \Gm@bindingoffset=\dimen154
 \Gm@wd@mp=\dimen155
 \Gm@odd@mp=\dimen156
@@ -362,17 +356,17 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTright=\skip54
 \LTpre=\skip55
 \LTpost=\skip56
-\LTchunksize=\count296
+\LTchunksize=\count299
 \LTcapwidth=\dimen162
 \LT@head=\box53
 \LT@firsthead=\box54
 \LT@foot=\box55
 \LT@lastfoot=\box56
 \LT@gbox=\box57
-\LT@cols=\count297
-\LT@rows=\count298
-\c@LT@tables=\count299
-\c@LT@chunks=\count300
+\LT@cols=\count300
+\LT@rows=\count301
+\c@LT@tables=\count302
+\c@LT@chunks=\count303
 \LT@p@ftn=\toks24
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
@@ -386,12 +380,12 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen170
 \cmidrulekern=\dimen171
 \defaultaddspace=\dimen172
-\@cmidla=\count301
-\@cmidlb=\count302
+\@cmidla=\count304
+\@cmidlb=\count305
 \@aboverulesep=\dimen173
 \@belowrulesep=\dimen174
-\@thisruleclass=\count303
-\@lastruleclass=\count304
+\@thisruleclass=\count306
+\@lastruleclass=\count307
 \@thisrulewidth=\dimen175
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
@@ -404,15 +398,15 @@ Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
 \ar@cellbox=\box59
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count305
-\calc@Bcount=\count306
+\calc@Acount=\count308
+\calc@Bcount=\count309
 \calc@Adimen=\dimen178
 \calc@Bdimen=\dimen179
 \calc@Askip=\skip59
 \calc@Bskip=\skip60
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count307
+\calc@Ccount=\count310
 \calc@Cskip=\skip61
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
@@ -433,7 +427,7 @@ Package graphics Info: Driver file: luatex.def on input line 107.
 \Gin@req@width=\dimen182
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count308
+\c@float@type=\count311
 \float@exts=\toks26
 \float@box=\box61
 \@float@everytoks=\toks27
@@ -458,7 +452,7 @@ Package: paralist 2017/01/22 v2.7 Extended list environments
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footers
+Package: fancyhdr 2022/05/10 v4.0.2 Extensive control of page headers and footers
 \f@nch@headwidth=\skip66
 \f@nch@O@elh=\skip67
 \f@nch@O@erh=\skip68
@@ -495,7 +489,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip89
 \bibsep=\skip90
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count309
+\c@NAT@ctr=\count312
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tocbibind/tocbibind.sty
 Package: tocbibind 2010/10/13 v1.5k extra ToC listings
 Package tocbibind Info: The document has section divisions on input line 50.
@@ -505,39 +499,118 @@ Package tocbibind Note: Using section or other style headings.
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
-\captionmargin=\dimen183
-\captionmargin@=\dimen184
-\captionwidth=\dimen185
-\caption@tempdima=\dimen186
-\caption@indent=\dimen187
-\caption@parindent=\dimen188
-\caption@hangindent=\dimen189
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen183
+\captionmargin=\dimen184
+\caption@leftmargin=\dimen185
+\caption@rightmargin=\dimen186
+\caption@width=\dimen187
+\caption@indent=\dimen188
+\caption@parindent=\dimen189
+\caption@hangindent=\dimen190
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count310
-\c@continuedfloat=\count311
+\c@caption@flags=\count313
+\c@continuedfloat=\count314
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
-Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 ))
-\c@KVtest=\count312
+\c@KVtest=\count315
 \sf@farskip=\skip91
-\sf@captopadj=\dimen190
+\sf@captopadj=\dimen191
 \sf@capskip=\skip92
 \sf@nearskip=\skip93
-\c@subfigure=\count313
-\c@subfigure@save=\count314
-\c@lofdepth=\count315
-\c@subtable=\count316
-\c@subtable@save=\count317
-\c@lotdepth=\count318
+\c@subfigure=\count316
+\c@subfigure@save=\count317
+\c@lofdepth=\count318
+\c@subtable=\count319
+\c@subtable@save=\count320
+\c@lotdepth=\count321
 \sf@top=\skip94
 \sf@bottom=\skip95
+) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip96
+\multirow@cntb=\count322
+\multirow@dima=\skip97
+\bigstrutjot=\dimen192
+) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen193
+\WF@size=\dimen194
+\c@WF@wrappedlines=\count323
+\WF@box=\box63
+\WF@everypar=\toks29
+Package: wrapfig 2003/01/31  v 3.6
+) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+\everycr=\toks30
+\minrowclearance=\skip98
+) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+(c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box64
+\sift@deathcycles=\count324
+\@vwid@loff=\dimen195
+\@vwid@roff=\dimen196
+)
+\c@taburow=\count325
+\tabu@nbcols=\count326
+\tabu@cnt=\count327
+\tabu@Xcol=\count328
+\tabu@alloc=\count329
+\tabu@nested=\count330
+\tabu@target=\dimen197
+\tabu@spreadtarget=\dimen198
+\tabu@naturalX=\dimen199
+\tabucolX=\dimen256
+\tabu@Xsum=\dimen257
+\extrarowdepth=\dimen258
+\abovetabulinesep=\dimen259
+\belowtabulinesep=\dimen260
+\tabustrutrule=\dimen261
+\tabu@thebody=\toks31
+\tabu@footnotes=\toks32
+\tabu@box=\box65
+\tabu@arstrutbox=\box66
+\tabu@hleads=\box67
+\tabu@vleads=\box68
+\tabu@cellskip=\skip99
+) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box69
+) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttablex/threeparttablex.sty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+(c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+(c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\TPTL@width=\skip100
+) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box70
+\UL@hyphenbox=\box71
+\UL@skip=\skip101
+\UL@hook=\toks33
+\UL@height=\dimen262
+\UL@pe=\count331
+\UL@pixel=\dimen263
+\ULC@box=\box72
+Package: ulem 2019/11/18
+\ULdepth=\dimen264
+) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen265
+\c@nlinenum=\count332
+\TeXr@lab=\toks34
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/lualatex/selnolig/selnolig.sty
 === Package selnolig, Version 0.302, Date 2015/10/26 ===
 Package: selnolig 2015/10/26
@@ -545,51 +618,51 @@ Package: selnolig 2015/10/26
 Package: luatexbase 2015/10/04 v1.3 luatexbase interface to LuaTeX 
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/luatex/ctablestack/ctablestack.sty
 Package: ctablestack 2015/10/01 v1.0 Catcode table stable support
-\@catcodetablestackcnt=\count319
+\@catcodetablestackcnt=\count333
 )
 \CatcodeTableOther=\catcodetable12
 \CatcodeTableExpl=\catcodetable13
 )
 Inserting `Suppress ligatures selectively' at position 1 in `ligaturing'.)
-\cslhangindent=\skip96
-\csllabelwidth=\skip97
+\cslhangindent=\skip102
+\csllabelwidth=\skip103
 (./Index.aux)
 \openout1 = Index.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 114.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 128.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 114.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 128.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 114.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 128.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 114.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 128.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 114.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 128.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 114.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 128.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 114.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 128.
 
 Package fontspec Info: latinmodern-math scale = 0.9999970497384594.
 
@@ -620,7 +693,7 @@ Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
 (fontspec)             \__um_luatex_copy_fontdimens: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 114.
+(Font)              scaled to size 12.0pt on input line 128.
 
 Package fontspec Info: latinmodern-math scale = 0.9999970497384594.
 
@@ -657,15 +730,15 @@ Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
 (fontspec)             \__um_luatex_copy_fontdimens: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 114.
+(Font)              scaled to size 12.0pt on input line 128.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 114.
+(Font)              `operators' in the math version `normal' on input line 128.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 114.
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 128.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 114.
+(Font)              `operators' in the math version `bold' on input line 128.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 114.
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 128.
 
 Package fontspec Info: latinmodern-math scale = 0.9999970497384594.
 
@@ -747,13 +820,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
 (fontspec)             21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 114.
+(Font)              `symbols' in the math version `normal' on input line 128.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 114.
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 128.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 114.
+(Font)              `symbols' in the math version `bold' on input line 128.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 114.
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 128.
 
 Package fontspec Info: latinmodern-math scale = 0.9999970497384594.
 
@@ -817,38 +890,38 @@ Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
 (fontspec)             \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 114.
+(Font)              `largesymbols' in the math version `normal' on input line 128.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 114.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 128.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 114.
+(Font)              `largesymbols' in the math version `bold' on input line 128.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 114.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 128.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 114.
+(Font)              scaled to size 8.4pt on input line 128.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 114.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 114.
+(Font)              scaled to size 6.0pt on input line 128.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 128.
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 114.
+(Font)              scaled to size 12.0011pt on input line 128.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.40076pt on input line 114.
+(Font)              scaled to size 8.40076pt on input line 128.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 114.
+(Font)              scaled to size 6.00055pt on input line 128.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 114.
+(Font)              scaled to size 11.99872pt on input line 128.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.3991pt on input line 114.
+(Font)              scaled to size 8.3991pt on input line 128.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 114.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 114.
+(Font)              scaled to size 5.99936pt on input line 128.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 128.
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 114.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 128.
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
@@ -857,19 +930,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 114.
-(c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
-(c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
-Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-)
-\c@section@level=\count320
-)
-LaTeX Info: Redefining \ref on input line 114.
-LaTeX Info: Redefining \pageref on input line 114.
-LaTeX Info: Redefining \nameref on input line 114.
+Package hyperref Info: Link coloring OFF on input line 128.
 (./Index.out) (./Index.out)
 \@outlinefile=\write3
 
@@ -910,50 +971,52 @@ LaTeX Info: Redefining \nameref on input line 114.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 114.
+(lastpage)             ! on input line 128.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<figures/UMR-Logo_sw.png, id=68, 219.7008pt x 75.1608pt>
+<figures/UMR-Logo_sw.png, id=72, 219.7008pt x 75.1608pt>
 File: figures/UMR-Logo_sw.png Graphic file (type png)
 <use figures/UMR-Logo_sw.png>
-Package luatex.def Info: figures/UMR-Logo_sw.png  used on input line 129.
+Package luatex.def Info: figures/UMR-Logo_sw.png  used on input line 143.
 (luatex.def)             Requested size: 364.71327pt x 124.77031pt.
 [1
 
 {c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./figures/UMR-Logo_sw.png>]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [2]
-<figures/Figure_1.png, id=83, 737.75626pt x 800.9925pt>
+<figures/Figure_1.png, id=87, 737.75626pt x 800.9925pt>
 File: figures/Figure_1.png Graphic file (type png)
 <use figures/Figure_1.png>
-Package luatex.def Info: figures/Figure_1.png  used on input line 179.
+Package luatex.def Info: figures/Figure_1.png  used on input line 193.
 (luatex.def)             Requested size: 243.12259pt x 263.96167pt.
-<figures/Figure_2.png, id=84, 751.80875pt x 460.72125pt>
+<figures/Figure_2.png, id=88, 751.80875pt x 460.72125pt>
 File: figures/Figure_2.png Graphic file (type png)
 <use figures/Figure_2.png>
-Package luatex.def Info: figures/Figure_2.png  used on input line 179.
+Package luatex.def Info: figures/Figure_2.png  used on input line 193.
 (luatex.def)             Requested size: 243.13042pt x 148.99448pt.
 
-Overfull \hbox (2.6034pt too wide) in paragraph at lines 179--179
+Overfull \hbox (2.6034pt too wide) in paragraph at lines 193--193
 [][] [] 
  []
 
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [3<./figures/Figure_1.png><./figures/Figure_2.png>]
-<figures/Figure_3.png, id=90, 1376.14125pt x 459.7175pt>
+<figures/Figure_3.png, id=94, 1376.14125pt x 459.7175pt>
 File: figures/Figure_3.png Graphic file (type png)
 <use figures/Figure_3.png>
-Package luatex.def Info: figures/Figure_3.png  used on input line 185.
+Package luatex.def Info: figures/Figure_3.png  used on input line 199.
 (luatex.def)             Requested size: 243.11713pt x 81.21637pt.
-<figures/Figure_4.png, id=91, 963.6pt x 696.6025pt>
+<figures/Figure_4.png, id=95, 963.6pt x 696.6025pt>
 File: figures/Figure_4.png Graphic file (type png)
 <use figures/Figure_4.png>
-Package luatex.def Info: figures/Figure_4.png  used on input line 185.
+Package luatex.def Info: figures/Figure_4.png  used on input line 199.
 (luatex.def)             Requested size: 243.11961pt x 175.75522pt.
 
-Overfull \hbox (2.58713pt too wide) in paragraph at lines 185--185
+Overfull \hbox (2.58713pt too wide) in paragraph at lines 199--199
 [][] [] 
  []
 
@@ -974,17 +1037,17 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [10]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [11]
-Overfull \hbox (5.61449pt too wide) in paragraph at lines 284--285
+Overfull \hbox (5.61449pt too wide) in paragraph at lines 298--299
 \TU/lmr/m/n/12 The re-pro-ducible work-flow is made up of the files: \TU/lmr/bx/n/12 00_li-brary_n_prep.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 0_set_up_work-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--285
+Underfull \hbox (badness 10000) in paragraph at lines 298--299
 \TU/lmr/bx/n/12 ing_en-vrnmt.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 1_data_prep_gen-eral.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 2_seg-men-ta-tion_test_area_1.R\TU/lmr/m/n/12 ,
  []
 
 
-Overfull \hbox (11.00499pt too wide) in paragraph at lines 284--285
+Overfull \hbox (11.00499pt too wide) in paragraph at lines 298--299
 \TU/lmr/bx/n/12 5_clas-si-fi-ca-tion_val-i-da-tion_test_area_1.R \TU/lmr/m/n/12 and \TU/lmr/bx/n/12 6_data_prep_clas-si-fi-ca-tion_ROI.R\TU/lmr/m/n/12 ,
  []
 
@@ -993,22 +1056,27 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [12]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [13]
-<figures/Figure_6.png, id=136, 817.6146pt x 333.4056pt>
+<figures/Figure_6.png, id=140, 817.6146pt x 333.4056pt>
 File: figures/Figure_6.png Graphic file (type png)
 <use figures/Figure_6.png>
-Package luatex.def Info: figures/Figure_6.png  used on input line 327.
+Package luatex.def Info: figures/Figure_6.png  used on input line 341.
 (luatex.def)             Requested size: 486.2684pt x 198.28975pt.
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [14]
-Overfull \hbox (1.91383pt too wide) in paragraph at lines 341--341
+Overfull \hbox (1.91383pt too wide) in paragraph at lines 355--355
 []\TU/lmtt/m/n/12 ## Bounding box:  xmin: -40638.55 ymin: 216053.3 xmax: -40615.55 ymax: 216083.1[] 
  []
 
-<Index_files/figure-latex/Figure-6-1.pdf, id=141, 469.755pt x 325.215pt>
+
+Overfull \hbox (20.50179pt too wide) in paragraph at lines 355--355
+[]\TU/lmtt/m/n/12 ## Projected CRS: MGI_Austria_GK_West_with_axis_order_normalized_for_visualization[] 
+ []
+
+<Index_files/figure-latex/Figure-6-1.pdf, id=145, 469.755pt x 325.215pt>
 File: Index_files/figure-latex/Figure-6-1.pdf Graphic file (type pdf)
 <use Index_files/figure-latex/Figure-6-1.pdf>
-Package luatex.def Info: Index_files/figure-latex/Figure-6-1.pdf  used on input line 345.
+Package luatex.def Info: Index_files/figure-latex/Figure-6-1.pdf  used on input line 359.
 (luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
@@ -1017,63 +1085,160 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [16<./Index_files/figure-latex/Figure-6-1.pdf>]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [17]
+Overfull \hbox (46.99557pt too wide) in alignment at lines 384--399
+ [][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--410
+
+ []
+
+
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [18]
+LaTeX Font Info:    Calculating math sizes for size <6.5> on input line 416.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 6.5pt on input line 416.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 4.54997pt on input line 416.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 3.25pt on input line 416.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.5006pt on input line 416.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 4.55038pt on input line 416.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 3.25029pt on input line 416.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.4993pt on input line 416.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.54948pt on input line 416.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 3.24965pt on input line 416.
+
+Overfull \hbox (39.16896pt too wide) in paragraph at lines 416--543
+ [][] 
+ []
+
+
+Overfull \hbox (35.67194pt too wide) in paragraph at lines 416--543
+ [] 
+ []
+
+
+Overfull \hbox (39.16896pt too wide) in paragraph at lines 416--543
+ [] 
+ []
+
+
+Overfull \hbox (35.67194pt too wide) in paragraph at lines 416--543
+ [] 
+ []
+
+
+Overfull \hbox (39.16896pt too wide) in paragraph at lines 416--543
+ [] 
+ []
+
+
+Overfull \hbox (35.67194pt too wide) in paragraph at lines 416--543
+ [] 
+ []
+
+
+Overfull \hbox (35.47046pt too wide) in paragraph at lines 416--543
+ [] 
+ []
+
+
+Overfull \hbox (31.97343pt too wide) in paragraph at lines 416--543
+ [] 
+ []
+
+
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [19]
+Overfull \hbox (43.01257pt too wide) in alignment at lines 557--564
+ [][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 1019) in paragraph at lines 569--572
+[]\TU/lmr/m/n/12 But what hap-pens with heights above 4 m? 4.5, 5 and 5.1 m (\TU/lmr/bx/n/12 segm_ROI_9 \TU/lmr/m/n/12 to
+ []
+
+
+Overfull \hbox (51.40175pt too wide) in paragraph at lines 582--582
+[]\TU/lmtt/m/n/12 ##   `C:\Users\kelto\Documents\detectATE\analysis\results\segm\segm_ROI\segm_ROI_8.shp'[] 
+ []
+
+
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [20]
+<Index_files/figure-latex/Figure-7-1.pdf, id=182, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-7-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-7-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-7-1.pdf  used on input line 584.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[21<./Index_files/figure-latex/Figure-7-1.pdf>]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[22]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[23]
 No file Index.bbl.
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--415
+Underfull \hbox (badness 10000) in paragraph at lines 621--623
 []$\TU/lmr/m/n/12 https://scholar.google.com/scholar_lookup?title=Spatial+and+compositional+pattern+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--415
+Underfull \hbox (badness 10000) in paragraph at lines 621--623
 \TU/lmr/m/n/12 of+alpine+treeline%2C+Glacier+National+Park%2C+Montana&author=Allen%2C+T.
  []
 
 
-Underfull \hbox (badness 5563) in paragraph at lines 425--427
+Underfull \hbox (badness 5563) in paragraph at lines 633--635
 \TU/lmr/m/it/12 re-search \TU/lmr/m/n/12 . []$https://scholar.google.com/citations?view_op=view_citation&hl=en&user=
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 425--427
+Underfull \hbox (badness 10000) in paragraph at lines 633--635
 \TU/lmr/m/n/12 kgaHKiwAAAAJ&alert_preview_top_rm=2&citation_for_view=kgaHKiwAAAAJ:
  []
 
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[21]
+[24]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[22]
-Underfull \hbox (badness 1297) in paragraph at lines 488--490
+[25]
+Underfull \hbox (badness 1297) in paragraph at lines 696--698
 \TU/lmr/m/it/12 tec-tion of his-tor-i-cal aerial pho-tographs re-veals al-ti-tu-di-nal for-est ex-pan-sion\TU/lmr/m/n/12 . []$https:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--490
+Underfull \hbox (badness 10000) in paragraph at lines 696--698
 \TU/lmr/m/n/12 //www.semanticscholar.org/paper/OBJECT-BASED-CHANGE-DETECTION-OF-
  []
 
 
-Overfull \hbox (16.3265pt too wide) in paragraph at lines 488--490
+Overfull \hbox (16.3265pt too wide) in paragraph at lines 696--698
 \TU/lmr/m/n/12 HISTORICAL-AERIAL-Middleton-N%C3%A4rhi/373b86df6f5979767ef6adbcfcc0b987fa37693f$[] 
  []
 
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[23]
+[26]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[24] 
+[27] 
 AED: lastpage setting LastPage
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[25] (./Index.aux)
+[28] (./Index.aux)
 Package rerunfilecheck Info: File `Index.out' has not changed.
-(rerunfilecheck)             Checksum: DECE7AEE2D56D8F6CC2EEA4F169C5492;4480.
+(rerunfilecheck)             Checksum: 1FE05D0E438E899A57E2AD17449F03EC;4216.
 )
 (\end occurred inside a group at level 1)
 
@@ -1081,19 +1246,19 @@ Package rerunfilecheck Info: File `Index.out' has not changed.
 ### bottom level
 
 Here is how much of LuaTeX's memory you used:
- 21014 strings out of 477875
- 125086,953878 words of node,token memory allocated
- 886 words of node memory still in use:
-   7 hlist, 2 vlist, 3 rule, 2 glue, 4 kern, 1 glyph, 22 attribute, 99 glue_spec, 22 attribute_list, 2 write, 1 user_defined, 13 pdf_action nodes
-   avail lists: 1:2,2:304,3:324,4:45,5:386,6:23,7:6759,8:233,9:177,10:25,11:586
- 40715 multiletter control sequences out of 65536+600000
- 44 fonts using 8105607 bytes
- 86i,6n,121p,1219b,3940s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf>
-Output written on Index.pdf (25 pages, 1215737 bytes).
+ 22564 strings out of 477742
+ 195462,953878 words of node,token memory allocated
+ 896 words of node memory still in use:
+   7 hlist, 2 vlist, 3 rule, 2 glue, 4 kern, 1 glyph, 22 attribute, 101 glue_spec, 22 attribute_list, 2 write, 1 user_defined, 13 pdf_action nodes
+   avail lists: 1:2,2:3445,3:324,4:63,5:1543,6:23,7:16138,8:233,9:4656,10:28,11:586
+ 42280 multiletter control sequences out of 65536+600000
+ 65 fonts using 13556643 bytes
+ 86i,10n,121p,1219b,5086s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf>
+Output written on Index.pdf (28 pages, 2926260 bytes).
 
-PDF statistics: 332 PDF objects out of 1000 (max. 8388607)
- 275 compressed objects within 3 object streams
- 78 named destinations out of 1000 (max. 131072)
- 129 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 364 PDF objects out of 1000 (max. 8388607)
+ 297 compressed objects within 3 object streams
+ 83 named destinations out of 1000 (max. 131072)
+ 137 words of extra memory for PDF output out of 10000 (max. 100000000)
 
