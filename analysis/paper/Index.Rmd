@@ -128,6 +128,22 @@ Thesis Paper for the Project Seminar: Treelines of the World in SS 2020
 \vspace{5mm}
 \justifying
 
+```{r discussion, child = '05-Discussion.Rmd'}
+```
+
+\newpage
+
+\vspace{5mm}
+\justifying
+
+```{r conclusion, child = '06-Conclusion.Rmd'}
+```
+
+\newpage
+
+\vspace{5mm}
+\justifying
+
 # References 
 \bibliography{references}
 

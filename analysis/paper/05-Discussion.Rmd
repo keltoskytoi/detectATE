@@ -1,0 +1,95 @@
+
+
+- Do different spectral raster stacks influence the choice of *'Forward Feature Selection'* with `IKARUS::BestPredFFS`? 
+- Do different training shapes (number of polygons and their size) influence *'Forward Feature Selection'* with `IKARUS::BestPredFFS`
+
+homogeneity - to exclude VARI, RI and HI
+correlation test 
+FFS 
+
+CAST::plot_ffs(FFS1)
+
+test area 1
+It is interesting to see, that with the addition of four spectral (non-index) raster, the composition of the remaining raster after a correlation test changed completely. 
+
+
+Comparing `FFS_1_ROI - FFS_4_ROI` with `FFS_1 - FFS_4` we can see the following investigation the predictors (order based on frequency):
+
+|   FFS     |PREDICTOR1|PREDICTOR2|PREDICTOR3| PREDICTOR4 | PREDICTOR5 |
+|----------:|---------:|---------:|---------:|-----------:|-----------:|
+|`FFS_1`    |`TGI_max3`|`VVI_min3`|          |            |            |
+|`FFS_1_ROI`|`TGI_max3`|`VVI_min3`|          |            |            |
+|`FFS_2`    |`TGI_max3`|`VVI_min3`|          |            |            |
+|`FFS_2_ROI`|`TGI_max3`|          |`GLI_min3`|`VVI_sobel3`|`VVI_modal3`|
+|`FFS_3`    |`TGI_max3`|          |          |            |            |
+|`FFS_3_ROI`|`TGI_max3`|          |`GLI_min3`|`VVI_sobel3`|`VVI_modal3`|
+|`FFS_4`    |`TGI_max3`|          |          |            |            |
+|`FFS_4_ROI`|`TGI_max3`|`VVI_min3`|`GLI_min3`|            |            |         
+
+|   FFS     |PREDICTOR6 |PREDICTOR7|PREDICTOR8 |PREDICTOR9|PREDICTOR10|
+|----------:|----------:|---------:|----------:|---------:|----------:|
+|`FFS1`     |           |`MSR_min3`|           |          |           |
+|`FFS_1_ROI`|           |`MSR_min3`|           |          |           |
+|`FFS_2`    |           |          |`Blue_min3`|`GLI_max3`|           |
+|`FFS_2_ROI`|           |          |           |          |`SI_max3`  |
+|`FFS_3`    |`NDVI_min3`|          |           |          |           |
+|`FFS_3_ROI`|           |          |           |          |           |
+|`FFS_4`    |`NDVI_min3`|          |           |          |           |
+|`FFS_4_ROI`|           |          |`Blue_min3`|          |           |
+
+10 different index predictors were chosen by *'Forward Feature Selection'* from the correlated indices in general for classification, out of the 18/19 of area 1 and the 17 of the ROI. In the case of test area 1 this means five different index predictors, compared to the ROI where eight different ones were founds meaningful. `FFS2_ROI` and `FSS3_ROI` consist of almost the same predictors save `SI_max3` in favor of the latter.
+
+FFS_1 and FFS2 were created using the accurate, 3x3 pixel training polygons of the training shape file `train_1`, while FFS_3 and FFS_4 were created using the training shape file `train_2`, which consists of minimal number of arbitrary sized and shaped coarse training polygons. 
+
+| PREDICTORS |  train_1 (FFS1&2)   |   train_2 (FFS3&4)  |
+|-----------:|--------------------:|--------------------:| 
+|`TGI_max3`  |ta1, ta2 & ROI1, ROI2|ta3, ta4 & ROI3, ROI4|           
+|`VVI_min3`  |ta1, ta2 & ROI1      |                 ROI4|          
+|`GLI_min3`  |                 ROI2|           ROI3, ROI4|           
+|`VVI_sobel3`|                 ROI2|           ROI3      |  
+|`VVI_modal3`|                 ROI2|           ROI3      |         
+|`NDVI_min3` |                     |           ROI3, ROI4|
+|`MSR_min3`  |ta1,       ROI1      |                     |        
+|`Blue_min3` |    ta2              |                 ROI4|
+|`GLI_max3`  |    ta2              |                     |
+|`SI_max3`   |                 ROI2|                     |
+
+It is safe to say, that `VVI_min3` is more often in the combination of training shape `train_1` and `GLI_min3` is more often in combination of `train_2`. `VVI_sobel3`, `VVI_modal3` and `Blue_min3` occur equally in combination with training shapes `train_1` and `train_2`. 
+Only two predictors stick clearly to different training shapes: `NDVI_min3`to `train_2` and `MSR_min3` to `train_1`. `GLI_max3` and `SI_max3` are also associated with `train_1`. 
+
+Turning the investigation to the relation of the areas to the predictor indices: four are used in the prediction of both areas: 
+
+|   AREA    |   PREDICTOR1  |     PREDICTOR2      |    PREDICTOR7   |   PREDICTOR8   | 
+|----------:|--------------:|--------------------:|----------------:|---------------:|
+|test area 1|`TGI_max3`(4x) |`VVI_min3`(FFS1&2)   |`Blue_min3`(FFS2)|`MSR_min3`(FFS1)|   
+|ROI        |`TGI_max3`(4x) |`VVI_min3`(FFS1&4)   |`Blue_min3`(FFS4)|`MSR_min3`(FFS4)| 
+
+`TGI_max3` is the only index predictor, which was selected in association of both area nad both traning shapes. It seems to be robust enough to create meaningful models with shape `train_2` to be used for prediction. 
+
+Otherwise only `VVI_min3` was present both in the first predictor stack of both the training area and the ROI. 
+
+When inspecting the remaining predictors, the following can be observed:
+
+|   AREA    |     PREDICTOR3     |     PREDICTOR4     |     PREDICTOR5     |
+|----------:|-------------------:|-------------------:|-------------------:|
+|test area 1|                    |                    |                    |  
+|ROI        |`GLI_min3`(FSS2,3&4)|`VVI_sobel3`(FSS2&3)|`VVI_modal3`(FFS2&3)| 
+
+|   AREA    |     PREDICTOR6    |    PREDICTOR9  |  PREDICTOR10  |
+|----------:|------------------:|---------------:|--------------:|
+|test area 1|`NDVI_min3`(FFS3&4)|`GLI_max3`(FFS1)|               |
+|ROI        |                   |                |`SI_max3`(FFS2)|
+
+`GLI_min3`, `VVI_sobel3`, `VVI_modal3` and `SI_max3` are only in index predictor stacks for the ROI
+and `NDVI_min3` and `GLI_max3` only for those of test area 1. `TGI_max3`,`VVI_min3`, `Blue_min3` and `MSR_min3` are associated with both areas.
+ 
+
+
+- how do different training shapes (number of polygons and their size) influence prediction? 
+
+
+training area 1 
+**Predictions 3 and 4** were carried out with training data sets which were created using the training shape `train_2`, which consists of minimal number of arbitrary sized and shaped coarse training polygons. This means, that using the coarse big polygons the differing 4 and 5 predictors did not give crucial more information but made the classes less disparate.
+
+
+comparing varImp of test area a ROI

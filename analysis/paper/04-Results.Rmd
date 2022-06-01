@@ -1,4 +1,233 @@
 # Results
 
+In this chapter first the results of the Segmentation and the Classification of test area 1 and the ROI is presented. Then the validation of the Classification results by the Segmentation are explained. 
+
+## **Segmentation results of test area 1 and the ROI**
+
+### **Results of the segmentation of test area 1**
+
+During the development of the workflow the choice for the most successful Segmentation for test area 1 fell on number **4** of the segmentation results of both the first (yielding 40 results) and the second run (yielding 8 results) (*2.4.1, 2.4.2*). The choice was made 'based on numbers': `h=4`, `total segment = 20`(more than of segmentation result **8** in the second run) and it was simply assumed, that it is better to have equal `a` and `b` (`0.07, 0.07`). Only when the cross-validated Segmentation (*3.3*) gave almost the same results for all 8 Segmentation settings from `best_seg_vp_1_v2_filt` became clear, that it would be best to test all 8 Segmentation settings.
+
+### **Results of the segmentation of the ROI**
+
+Comparing all eight Segmentation results in QGIS visually, `segm_ROI_8` delivers the best result. Although `segm_ROI_8` is not so accurate with the number and size/area of the individual trees, it is by far the most accurate segmentation which segments only trees and young trees and less shrubs/krummholz (*Figure 13*). The chosen Segmentation `segm_ROI_8`(**Figure 12**) yielded **78% accuracy** (*3.3*). It definitely could be improved by e.g. choosing smaller steps of `h`.
+
+```{r Figure-13, echo=FALSE, message = FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="The training shapes train 1 and train 2 projected on RGB Satellite Imagery of test area 1."}
+library(raster)
+RGB_ROI <- raster::stack(here::here('analysis/data/RGB_IR/RGB_ROI.tif'))
+segm_ROI_8 <- sf::st_read(here::here('analysis/results/segm/segm_ROI/segm_ROI_8.shp'))
+plotRGB(RGB_ROI, r = 1, g = 2, b = 3)
+plot(segm_ROI_8, 
+     col= alpha("darkorchid4", 0.25),
+     add = TRUE)
+legend("bottomright", legend=c("Segmentation 8"), fill="darkorchid4", bg="white")
+```
+
+## **Classification results of test area 1 and ROI**
+
+### **Results of test area 1**
+
+When inspecting the prediction results, the first thing that catches the eye is that **predictions 3 and 4** (*Figure 14*) yield the same results. When we look at the result of `IKARUS::BestPredFFS`, the *'Forward Feature Selection'*, it becomes clear, that the stacks consist of the same predictors (`NDVI_min3` and `TGI_max3`). If we go back one step to the spectral predictors (`clean_ALL_ind_stack_1_homog09_filt/predictors 1` and `clean_ALL_RGBMS_stack_1_homog09_filt/predictors 2`) created in step *5.7*, then we can recall, that they differed by 4 and 5 predictors. The predictors remaining after the *'Forward Feature Selection'* were not of those which differed in the two spectral predictor set, but those which were present in both predictor sets. **Predictions 3 and 4** were carried out with training data sets which were created using the training shape file `train_2`, which consists of minimal number of arbitrary sized and shaped coarse training polygons. This means, that the big training shapes contained pixels which in fact belonged to more than one class. This made made the classes less disparate and thus the differing 4 and 5 predictors did not deliver meaningful information for the best model and were sorted out by the *'Forward Feature Selection'*.
+
+```{r Figure-14, echo=FALSE, message = FALSE, fig.align='center', fig.cap="Prediction 3 and 4 of test area 1. Note the equivalence of the result. The traning shape 2 provided unclear information of the class of the pixels and the spectral predictor stack for both predictions was equal."}
+
+library(raster)
+library(rasterVis)
+library(gridExtra)
+pred_3 <- raster::raster(here::here('analysis/results/predictions/pred_3.tif'))
+pred_4 <- raster::raster(here::here('analysis/results/predictions/pred_4.tif'))
+classPalette <- c("deepskyblue4", "orangered4", "black", "seagreen", "navajowhite4", "darkgreen")
+p1 <- rasterVis::levelplot(pred_3, 
+                           col.regions = classPalette, 
+                           margin = FALSE,  colorkey = FALSE)
+p2 <- rasterVis::levelplot(pred_4, 
+                           col.regions = classPalette,
+                           margin = FALSE,  colorkey = FALSE)
+grid.arrange(p1, p2, ncol=2)
+```
+
+**Predictions 1 and 2** (*Figure 15*) on the other hand were created using the accurate, 3x3 pixel training polygons of the shape file `train_1` and mainly differ in respect of the amount of polygons in the respective classes. **Prediction 1** is more accurate when compared to the distribution of the actual pixels. In **Prediction 2** more pixels were classified as tree instead of shrubs and grass. This is due to the fact that although the resolution of the pixels is 12.5 cm, the spectral representation of classes ***tree***, ***shrub*** and ***grass*** is quite similar and these classes are hard to distinguish. This applies even more the classes ***shadow*** and ***tree in shadow***. Considering all classes and their reflection in the classification, **Prediction 1** is delivers the best results.  
+
+```{r Figure-15, echo=FALSE, message = FALSE, fig.align='center', fig.cap="Classification results of ROI."}
+library(raster)
+library(rasterVis)
+library(gridExtra)
+pred_1 <- raster::raster(here::here('analysis/results/predictions/pred_1.tif'))
+pred_2 <- raster::raster(here::here('analysis/results/predictions/pred_2.tif'))
+classPalette <- c("deepskyblue4", "orangered4", "black", "seagreen", "navajowhite4", "darkgreen")
+p1 <- rasterVis::levelplot(pred_1, 
+                           col.regions = classPalette, 
+                           margin = FALSE,  colorkey = FALSE)
+p2 <- rasterVis::levelplot(pred_2, 
+                           col.regions = classPalette,
+                           margin = FALSE,  colorkey = FALSE)
+grid.arrange(p1, p2, ncol=2)
+```
 
 
+### **Results of ROI**
+
+The four Prediction results form a slow but sure degradation of results when reflected upon from Prediction 1 towards Prediction 4. For a better perception all Predictions are plotted separately. Similarly to test area 1, also in the case of the Prediction of the ROI the already noticed differences of the two training shape files occur. Unlike before (in the case of test are 1 the two FFS spectral stacks were the same), in this case the difference appear in the shift in the amount of classified pixels per class.
+All four Predictions contain misclassifications, on the grounds of what has already been mentioned regarding test area 1: although the resolution of the pixels is 12.5 cm (way higher than that of Satellite data), the spectral representation of the classes ***tree***, ***shrub*** and ***grass*** is quite similar and thus they are hard to distinguish. This applies even more to the classes ***shadow*** and ***tree in shadow***.
+
+**Prediction 4** (*Figure 16*) is the most 'extreme' of the Predictions, classifying too much pixels as class ***tree***. Most of class ***grass*** was classified as ***tree*** and ***shrubs***, although their spectral signature quite distinct. On the other hand class ***shrub*** is in its spectral signature similar to that of class ***tree***, but it is more classes ***grass***, ***tree*** and ***stone*** that are classified as ***shrub*** and not only class ***tree***.  Class ***tree in shadow*** is clearly misrepresented apart from a few instances. This is due to the strong spectral similarity to class ***shadow***. 
+Before drawing any conclusions, let's investigate **Prediction 3**!
+
+```{r Figure-16, echo=FALSE, message = FALSE, fig.align='center', fig.cap="Classification results of ROI."}
+
+library(terra)
+prediction_4_ROI <- terra::rast(here::here('analysis/results/predictions_ROI/pred_4_ROI.tif'))
+classPalette <- c("orangered4","black", "seagreen", "navajowhite4", "darkgreen", "deepskyblue4")
+plot(prediction_4_ROI, col = classPalette)
+```
+
+**Prediction 3** (*Figure 17*) still bears an over classification as class ***tree***, even more so than in the case of **Prediction 4**, in fact ***grass*** is again classified as ***tree***, ***shrubs*** and ***grass***, ***tree*** and ***stone*** is classified as ***shrubs***. The prediction of class ***shadow*** is again fairly accurate. On the other hand class ***tree in shadow*** is represented better, but still not good enough. 
+
+Based on Prediction 4 and 3 we can underline what was understood regarding test area 1. In the case of Prediction 3 and 4 the training shape 2 was used with the arbitrary shapes. Polygons in the training shape are meant to represent pixels of a certain class, but in the case of `train 2` the polygons contain pixels of multiple classes and it is a gamble how many classes and how many pixels of each classes are represented in the polygons. The majority voting of the 'Random Forest' enforces this 'randomness' effect and this is reflected in the Predictions. 
+
+```{r Figure-17, echo=FALSE, message = FALSE, fig.align='center', fig.cap="Classification results of ROI."}
+
+library(terra)
+prediction_3_ROI <- terra::rast(here::here('analysis/results/predictions_ROI/pred_3_ROI.tif'))
+classPalette <- c("orangered4","black", "seagreen", "navajowhite4", "darkgreen", "deepskyblue4")
+plot(prediction_3_ROI, col = classPalette)
+```
+**Prediction 2** (*Figure 18*) captures class ***tree*** almost to the same extent as Prediction 1, apart from small incongruences. Class ***tree in shadow*** is on the other hand over classified: when comparing to the RGB Aerial Image of the ROI, it is visible that much more pixels were classified as class ***tree in shadow*** than as class ***shadow***. The spectral predictors chosen by the `FFS` contain probably very similar values for class ***shadow*** and ***tree in shadow***. Further classes ***stone*** and ***shrubs*** are also over classified: **grass** is frequently classified as **shrubs** and the area around the actual stones is also classified as **stones**, thus a bit amplified. 
+
+```{r Figure-18, echo=FALSE, message = FALSE, fig.align='center', fig.cap="Classification results of ROI."}
+
+library(terra)
+prediction_2_ROI <- terra::rast(here::here('analysis/results/predictions_ROI/pred_2_ROI.tif'))
+classPalette <- c("orangered4","black", "seagreen", "navajowhite4", "darkgreen", "deepskyblue4")
+plot(prediction_2_ROI, col = classPalette)
+```
+
+**Prediction 1** (*Figure 19*) delivers the best result of all the Predictions of the ROI. There are clear misclassifications of class ***shrub*** as class ***tree*** and of class ***shadow*** as class ***tree in shadow***. \
+Based on the experiences of the classification of ***shadow*** and ***tree in shadow*** in the **Predictions 4, 3 and 2**, it can be said, that both classes together are constant in the Predictions  (in the RGB Aerial Imagery it is visible that that is the area of trees in shadow and the shadow cast by the trees); it only differs how the two classers are distributed. 
+When inspecting the classification of trees in all Predictions of the ROI it is noticeable, that their shadow (to the NE) has a certain halo of pixels of class ***tree***. The explanation of this phenomenon is that a so-called '*optical edge-effect*' occurs: the spectral value of the pixels surrounding the shadow of the trees in about 1 pixel radius form a spectral transition from class ***shadow*** black pixels to the surrounding other, mainly class ***grass*** lighter pixels. This same effect occurs on the border from trees to grass: the spectral value of the 1 pixel radius pixels between the two class becomes spectrally mixed and thus falls into class ***shrub*** which corresponds to the spectral value of ***shrub*** pixels. This is an optical problem which occurs when registering the spectral band with the specific cameras and as visible, has a strong effect on the classification results.  
+
+```{r Figure-19, echo=FALSE, message = FALSE, fig.align='center', fig.cap="Classification results of ROI."}
+
+library(terra)
+prediction_1_ROI <- terra::rast(here::here('analysis/results/predictions_ROI/pred_1_ROI.tif'))
+classPalette <- c("orangered4","black", "seagreen", "navajowhite4", "darkgreen", "deepskyblue4")
+plot(prediction_1_ROI, col = classPalette)
+```
+
+## **Validation of test area 1 and ROI** **`9_validation_test_area_1_ROI.R`**
+
+Before looking at the results of the statistical validation of the Segmentation and the Classification of the ROI, we have to bear in mind, that these two methods work completely differently and both have their own (technical) limitations and thus their statistical comparison should be accepted with reservation. However the actual decision of the success of either method should not depend on the result of the validation. 
+
+Let's compare the two results visually to be able to understand what the results of the validation mean:
+
+```{r Figure-20, echo=FALSE, message = FALSE, fig.align='center', fig.cap="Prediction of the ROI overlayed by the Segmentation of the ROI."}
+
+library(terra)
+prediction_1_ROI <- terra::rast(here::here('analysis/results/predictions_ROI/pred_1_ROI.tif'))
+segm_ROI_8 <- sf::st_read(here::here('analysis/results/segm/segm_ROI/segm_ROI_8.shp'))
+classPalette <- c("orangered4","black", "seagreen", "navajowhite4", "darkgreen", "deepskyblue4")
+
+plot(prediction_1_ROI, col = classPalette)
+plot(segm_ROI_8, col= alpha("darkorchid4", 0.5), add=TRUE)
+legend("bottomleft", legend=c("Segmentation 8"), fill="darkorchid4", bg="white")
+```
+
+The validation of the Classification with the Segmentation is carried out with the function **IKARUS::classSegVal**.
+The function first reclassifies the six classes of a Prediction into two - classes tree and not tree. In the next step the Segmentation is rasterized. Then the two results are compared using cell statistics. In essence: the amount the pixels of class ***tree*** in the Segmentation is compared with the amount of pixels of class ***tree*** in the Prediction. Further the possibility exists to reclassify any given class as ***tree*** and to involve it in the cell statistics. This was implemented because pixels of class ***tree in shadow*** are technically part of trees even if they are spectrally different.     \
+The result is a raster file containing the reclassified classification to tree and not tree (including the eventually reclassified pixels) and a short table is printed with the following results: `nclass`, `nseg`, `overclass`, `underclass`, `hit`, `hitrate`, `rate underclass` and `rate overclass`. \
+`nclass` - gives a value for amount of pixels of class ***tree*** in the Classification (including reclassification) \
+`nseg` - gives a value for the amount of pixels of class ***tree*** in the rasterized Segmentation \
+`overclass` - gives a value for pixels occurring in the Classification but not in the rasterized Segmentation \
+`underclass` - gives a value for pixels occurring in the rasterized Segmentation but not in the Classification \
+`hit` - gives a value for pixels occurring both in the Classification and in the rasterized Segmentation \
+`hitrate` - gives a % value for pixels occurring both in the Classification and in the rasterized Segmentation \
+`rate underclass` - gives a % value for pixels occurring in the rasterized Segmentation but not in the Classification  \
+`rate overclass` - gives a % value for pixels occurring in the classification but not in the rasterized Segmentation pixels 
+
+`validation score` - prints together the `hitrate` (in %) @ `rate overclass` (in %) + `rate underclass` (in %)
+
+### **Results for test area 1**
+
+## Validation of pixels of class ***tree***  
+
+```{r Figure-21, echo=FALSE, message = FALSE, fig.align='center', fig.cap="Prediction of the ROI overlayed by the Segmentation of the ROI."}
+
+library(terra)
+valid_1_trees <- terra::rast(here::here('analysis/results/validation/valid_area_1_trees.tif'))
+classPalette <- c("white", "darkgreen")
+plot(valid_1_trees, col = classPalette)
+```
+
+valdiation score:  0.8093 @ 0.6656 
+
+| nclass | nseg | overclass | underclass | hit | hitrate | rate underclass | rate overclass |
+|-------:|-----:|----------:|-----------:|----:|--------:|----------------:|---------------:| 
+|  22012 |33930 |    4197   |   16115    |17815|  0.8093 |     0.4749      |     0.1907     |
+
+The validation score means, that 0.8093 % of the pixels occur both in the Classification and in the rasterized Segmentation; 0.1907 % of pixels occur in the classification but not in the rasterized Segmentation pixels (over classification) and 0.4749 % value of pixels occur in the rasterized Segmentation but not in the Classification (under classification).   
+
+## Validation of pixels of class ***tree***  +  ***tree in shadow***
+
+```{r Figure-22, echo=FALSE, message = FALSE, fig.align='center', fig.cap="Prediction of the ROI overlayed by the Segmentation of the ROI."}
+
+library(terra)
+valid_1_treesnshadows <- terra::rast(here::here('analysis/results/validation/valid_area_1_treesnshadows.tif'))
+classPalette <- c("white", "darkgreen")
+plot(valid_1_treesnshadows, col = classPalette)
+```
+
+valdiation score:  0.7593 @ 0.5776
+
+| nclass | nseg | overclass | underclass | hit | hitrate | rate underclass | rate overclass |
+|-------:|-----:|----------:|-----------:|----:|--------:|----------------:|---------------:|
+| 29633  |33930 |    7133   |    11430   |22500|  0.7593 |      0.3369     |     0.2407     |
+
+The validation score means, that 0.7593 % of the pixels occur both in the Classification and in the rasterized Segmentation; 0.2407 % of pixels occur in the classification but not in the rasterized Segmentation pixels (over classification) and 0.3369 % value of pixels occur in the rasterized Segmentation but not in the Classification (under classification).
+
+Comparing the two validations it is visible, that when class  ***tree*** is reclassified with pixels of class ***tree in shadow***, the hitrate and under classification decreases but the over classification increases, thus impairing the Classification of only class ***tree*** when compared to the result of the Segmentation. 
+
+When class ***shadow*** is included in the reclassification, then the validation score is even lower: 0.6544 @ 0.4264
+
+### **Results for ROI**
+
+## Validation of pixels of class ***tree***  
+
+```{r Figure-23, echo=FALSE, message = FALSE, fig.align='center', fig.cap="Prediction of the ROI overlayed by the Segmentation of the ROI."}
+
+library(terra)
+valid_trees_ROI<-terra::rast(here::here('analysis/results/validation_ROI/valid_trees_ROI.tif'))
+classPalette <- c("white", "darkgreen")
+plot(valid_trees_ROI, col = classPalette)
+```
+
+valdiation score: 0.4411 @ 1.0089
+
+| nclass | nseg | overclass | underclass | hit  | hitrate | rate underclass | rate overclass |
+|-------:|-----:|----------:|-----------:|-----:|--------:|----------------:|---------------:| 
+| 886769 |711102|   495632  |   319965   |391137|  0.4411 |       0.45      |     0.5589     |
+
+The validation score means, that 0.4411 % of the pixels occur both in the Classification and in the rasterized Segmentation; 0.5589 % of pixels occur in the classification but not in the rasterized Segmentation pixels (over classification) and 0.45 % value of pixels occur in the rasterized Segmentation but not in the Classification (under classification).  
+
+## Validation of pixels of class ***tree***  +  ***tree in shadow***
+
+```{r Figure-24, echo=FALSE, message = FALSE, fig.align='center', fig.cap="Prediction of the ROI overlayed by the Segmentation of the ROI."}
+
+library(terra)
+valid_trees_treesnshadow_ROI<-terra::rast(here::here('analysis/results/validation_ROI/valid_treesnshadows_ROI.tif'))
+classPalette <- c("white", "darkgreen")
+plot(valid_trees_treesnshadow_ROI, col = classPalette)
+```
+
+valdiation score: 0.4222 @ 0.9187
+
+| nclass | nseg | overclass | underclass | hit  | hitrate | rate underclass | rate overclass |
+|-------:|-----:|----------:|-----------:|-----:|--------:|----------------:|---------------:| 
+| 1110145|711102|   641439  |   242396   |468706|  0.4222 |      0.3409     |     0.5778     |
+
+The validation score means, that 0.4222 % of the pixels occur both in the Classification and in the rasterized Segmentation; 0.5778 % of pixels occur in the classification but not in the rasterized Segmentation pixels (over classification) and 0.3409 % value of pixels occur in the rasterized Segmentation but not in the Classification (under classification). 
+
+Comparing the two validations it is visible, that when class  ***tree*** is reclassified with pixels of class ***tree in shadow***, the hitrate and under classification decreases but the over classification increases, thus impairing the Classification of only class ***tree*** when compared to the result of the Segmentation. 
+
+When class ***shadow*** is included in the reclassification, then the validation score is even lower: 0.3917 @ 0.6899
+
+It has to be said that it makes no real sense to thoroughly compare the segmentation results with the Aerial Imagery - rather the IR Imagery. The segmentation is based on the Canopy Height Model and LiDAR data and the RGB and IR Imagery on spectral data. E.g. in the IR Imagery you can see the young trees and seedling in a lighter red. 

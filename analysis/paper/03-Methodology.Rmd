@@ -1,62 +1,96 @@
 # Methodology
 
-## **Description of the research area and the data sets used in the case study**
-The workflow is presented on a case study area in the Vorarlberg, Alps...
+## **The case study area, the Region of Interest and the data sets used in the case study**
 
-Figure 3
+The workflow is presented on a case study from the North-Central Vandans region, situated in the South-West of the Vorarlberg Alps in the West of Austria. The Region of Interest (ROI) lies on the West mountainside of the *Mädli*, North of Voralpe Vilifrau. The ROI (250 x 190 m) was chosen at the upper treeline, which can be described as an *abrupt diffuse krummholz treeline* according to the classification of @baderGlobalFrameworkLinking2021, taking  the young trees and occasional shrubs/krummholz below and around the treeline into account. **Figure 3** describes the situation best. 
+
+```{r Figure-3, echo=FALSE, message = FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="Schematic depiction of the ATE. It clearly sets the ROI of this case study above the timberline and still around the treeline. Source: Barredo Cano et al. (2020) "}
+knitr::include_graphics('C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_3.png')
+```
+
+In this project LIDAR data (without any metadata and also the date of acquisition) as well as RGB and IR (Infra-Red) Aerial Imagery from 2012 was used, all downloaded from the [VoGIS website](http://vogis.cnv.at/atlas/init.aspx).
+
+For the development of the workflow 4 test areas were defined inside the ROI to first test the values of the different algorithms on test area 1 and if needed also on the rest of the rest areas. Originally masks for each 4 test areas were created in QGIS and based on them, the Canopy Height Model (CHM) and the RGB and IR Aerial Imagery was cropped to the size of the test area masks. When it became clear, that the minimal computable raster size (on grounds of the restrictions of the `raster package` in `R`) was a lot smaller than the maximum size of the actual ROI originally decided, it was reduced. The sizes of the CHM test areas were defined using the **'Clip raster by Extent'** tool, with the ***'use map canvas'*** setting in QGIS, to define 4, approximately 32 x 32 m test areas (**Figure 4**). Then the respective CHM test areas were used as masks/extents to clip the respective RGB and IR test areas in QGIS. 
+
+```{r Figure-4, echo=FALSE, message = FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="The RGB ROI with the 4 (in this case chms) test areas. The order of the test areas is the following: test area 1 is top right, test area 2 centre, test area 3 centre left and test area 4 bottom right. All chms are classified with the same value range, depicted in the legend. Scale 1:800"}
+knitr::include_graphics('C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_4.png')
+```
 
 ## **The reproducible workflow**
 
-The reproducible workflow is made up of the files: **00_library_n_prep.R**, **0_set_up_working_envrnmt.R**, **1_data_prep_general.R**, **2_segmentation_test_area_1.R**, **3_segmentation_validation_ROI.R**, **4_data_prep_classification_test_area_1.R**, **5_classification_validation_test_area_1.R** and **6_data_prep_classification_ROI.R**, **7_classification_ROI.R**.
+The reproducible workflow is made up of the following files:\
+`00_library_n_prep.R`, `0_set_up_working_envrnmt.R`, `1_data_prep_general.R`,  
+`2_segmentation_test_area_1.R`, `3_CV_segmentation_test_areas.R`, \
+`4_segmentation_ROI.R`, `5_data_prep_classification_test_area_1.R`, \
+`6_classification_test_area_1.R`, `7_data_prep_classification_ROI.R`, \
+`8_classification_ROI` and `9_validation_test_area_1_ROI`.
 
-These commented R files build up on each other step-by-step, starting with the preprocessing of the input data. This .Rmd only presents the backbone which links the .R files together. 
+These commented `.R files` build up on each other step-by-step, starting with the pre-processing of the input data. This `.Rmd` only presents the backbone which links the `.R files` together. 
 
-To reproduce the results of the whole project you have to run the code in the .R files, numbered sequentially. **00_library_n_prep.R** is a library file, containing all the packages needed for this project. It installs packages from the R repository or from github if some would be missing. This file does not need running, unlike the next one, **0_set_up_working_envrnmnt.R**. It is going to set up the project folder structure on your computer/laptop, but you have to adapt the path of the project directory to the destined place on your computer/laptop and also attach or install the packages needed. 
+To reproduce the results of the whole project you have to run the code in the `.R files`, numbered sequentially. `00_library_n_prep.R` is a library file, containing all the packages needed for this project. It installs packages from the R repository or from github if some would be missing. This file does not need running, unlike the next one, `0_set_up_working_envrnmnt.R`. It is going to set up the project folder structure on your computer/laptop, but you have to adapt the path of the project directory to the destined place on your computer/laptop and also attach or install the packages needed.\
 The data used in this project is stored on Google Drive, from where you have to download it to the respective folders (**dsm/**, **dem/**, **RGB_IR/**, **RGB_IR/**, **treepos/**, **train/**) set up on you device by the script you just ran (because a)**github** limits the size of data to be uploaded and b) the data used is not openly available, that is proprietary).
 
-The main workflow consist of to sub-workflows, which are equally important: the Object Based Image Analysis (**.R files 2-3**, working with the LiDAR data set) and the Pixel-Based Image Classification (**.R files 4-5-6-7**, working with the Satellite data set), which will be combined at the end (**.R file 8**). 
+The main workflow consist of three sub-workflows, which are equally important: the Object Based Image Analysis (OBIA: `.R files 2-3-4`, working with the LiDAR data set) and the Pixel-Based Image Classification (PBIA: `.R files 5-6-7-8`, working with the Aerial imagery), which latter is then validated in `.R file 9` by the result of the Object-based Image Analysis (**Figure 5**). 
 
-Flowchart of the workflow (Figure 4)
-
-The .R files are commented in a manner, that they can be used as a manual or tutorial. In this chapter only the ideas behind the workflow and in the next chapter the results will be discussed to keep it short.
-
-For this project three R packages were developed: *LEGION*, *CENITH* and *IKARUS*. 
-**LEGION** computes indices from RGB and Multispectral Imagery and provides also their basic statistics (correlation and homogeneity). See more details in the help pages and in the tutorial of the package. 
-**CENITH** is a wrapper for the *ForestTools package* (Plowright and Roussel 2020) to perform tree segmentation on a specific area. It also provides cross validation to estimate and validate the performance of a segmentation model for multiple test areas. See more details in the help pages and in the tutorial of the package.  
-**IKARUS** is a wrapper for the *CAST* package (Meyer 2020) to perform Pixel-based Image Analysis and classification.See more details in the help pages and in the tutorial of the package.
-
-## **General data preparation (.R file: 1_data_prep_general.R)**
-
-For the project a Region of Interest (later ROI) was chosen which displays the different vegetation types at this specific ATE. Four test areas were defined within the ROI. The workflow is designed in such a way, that the individual steps of the workflow were developed on test area 1 and tested (generalized) on the other (test) areas to deal with the unavoidable variability of data. The resulting settings and variables are then to applied to the ROI. This three-step procedure is used to make sure that the algorithms applied and values used are effective and robust. 
-
-Originally masks for each 4 test areas were created in QGIS and based on them, the Canopy Height Model (CHM) and the RGB and IR (Infra-Red) imagery was cropped to the size of the test area masks. When it became clear, that the minimal computable raster size (on grounds of the restrictions of the 'raster' package in R) was a lot smaller than the maximum size of the actual ROI originally decided, it was reduced. The sizes of the CHM test areas were defined using the **'Clip raster by Extent'** tool, with the ***'use map canvas'*** setting in QGIS, to define 4, approximately 32 x 32 m test areas. Then the respective CHM test areas were used as masks/extents to clip the respective RGB and IR test areas in QGIS. 
-
-The CHM was created by subtracting the Digital Elevation Model (DEM) form the Digital Surface Model (DSM). This way only the LiDAR points connected to the vegetation above ground are preserved and can be used for our calculations.
-
-## **Segmentation of the test area 1** 
-**(.R file: 2_segmentation_test_area_1.R)**
-
-The aim of this step is to find an accurate segmentation for test area 1 which can be tested on the other test areas and then applied to the ROI.
-
-The segmentation is performed using the CENITH package. As CENITH is a wrapper for ForestTools, it also uses the **Watershed Segmentation** using markers (Meyer and Beucher 1990) which is implemented in ForestTools. 
-
-The first task is to set verification points (this can be also done with the ForestTools package, but we preferred to do it by hand so it was not implemented in the CENITH package) - that is locate the positions of the trees (we will call it tree positions but technically they are verification points, that is 'vp') in the test areas using QGIS. 
-
-Before starting to define the tree positions in each test areas, first of all the minimum height of the trees has to be identified (which of course is region and area dependent). In the Alpine region the vegetation consists of trees but also shrubs and Krummholz, which have to be distinguished from trees. If also young trees trees are present and should be considered, then it is important not to confuse them with shrubs, which is often rather complicated and even impossible. If Satellite Imagery is also available (as in our case), it can help to consider the difference in the spectral and textural signature. 
-The identification of the minimum tree-height can be best determined using QGIS. Thus to distinguish the actual trees, for one the spectral information of the Satellite Imagery (which will be mainly used for the Pixel-based Image Classification) was exploited. Trees demonstrate - apart from their height in the CMHs - much more branches which leads to less homogeneous green color (mixed with black and creme colored pixels) as that of the shrubs which show in their entirety a single color. On the other side the CHMs were displayed by giving each height between < 0.5 m and > 29 ma different color (see the QGIS style file). 
-Combining these two sets of information, the minimum tree height was defined at 4-5 meters (Figure 5). This height included the lowest young trees but not the shrubs and Krummholz. To be able to include the young trees, it was opted for h=4 instead of 5 meters.
-
-```{r Figure-5, echo=FALSE,fig.show='hold', fig.align = "default", out.width="100%", out.height="100%", fig.cap="Comparision of RGB Satellite Imagery and LIDAR-derived CHMs classified by height using different colors (blue <  o.5 m; white > 0.5 < 3; yellow > 3 < 4m, red > 4 < 5m;  green to black < 5m) Detail of test area 4."}
-knitr::include_graphics('C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_6.png')
+```{r Figure-5, echo=FALSE, message = FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="Flowchart of the workflow developed for the automated detection of trees in general using LiDAR data and Aerial Imagey. The workflow consists of three main parts: a workflow for Object-based Image Analysis, a workflow for Pixel-based image analysis and the validtion of the result of the Classification with the results of the Segmentation."}
+knitr::include_graphics('C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_5.png')
 ```
 
-The exact position of the individual trees (including young trees) was based for on on the decision of the minimum tree height based on the RGB and IR Satellite Imagery and was determined by looking for the highest point of the chms.
+The workflow is designed in such a way, that the individual steps were developed on test area 1 and tested (generalized) on the other test areas to deal with the unavoidable variability of data (at least in the case of the Object-based Image Analysis). The resulting settings and variables are then to applied to the ROI. This multistep procedure is used to make sure that the algorithms applied and values used are effective and robust. 
 
-```{r Figure-6, echo=FALSE, message = FALSE, fig.align='center', fig.cap="The defined tree positiions (verification points/vp) in IR Satellite Imagery of test area 1 ."}
+The `.R files` are commented in a manner that they can be used as a manual or tutorial together with this study. This chapter contains the workflow and explanations connected to each step and the results will be discussed in **Chapter 4** to keep it short and condensed.
+
+For this project three R packages were developed: `CENITH`, `LEGION` and `IKARUS`. \
+`CENITH` is a wrapper for the `ForestTools` package (@plowrightForestToolsAnalyzingRemotely2021) to perform tree Segmentation on any specific area. It also provides cross validation to estimate and validate the performance of a Segmentation model for multiple test areas. See more details in the help pages and in the tutorial of the package.\
+`LEGION` computes indices from RGB and Multispectral Imagery and provides also their basic statistics (correlation and homogeneity). See more details in the help pages and in the tutorial of the package.\
+`IKARUS` is a wrapper for the `CAST` package (@meyerCASTCaretApplications2022) to perform Pixel-based Image Analysis and Classification.See more details in the help pages and in the tutorial of the package.
+
+## **General data preparation** 
+**`1_data_prep_general.R`**
+
+In the data preparation files the data set(s) used in the workflow are prepared.\
+The CHM was created by subtracting the Digital Elevation Model (DEM) form the Digital Surface Model (DSM) (*1.1* - these numbers refer to the number of `.R files` and the respective section in the code, not the chapters in the text). This way only the LiDAR points connected to the vegetation above ground are preserved and can be used for calculations (**Figure 6**).
+
+```{r Figure-6, echo=FALSE, message = FALSE, fig.align='center', fig.cap="The created CHM of the Region of Interest (ROI). The maximum value of the CHM is 293.8199 m, most probably detection error."}
 library(raster)
 library(ggplot2)
 library(sf)
-library(cowplot)
+chm_ROI <- raster::raster(here::here('analysis/results/chm/chm_ROI.tif'))
+chm_ROI_df <- as.data.frame(chm_ROI, xy = TRUE)
+
+chm_ROI <- ggplot() +
+           geom_raster(data = chm_ROI_df, 
+                       aes(x = x, y = y, fill = chm_ROI)) +
+                       scale_fill_continuous(type = "viridis") 
+plot(chm_ROI)
+```
+
+## **Segmentation of the test area 1** **`2_segmentation_test_area_1.R`**
+
+With `.R script 2` the first sub-workflow, the Object-based Image Analysis of the test area 1  starts. The aim of this first step is to find an accurate segmentation for test area 1 which can be tested on the other test areas and then applied to the ROI.
+
+The segmentation is performed using the `CENITH` package. As `CENITH` is a wrapper for `ForestTools`, it also uses *'Watershed Segmentation'* with markers (@meyerMorphologicalSegmentation1990) which is implemented in `ForestTools`. *'Watershed Segmentation'* is an *'Edge-based Region Growing Segmentation'* technique and simulates real-life flooding. It identifies clear segment boundaries which it then "fills up". Markers guide the algorithm how/ from which point to "fill up" the basins/segments (**Figure 7**, @rofflerStepStepDeveloping2020b, 33). 
+
+```{r Figure-7, echo=FALSE, message = FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="Operating principle of the 'Watershed Segmentation' Roffler (2020), 33."}
+knitr::include_graphics('C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_7.png')
+```
+
+The first task is to set verification points (this can be also done with the `ForestTools package`, but we preferred to do it by hand thus it was not implemented in the `CENITH package`) - that is locate the positions of the trees in the test areas using QGIS. 
+
+Before defining the tree positions in each test areas, first of all the minimum height of the trees has to be identified (which of course is region, area and species dependent). In the Alpine region the vegetation consists of trees but also shrubs/krummholz, which have to be distinguished from trees. If also young trees trees are present and should be considered, then it is important not to confuse them with shrubs, which is often rather complicated and even impossible. If Aerial or Satellite Imagery is also available (as in our case), it can help to consider the difference in the spectral and textural signature. \
+The identification of the minimum tree-height can be best determined using QGIS. Thus to distinguish the actual trees, for one the spectral information of the Satellite Imagery (which will be mainly used for the Pixel-based Image Classification) was exploited. Trees demonstrate - apart from their height in the CMHs - much more branches which leads to less homogeneous green color (mixed with black and creme colored pixels) as that of the shrubs which show in their entirety a single color. On the other side the CHMs were displayed by giving each height between < 0.5 m and > 29 ma different color (see the QGIS style file). \
+Combining these two sets of information, the minimum tree height was defined at 4-5 meters (**Figure 8**). This height included the lowest young trees but not the shrubs and Krummholz. To be able to include the young trees, it was opted for h=4 instead of 5 meters.
+
+```{r Figure-8, echo=FALSE, fig.show='hold', fig.align = "default", out.width="100%", out.height="100%", fig.cap="Comparision of RGB Satellite Imagery and LIDAR-derived CHMs classified by height using different colors (blue <  o.5 m; white > 0.5 < 3; yellow > 3 < 4m, red > 4 < 5m;  green to black < 5m) Detail of test area 4."}
+knitr::include_graphics('C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_7.png')
+```
+
+The exact position of the individual trees (including young trees) was based on on the decision of the minimum tree height based on the RGB and IR Aerial Imagery and was determined by looking for the highest point of the CHMs (**Figure 9**).
+
+```{r Figure-9, echo=FALSE, message = FALSE, fig.align='center', fig.cap="The defined tree positions (vp) in chm 1 of the test area 1. It is visible, that still with a CHM and also IR Aerial Imagery it is not an easy task to define trees."}
+library(raster)
+library(ggplot2)
+library(sf)
 chm_1 <- raster::raster(here::here('analysis/results/chm/chm_1.tif'))
 vp_1 <- sf::st_read(here::here('analysis/data/treepos/vp_1.shp'))
 chm_1_df <- as.data.frame(chm_1, xy = TRUE)
@@ -69,21 +103,21 @@ overlay <- ggplot() +
            ggtitle("Overlay of chm_1 & vp_1 in test area 1")
 plot(overlay)
 ```
-The segmentation itself can be executed with the **CENITH::TreeSeg** function. This function works with a MovingWindow of size a * b (x,y) at height h. *a*, *b* are horizontal and vertical values (x, y) in meters and *h* is height in meters on the CHM. 
-This function takes single values, with which different and various values of the segmentation variable can be tested. The results can be checked in QGIS. 
-The variables *MIN* and *MAX* filter the segments to a certain size. Because with the variables used there is small chance to get too big segments, the *MAX* variable is not used, only the *MIN* variable, to filter out small segments. Another variable, which controls and filters out small artifacts and data errors - directly on the chm is the *chmFilter*.
-The tests with **CENITH::TreeSeg** show, that it is very useful to apply a *sum* filtered CHM (see the difference between the results **test_0** and **test_1** in QGIS) and give an estimate of how big or small the variables *a*, *b* and *MIN* have to be set. Based on the fact that there are 15 trees in test area 1 we can estimate how accurate the segments might be. Taking a look at test 1, 2 & 3 we can see how the reduction of *a* and *b* elevated the number of trees. This is useful information for **CENITH::BestSegVal**.
 
-The function **CENITH::BestSegVal** can be fed with long sequences of values for each variable (this is called parameter tuning). N.B. long sequences mean longer calculation time, thus it is best to test out different variable settings with **CENITH::TreeSeg** to narrow down in which setting range a, b and h might move. 
-In the second part of the script *2_segmentation_test_area_1.R*, the use of **CENITH::BestSegVal** is demonstrated. In this function also the vps (tree positions) are taken into account as a validation basis. All calculation in the resulting table are based on the comparison of the vps/tree positions to the segmentation results. The variable *hit.vp* shows explicitly, how many vps/tree positions are 'hit' by the resulting segments. 
+The segmentation itself can be executed with the `CENITH::TreeSeg` function. This function works with a *MovingWindow* of size a * b (x,y) at height h. `a`, `b` are horizontal and vertical values (x, y) in meters and `h` is height in meters on the CHM.\
+This function takes single values, with which different and various values of the segmentation variable can be tested. The results can be checked in QGIS.\
+The variables `MIN` and `MAX` filter the segments to a certain size. Because with the variables used there is small chance to get too big segments, the `MAX` variable is not used, only the `MIN` variable, to filter out small segments. Another variable, which controls and filters out small artifacts and data errors - directly on the chm is the `chmFilter`.\
+The tests with `CENITH::TreeSeg` show (*2.3* - these numbers refer to the respective section in the code), that it is very useful to apply a `sum filtered` CHM (see the difference between the results **test_0** and **test_1** in QGIS) and give an estimate of how big or small the variables `a`, `b` and `MIN` have to be set. Based on the fact that there are 15 trees in test area 1 we can estimate how accurate the segments might be. Taking a look at test 1, 2 & 3 we can see how the reduction of `a` and `b` elevated the number of trees. This is useful information for `CENITH::BestSegVal`.
 
-In the first run the values **a=seq(0.05, 0.1, 0.01), b=seq(0.05, 0.1, 0.01), h=seq(3.5, 6, 0.5), MIN=seq(0.1, 0.5, 0.1)** were tested, to go a bit below and above the defined height of the trees and to determine the best *a*, *b* and *MIN* values. *CHMfilter* is set at 3, because we want to do only minimal filtering to minimize small artifacts and gaps in the chm. 
-In the first run we got 1080 results and 45 maximal segments. Because there are 15 trees in test area 1, the tibble was filtered to 20 segments (to count in possible undersegmentation) and arranged according to the best *hitrate* (which was 0.733333) and still got 664 results. These are still too much results to decide which combination of settings should be applied to the other test areas.
-Thus the results were filtered to a **hitrate >= 0.7** (the best results), **height <= 4.0.** (the height of trees) and the total segments were ordered in descending order. This resulted in 40 observations, from which the first four were actually calculated with *TreeSeg* and compared in QGIS. The lesson learend was, that it became clear that MIN (the size of the smallest segment) has to be set to 0.1 and that the range of a & b of the best results is > 0.1. 
+The function `CENITH::BestSegVal` can be fed with long sequences of values for each variable (this is called parameter tuning). N.B. long sequences mean longer calculation time, thus it is best to test out different variable settings with `CENITH::TreeSeg` to narrow down in which setting range a, b and h might move. In the second part of the script `2_segmentation_test_area_1.R`, the use of `CENITH::BestSegVal` is demonstrated (*2.4*). In this function also the vps (tree positions) are taken into account as a validation basis. All calculation in the resulting table are based on the comparison of the vps/tree positions to the segmentation results. The variable `hit.vp` shows explicitly, how many vps/tree positions are 'hit' by the resulting segments. 
 
-Thus a second run of **CENITH::BestSegVal** was set up with the variables **MIN=0.1, a=seq(0.01, 0.1, 0.01), b=seq(0.01, 0.1, 0.01)**, to find better segment sizes and **h=seq(3.5, 6, 0.5)** with the same settings as in the first run, to enable a systematic analysis. 
-The 600 results were filtered the same way as the first run: filtering to 20 segments lead to 204 results, still keeping the best *hitrate* at 0.733333. The filtering to **hitrate >= 0.7** and **height <= 4.0** lead to 8 observations, of which six are the same results of the first round. These correspondence of these 8 results  confirmed, that all should be applied to the other test areas in the next step (*3_segmentation_validation_area_1_ROI.R*). 
-All steps can be computed in the respective .R files.
+In the first run the values `a=seq(0.05, 0.1, 0.01), b=seq(0.05, 0.1, 0.01), h=seq(3.5, 6, 0.5), MIN=seq(0.1, 0.5, 0.1)` were tested, to go a bit below and above the defined height of the trees and to determine the best `a`, `b` and `MIN` values. `CHMfilter` is set at 3, because we want to do only minimal filtering to minimize small artifacts and gaps in the chm. 
+
+In the first run (*4.1*) we got 1080 results and 45 maximal segments. Because there are 15 trees in test area 1, the tibble was filtered to 20 segments (to count in possible undersegmentation) and arranged according to the best `hitrate` (which was  **0.733333**) and still got 664 results. These are still too much results to decide which combination of settings should be applied to the other test areas.
+Thus the results were filtered to a `hitrate >= 0.7` (the best results), `height <= 4.0`. (the height of trees) and the total segments were ordered in descending order. This resulted in 40 observations (*4.1a*), from which the first four were actually calculated with `CENITH::TreeSeg` and compared in QGIS. The lesson learned was, that it became clear that MIN (the size of the smallest segment) has to be set to 0.1 and that the range of a & b of the best results is > 0.1. 
+
+Thus a second run of `CENITH::BestSegVal` was set up (*4.2*) with the variables `MIN=0.1, a=seq(0.01, 0.1, 0.01), b=seq(0.01, 0.1, 0.01)`, to find better segment sizes and `h=seq(3.5, 6, 0.5)` with the same settings as in the first run, to enable a systematic analysis. 
+The 600 results were filtered the same way as the first run: filtering to 20 segments lead to 204 results, still keeping the best `hitrate` at **0.733333**. The filtering to `hitrate >= 0.7` and `height <= 4.0` lead to 8 observations (**Table 1**), of which six are the same results of the first round (*4.2a*). This broad correspondence of these 8 results confirmed, that all should be applied to the other test areas in the next step (`3_CV_segmentation_test_areas.R`). All steps can be computed in the respective .R files.
 
 ```{r Table-1, echo=FALSE, fig.align='center'}
 library(dplyr)
@@ -100,16 +134,16 @@ best_seg_vp_1_v2_filt <- best_seg_vp_1_v2 %>%
   arrange(desc(total_seg))%>%
   filter(height <= 4.0)
 
-bestsegval <- knitr::kable(best_seg_vp_1_v2_filt, longtable = T, booktabs = TRUE, caption = "Results of the  second run of CENITH::BestSegVal")
+bestsegval <- knitr::kable(best_seg_vp_1_v2_filt, longtable = T, booktabs = TRUE, caption = "Results of the second run of CENITH::BestSegVal")
 kableExtra::kable_styling(bestsegval, font_size = 7)
 ```
 
-## **Cross-validated Segmentation of test areas** 
-   **(.R file: 3_segmentation_validation_area_1_ROI.R)**
+## **Cross-validated Segmentation of the test areas** **`3_CV_segmentation_test_areas.R`**
 
-The filtered results of the segmentation of test area 1 resulted in eight possible segmentations which are going to be tested if and how they fit the other test areas. Up to some degree it is an experiment to test which might be the possibly best segmentation which fits the other test areas. That is why all eight results from **best_seg_vp_1_filt_v2_filt** were processed. The eight results contain also h=3.5 m, so it can be checked which height really represents best the whole ROI. The cross-validates segmentation is done by the **CENITH::TreeSegCV** function. 
-The test areas and vps (tree positions) are given as a list to the function. The length of both lists/number of test areas and vps have to equal. The number of test areas and vps set the number of folds used, in this case 4. It gives a similar table as result as **CENITH::BestSegVal**, but calculates also the overall performance of the segmentation quality (which is based on how many and how much of the vps/tree positions were 'hit'), printed out when the cross-validated segmentation has finished.
-All eight settings produce on all test areas an overall performance (mean performance in Table 1) between 0.78 @ 0.31 and 0.78 @ 0.33. This value is given right away by the algorithm as result. Looking at the data frame created by each cross-validated segmentation, the following can be observed (Table 2):  
+The filtered results of the segmentation of test area 1 resulted in eight possible segmentations which are going to be tested if and how they fit the other test areas. Up to some degree it is an experiment to test which might be the possibly best segmentation which fits the other test areas. That is why all eight results from `best_seg_vp_1_filt_v2_filt` were processed. The eight results contain also h=3.5 m, so it can be checked which height really represents best the whole ROI. The cross-validates segmentation is done by the `CENITH::TreeSegCV` function.\
+The test areas and vps (tree positions) are given as a list to the function. The length of both lists/number of test areas and vps have to equal. The number of test areas and vps set the number of folds used, in this case 4. It gives a similar table as result as `CENITH::BestSegVal`, but calculates also the overall performance of the segmentation quality (which is based on how many and how much of the vps/tree positions were 'hit'), printed out when the cross-validated segmentation has finished.\
+All eight settings produce on all test areas an overall performance (mean performance in Table 1) between **0.78 @ 0.31 and 0.78 @ 0.33**. This value is given right away by the algorithm as result. Looking at the data frame created by each cross-validated segmentation, the following can be observed (**Table 2**):
+
 ```{r Table-2, echo=FALSE, fig.align='center'}
 library(dplyr)
 cv1 <- read.csv(here::here('analysis/results/segm/segm_table/cv1.csv'), header = TRUE, sep=",")
@@ -134,12 +168,13 @@ kableExtra::kable_styling(cv_all, font_size = 6.5)
 
 Inspecting the performance of the individual test areas, it is visible, that the behave similarly in each segmentation, but also that test area 4 has the lowest values all variables considered. This shows, that the performance of the different test areas depend on each other and balance each other out. 
 
-## **Segmentation of ROI (4_segmentation_ROI.R)** 
+## **Segmentation of ROI** 
+**`4_segmentation_ROI.R`** 
 
-Given the explanatory aim of this work, all eight results of **best_seg_vp_1_filt_v2_filt** (created in Chapter 3.4 and tested on all 4 test areas in Chapter 3.5) were applied to the ROI.
-The segmentation results can be visually inspected and compared in QGIS. It became swiftly clear (as expected), that h=3.5 m is too low as tree height because it may result in segmenting some of the shrub as well (note the different colors of the chm heights in QGIS). Because of the similar height of the seedlings and young trees and shrubs it is practically impossible to distinguish shrubs and seedlings based purely on height (as discussed before) and thus the choice of 4 m as tree height was not revised.  
+Given the explanatory aim of this work, all eight results of `best_seg_vp_1_filt_v2_filt` (created in Chapter 3.4 and tested on all four test areas in Chapter 3.5) were applied to the ROI. \
+The segmentation results, obtained with `CENITH::TreeSeg`, can be visually inspected and compared in QGIS. It became swiftly clear (as expected), that h=3.5 m is too low as tree height because it may result in segmenting some of the shrub as well (note the different colors of the chm heights in QGIS). Because of the similar height of the seedlings and young trees and shrubs it is practically impossible to distinguish shrubs and seedlings based purely on height (as discussed before) and thus the choice of 4 m as tree height was not revised.  
 
-All segmentations demonstrate almost the same overall performance between 0.78 @ 0.31 and 0.78 @ 0.33. Comparing the segmentation results in QGIS visually, **segm_ROI_8** delivers the best result: 
+All segmentations demonstrate almost the same overall performance between `0.78 @ 0.31 and 0.78 @ 0.33`. `segm_ROI_8` was favored for a most fitting segmentation (**Table 3**):
 
 ```{r Table-3, echo=FALSE, fig.align='center'}
 library(dplyr)
@@ -161,43 +196,109 @@ cv8_2 <-knitr::kable(cv8, "latex", longtable = T, booktabs = TRUE, caption = "Se
 kableExtra::kable_styling(cv8_2, font_size = 7)
 ```
 
-Although **segm_ROI_8** is not so accurate with the number and size/area of the individual trees, it is by far the most accurate segmentation which segments only trees and in some instances young trees.
+But what happens with heights above 4 m? 4.5, 5 and 5.1 m (`segm_ROI9` to `segm_ROI_12`) were tested to test if the results of `segm_ROI_8` can be refined. With a tree-height over 4 m, the number of charted young trees and the tree crown area is decreasing. Thus the optimal result is `segm_ROI_8`. The result of the segmentation is discussed in Chapter 4, Results.
 
-But what happens with heights above 4 m? 4.5, 5 and 5.1 m (**segm_ROI_9** to **segm_ROI_12**) were tested to test if the results of **segm_ROI_8** can be refined. With a tree-height over 4 m, the number of charted young trees and the tree crown area is decreasing. Thus the optimal result is **segm_ROI_8**.
-You can see the results of the segmentations in the respective script. 
-It has to be underlined, that the chosen segmentation **segm_ROI_8** is of course not perfect - the result is approximately 78% accuracy and it could be 
-improved by choosing smaller steps of *h* e.g.
-It has to be said that it makes no real sense to thoroughly compare the segmentation results with the RGB Imagery - rather the IR Imagery; The segmentation is based on the Canopy Height Model and height data and the RGB and IR Imagery on spectral data. E.g. in the IR Imagery you can see the young trees and seedling in a lighter red. 
+## **Data preparation for the Classification of test area 1** **`5_data_prep_classification_test_area_1.R`**
 
-```{r Figure-7, echo=FALSE, fig.align='center'}
-library(raster)
-library(ggplot2)
-library(sf)
-library(cowplot)
-chm_ROI <- raster::raster(here::here('analysis/results/chm/chm_ROI.tif'))
-segm_ROI_8 <- sf::st_read(here::here('analysis/results/segm/segm_ROI/segm_ROI_8.shp'))
-chm_ROI_df <- as.data.frame(chm_ROI, xy = TRUE)
+With R script 5 the second sub-workflow, the Pixel-based Image Analysis of test area 1 is started. In this first step the RGB (`RGB_1`), IR Imagery (`IR_1`) and combined (`RGBNIR_1`) is prepared for the classification/prediction. The aim of this first step is to test settings for test area 1 which can be applied to the ROI.\
+This data preparation for PBIA is performed by using the `LEGION package` by computing RGB (`LEGION::vegInd_RGB`) and multi-spectral (MS, `LEGION::vegInd_mspec`) indices which can be filtered and then tested on correlation (*5.3*). Indices are used to enhance the spectral differences between the different object classes (***1-tree, 2-shrubs, 3-grass, 4-tree in shadow, 5-shadow*** and ***6-stone***) which are to be detected. Currently 11 RGB and 4 MS indices are implemented. During the testing it was understood, that certain indices (`VARI`, `RI` and `HI`) contain ample homogeneous areas (**Figure 10**). Including these indices in further calculations would distort the results and deform the prediction.
 
-overlay2 <- ggplot() +
-           geom_raster(data = chm_ROI_df, 
-                       aes(x = x, y = y, fill = chm_ROI)) +
-                       scale_fill_continuous(type = "viridis") +
-           geom_sf(data = segm_ROI_8, size = 0.25, color = "darkorchid4") +
-           ggtitle("Overlay of chm_1 & vp_1 in test area 1")
-plot(overlay2)
+```{r Figure-10, echo=FALSE, message = FALSE, fig.align='center', out.width="110%", out.height="130%", fig.cap="The computed 11 RGB Indices of test area 1."}
+RGB_1 <- raster::stack(here::here('analysis/data/RGB_IR/RGB_1.tif'))
+RGB_1_ind <- LEGION::vegInd_RGB(RGB_1, 1,2,3, indlist="all")
+plot(RGB_1_ind)
 ```
 
-##  **Data preparation for the Classification (.R file: 4_data_prep_classification:area_1.R)**
+Before dealing with the problem of homogeneous areas, first of all two index configurations were created (*5.4*): \
+`RGB_1_ind` - 11 layers: `VVI, VARI, NDTI, RI, CI, BI,SI,HI, TGI, GLI` and `NGRDI`\
+`RGBNIR_1_ind` - 4 layers: `NDVI, TDVI, SR and MSR`\
+These are then stacked together to form the following data stacks:\
+`ALL_ind_stack_1 (RGB_1_ind, RGBNIR_1_ind)` - 15 layers: `VVI, VARI, NDTI, RI, CI, BI, SI, HI, TGI, GLI, NGRDI, NDVI, TDVI, SR` and `MSR`\
+`ALL_RGBMS_stack_1 (RGB_1_ind, RGBNIR_1_ind, RGBNIR_1)` 18 layers:`VVI, VARI, NDTI, RI, CI, BI, SI, HI, TGI, GLI, NGRDI, NDVI, TDVI, SR, MSR, Red, Green, Blue` and `IR_1`\
+The idea behind these raster stacks is to test if and how the composition of these stacks influence, which spectral raster are in the end chosen as predictors (this is happening in step *5.7*, during correlation). 
 
-In this step the RGB and IR Imagery is prepared for the Pixel-based Image Analysis (spectral classification). 
-For the preparation for the spectral classification first we will compute RGB and then multi-spectral (MS) indices, which will be filtered and then tested on correlation. Following that 10 predictor sets are built which will be tested in the next step (Chapter 3.8). 
-Indices are used to enhance the spectral differences between the different object classes which are to be detected. Currently 11 RGB and 4 MS indices are implemented.
-Additionally the filter enhance special properties of indices and the overall homogeneity of spectral areas and enhance the edges and between the different objects. During the testing it was understood, that there are certain indices which contain too homogeneous areas from the beginning thus filtering them would distort the values and they would not be kicked out by the correlation and would deform the prediction. 
-Thus three different index stacks were complied: 
-*RGB_1_ind (VVI, VARI, NDTI, RI, CI, BI,SI,HI, TGI, GLI, NGRDI)*
-*RGB_1_ind2 (VVI, NDTI, CI, BI, SI, TGI, GLI, NGRDI)*
-Which were then stack together to form the following data stacks: 
-*ALL_1_stack (RGB_1_ind, RGBNIR_1_ind)* 15 layer
-*ALL_1_stack2 (RGB_1_ind2, RGBNIR_1_ind)* 12 layer
-*ALL_1_stack3 (RGB_1_ind, RGBNIR_1_ind, RGBNIR_1)* had been corrected by subtracting HI: 18 layer
-Different data stacks were tested to see if more data would filter out/overlay the shortcomings of certain indices. The homogeneity test filtered out the homogeneous indices, that is also VARI and RI, but HI had to be extracted separately.
+To solve the problem of homogeneity in broad areas in indices, a step for testing for homogeneity was implemented by the use `LEGION::detct_RstHmgy` function (*5.5*). The function works with `valueRange` which sets the value for in how much percentage the data is distributed in the raster. `THvalue` sets the threshold of homogeneity. \
+First `ALL_ind_stack_1` was tested with homogeneity thresholds between 0.4 and 0.9. The settings `valueRange = 0.1` and `THvalue = 0.9` led to drop exactly those three indices which demonstrated ample homogeneous areas: `VARI, RI` and `HI`. Thus they were removed statistically. These settings were applied also to `ALL_RGBMS_stack_1`, creating `ALL_RGBMS_stack_1_homog09` (and `ALL_ind_stack_1_homog09`).
+
+To create different textural representations of the training data for the classification, different spatial filters are applied to the index stacks `ALL_ind_stack_1_homog09` and `ALL_RGBMS_stack_1_homog09`, using the `LEGION::filter_Stk` function (*5.6*). Filter enhance special properties of indices and the overall homogeneity of spectral areas and enhance the edges and between the different objects. The filters `sum, min, max, sd, mean, modal, sobel , sobel_hrzt` and `sobel_vert` have been implemented and used. How they work is described in the Help of the function. `ALL_ind_stack_1_homog09_filt` yielded **108** and `ALL_RGBMS_stack_1_homog09_filt` **144** filtered spectral indices.
+
+The last step of the preparation of the spectral predictors for the classification is testing the index stacks on correlation with the `LEGION::detct_RstCor` function (*5.7*). Testing on correlation between spectral indices is to support unbiased construction of predictors and to limit inter-dependency between spectral indices which are fed to the classification algorithm.\
+The fundamental difference between the two index stack is that `ALL_RGBMS_stack_1` compared to `ALL_ind_stack_1` also contains the RGB and IR spectral raster (as already mentioned above). Testing on correlation resulted in `clean_ALL_ind_stack_1_homog09_filt` with **18 layers** and `clean_ALL_RGBMS_stack_1_homog09_filt` with **19 layer**. Apart from three, respective four instances they contain the same indices. The differences are: 
+In case of `clean_ALL_ind_stack_1_homog09_filt`: `GLI_modal3, GLI_sobel_v3, MSR_min3` and `MSR_sobel_v3`. 
+In case of `clean_ALL_RGBMS_stack_1_homog09_filt`: `GLI_max3, NGRDI_sobel3, NGRDI_sobel_v3, Blue_min` and `Blue_sobel_v3`. \
+The correlation dropped the `Red, Green` and `IR` spectral raster. It was clear, that `Red` and `IR` would be correlate too much with each other. It is interesting to see, that with the addition of four spectral (non-index) raster, the composition of the remaining raster after a correlation test changed completely. 
+
+Another data preparation task, but independent from the preparation of the spectral data is the generation of training polygons. In other works shape files with examples of the spectral classes in training area 1 were prepared in QGIS. The different classes are: ***1-tree, 2-shrubs, 3-grass, 4-tree in shadow, 5-shadow*** and ***6-stone***. \
+Two training shapes were created, to compare a brute-force approach using minimal number of arbitrary sized and shaped coarse training polygons (1 polygon/class, `train_2`) to accurate, 3x3 pixel training polygons (`train_1`). `train_1` consists of 43 polygons, of which the classes ***1-tree***, ***4-tree_in shadow*** and ***5-shadow*** (which have a more complicated spectral signature and are especially interesting from the point of view of the project) are present 10 instances each, classes ***3-grass*** and ***2-shrubs*** present 5 instances each and class ***6-stone*** presents 3 instances (**Figure 11**). 
+
+```{r Figure-11, echo=FALSE, message = FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap="The training shapes train 1 and train 2 projected on RGB Aerial Imagery of test area 1."}
+library(raster)
+RGB_1 <- raster::stack(here::here('analysis/data/RGB_IR/RGB_1.tif'))
+train_1 <-rgdal::readOGR(here::here('analysis/data/train/train_1.shp'))
+train_2 <-rgdal::readOGR(here::here('analysis/data/train/train_2.shp'))
+#according to the classes and the colors used in script 6_classification_validation_test_area_1.R
+classPalette <- c("darkgreen", "seagreen", "orangered4", "deepskyblue4", "black", "navajowhite4")
+
+plotRGB(RGB_1, r = 1, g = 2, b = 3, main="RGB_1 + train_1 + train_2")
+plot(train_1, 
+     col=classPalette, 
+     add = TRUE)
+plot(train_2, 
+     col=classPalette, 
+     add = TRUE)
+legend("bottomright", legend=c("tree", "shrubs", "grass", "tree_in_shadow", "shadow", "stone"), fill=classPalette, bg="white")
+```
+
+## **Classification of test area 1** 
+**`6_classification_test_area_1.R`**
+
+The aim of this step is to find an accurate classification for test area 1 which can be then applied to the ROI.
+
+The classification is performed using the `IKARUS package`. `IKARUS` is a wrapper for `CAST`, and it uses *'Random Forest'* as classification algorithm. *'Random Forest'* classifiers are supervised learning algorithms which consist of an ensemble of decision trees. Each (unrelated) decision tree is trained using a random subset of the training data. Each of these trees will give a prediction for a data point.Then,the prediction of all decision trees is averaged by a majority vote to a final prediction (**Figure 12**). The independence of the different decision trees increases the accuracy of the prediction and also eliminates problems that can be caused by outliers in the data set and works also well with small data sets (Breiman 2001, Kuhn - Johnson 2013). 
+
+```{r Figure-12, echo=FALSE, message = FALSE, fig.align='center', out.width="75%", out.height="75%", fig.cap= "Work mechanism of the Random Forest Algorithm."}
+knitr::include_graphics('C:/Users/kelto/Documents/detectATE/analysis/paper/figures/Figure_12.png')
+```
+
+There are two important step before the actual machine learning can be started. One is the creation of meaningful **training data sets** and the other is the choice of most meaningful predictors and data dimension reduction.
+
+The spectral predictors (`clean_ALL_ind_stack_1_homog09_filt/predictors 1` with **18 layers**, `clean_ALL_RGBMS_stack_1_homog09_filt/predictors 2` with **19 layers**) and the training polygons have been created in the previous steps. In the case of the spectral predictors all precautions were taken to create unbiased predictors (*5.5 - 5.7*) and in the case of the training polygons different amount, shape and size make them a good comparison of brute force and carefully considered polygons. These constitute the fundament of the two data sets which will serve as input for the machine learning algorithm.   
+
+First, values for all defined 6 classes have to be extracted from the predictors into a data frame. This is done using the `IKARUS::exrct_Traindat` function (*6.2.1*). By working with two training polygons and two spectral predictor stacks, altogether four **initial training data frames** (`train1_pred1`, `train1_pred2`, `train2_pred1` and `train2_pred2`) were created. 
+
+To accelerate and enhance the effectiveness of the machine learning algorithm, the most meaningful predictors are chosen by the `IKARUS::BestPredFFS` function from the just created four training data sets (*6.2.2*). This function is a wrapper for the `CAST::ffs` function, which uses **FFS**, that is *'Forward Feature Selection'* (Meyer et al. 2018) that is a data analysis method which identifies predictors which can lead to over-fitting in models. `IKARUS::BestPredFFS` calculates all possible models from the input training data set and looks for the model with the least number of predictors but the best performance . This model is the output of the `IKARUS::BestPredFFS`function (in our case `FFS_1 - FFS_4`). `FFS_1$selectedvars` accesses the list of best performing predictors. `IKARUS::BestPredFFS` also saves processing time by eliminating the less conclusive and possibly still biased predictors.\ 
+
+Once provided with the information of the best performing and most meaningful predictors selected by `IKARUS::BestPredFFS`, two **final training data sets** are prepared as input for the machine learning.\    
+The first data set is the training data frame (`train_FFS_1 - train_FFS_4`) with the *response*/*dependent variable*, that is the `classes` we want to predict and the extracted values from the *independent variables* or `predictors` (by the shape files, in step 6.2.1), selected by `IKARUS::BestPredFFS`. It was created by extracting the chosen predictor columns and the class column from the initial data frame.\
+The second data set is the predictor stack (`predictors_FFS_1 - predictors_FFS_4`), which are selected predictors by `IKARUS::BestPredFFS`.  
+
+The machine learning model building and classification is executed by the function `IKARUS::RFclass`(*6.3*). It builds a model and performs a *'Random Forest'* classification in one step. These two procedures are often also carried out separately. `IKARUS::RFclass` is a wrapper for `caret::train` with 5-fold cross-validation and *'Random Forest'* as classification algorithm. 
+The two **final training data sets** `train_FFS_1 - train_FFS_4` and `predictors_FFS_1 - predictors_FFS_4` are handed to this function. The results are the model used for the prediction and the prediction itself. THe results of the prediction are discussed in Chapter 4.
+
+## **7. Data preparation for the Classification of ROI** **`7_data_prep_classification_ROI.R`**
+
+Given the explanatory aim of this work, all steps which were applied to test area 1 were also applied to the ROI. For conciseness a workflow is outlined in the next two chapters and only differences to are going to be discussed in depth. The data preparation for the classification can be described with the following steps:
+
+7.1 Load spectral data \
+7.2 Stack `RGB_ROI`, `IR_ROI` and `RGBNIR_ROI`\
+7.3 Compute Indices with `LEGION::vegInd_RGB` and `LEGION::vegInd_mspec`\
+7.4 Compute Index stacks `ALL_ind_stack_ROI`(15 layer) and `ALL_RGBMS_stack_ROI`(19 layer)\
+7.5 Test Index stack on homogeneity with `LEGION::detct_RstHmgy`\
+The indices `VARI`, `RI` and `HI` presented similarly ample homogeneous areas and the plan was to eliminate them out statistically, like in the case of test area 1. In the case of the ROI, the `THvalue` had to be raised to **0.93**, otherwise with **0.9** and **0.92** `VVI` too was dropped and with **0.95** only `VARI` and `RI` were dropped.\
+7.6 Filter both index stacks with `LEGION::filter_Stk`: `ALL_ind_stack_ROI_homog093_filt` (108 layer) and `ALL_RGBMS_stack_ROI_homog093_filt`(144 filter)\
+7.7 Test filtered index stacks on correlation with `LEGION::detct_RstCor`.\
+The two resulting index stacks are `clean_ALL_ind_stack_ROI_homog093_filt` (17 layer) and `clean_ALL_RGBMS_stack_ROI_homog093_filt` (17 layer). 
+
+## **8.Classification of ROI** 
+**`8_Classification_ROI.R`** 
+
+Also in the case of the classification the same steps have been taken as in the case of test area 1. The steps are mentioned in the form of a workflow outline and only the differences are discussed in this chapter in depth.\
+8.1 Load spectral index stacks `clean_ALL_ind_stack_ROI_homog093_filt`, `clean_ALL_ind_stack_ROI_homog093_filt` and `train_1` and `train_2`.\
+8.2 Prepare the spectral index stacks for the prediction.\
+8.2.1 Extract **initial training data frames** `train1_pred1`, `train1_pred2`, `train2_pred1` and `train2_pred2` with `IKARUS::exrct_Traindat`.\
+8.2.2 *'Forward Feature Selection'* with `IKARUS::BestPredFFS`\
+8.2.3 Extract training data frame `train_FFS_1_ROI - train_FFS_4_ROI`\
+8.2.4 Stack final predictors `predictors_FFS1_ROI - predictors_FFS_4_ROI`\
+8.3 Create model and predict using `IKARUS::RFclass`\
+
+

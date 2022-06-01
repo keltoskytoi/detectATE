@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.5.17)  22 MAY 2022 10:41
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.5.24)  31 MAY 2022 20:28
  restricted system commands enabled.
 **Index.tex
 (./Index.tex
@@ -452,7 +452,7 @@ Package: paralist 2017/01/22 v2.7 Extended list environments
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 ) (c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2022/05/10 v4.0.2 Extensive control of page headers and footers
+Package: fancyhdr 2022/05/18 v4.0.3 Extensive control of page headers and footers
 \f@nch@headwidth=\skip66
 \f@nch@O@elh=\skip67
 \f@nch@O@erh=\skip68
@@ -977,7 +977,7 @@ Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<figures/UMR-Logo_sw.png, id=72, 219.7008pt x 75.1608pt>
+<figures/UMR-Logo_sw.png, id=144, 219.7008pt x 75.1608pt>
 File: figures/UMR-Logo_sw.png Graphic file (type png)
 <use figures/UMR-Logo_sw.png>
 Package luatex.def Info: figures/UMR-Logo_sw.png  used on input line 143.
@@ -987,15 +987,15 @@ Package luatex.def Info: figures/UMR-Logo_sw.png  used on input line 143.
 {c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./figures/UMR-Logo_sw.png>]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [2]
-<figures/Figure_1.png, id=87, 737.75626pt x 800.9925pt>
-File: figures/Figure_1.png Graphic file (type png)
-<use figures/Figure_1.png>
-Package luatex.def Info: figures/Figure_1.png  used on input line 193.
+<figures/Figure_1a.png, id=159, 737.75626pt x 800.9925pt>
+File: figures/Figure_1a.png Graphic file (type png)
+<use figures/Figure_1a.png>
+Package luatex.def Info: figures/Figure_1a.png  used on input line 193.
 (luatex.def)             Requested size: 243.12259pt x 263.96167pt.
-<figures/Figure_2.png, id=88, 751.80875pt x 460.72125pt>
-File: figures/Figure_2.png Graphic file (type png)
-<use figures/Figure_2.png>
-Package luatex.def Info: figures/Figure_2.png  used on input line 193.
+<figures/Figure_1b.png, id=160, 751.80875pt x 460.72125pt>
+File: figures/Figure_1b.png Graphic file (type png)
+<use figures/Figure_1b.png>
+Package luatex.def Info: figures/Figure_1b.png  used on input line 193.
 (luatex.def)             Requested size: 243.13042pt x 148.99448pt.
 
 Overfull \hbox (2.6034pt too wide) in paragraph at lines 193--193
@@ -1004,16 +1004,16 @@ Overfull \hbox (2.6034pt too wide) in paragraph at lines 193--193
 
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[3<./figures/Figure_1.png><./figures/Figure_2.png>]
-<figures/Figure_3.png, id=94, 1376.14125pt x 459.7175pt>
-File: figures/Figure_3.png Graphic file (type png)
-<use figures/Figure_3.png>
-Package luatex.def Info: figures/Figure_3.png  used on input line 199.
+[3<./figures/Figure_1a.png><./figures/Figure_1b.png>]
+<figures/Figure_2a.png, id=166, 1376.14125pt x 459.7175pt>
+File: figures/Figure_2a.png Graphic file (type png)
+<use figures/Figure_2a.png>
+Package luatex.def Info: figures/Figure_2a.png  used on input line 199.
 (luatex.def)             Requested size: 243.11713pt x 81.21637pt.
-<figures/Figure_4.png, id=95, 963.6pt x 696.6025pt>
-File: figures/Figure_4.png Graphic file (type png)
-<use figures/Figure_4.png>
-Package luatex.def Info: figures/Figure_4.png  used on input line 199.
+<figures/Figure_2b.png, id=167, 963.6pt x 696.6025pt>
+File: figures/Figure_2b.png Graphic file (type png)
+<use figures/Figure_2b.png>
+Package luatex.def Info: figures/Figure_2b.png  used on input line 199.
 (luatex.def)             Requested size: 243.11961pt x 175.75522pt.
 
 Overfull \hbox (2.58713pt too wide) in paragraph at lines 199--199
@@ -1022,7 +1022,7 @@ Overfull \hbox (2.58713pt too wide) in paragraph at lines 199--199
 
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[4<./figures/Figure_3.png><./figures/Figure_4.png>]
+[4<./figures/Figure_2a.png><./figures/Figure_2b.png>]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [5]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
@@ -1037,208 +1037,482 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [10]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [11]
-Overfull \hbox (5.61449pt too wide) in paragraph at lines 298--299
-\TU/lmr/m/n/12 The re-pro-ducible work-flow is made up of the files: \TU/lmr/bx/n/12 00_li-brary_n_prep.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 0_set_up_work-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 298--299
-\TU/lmr/bx/n/12 ing_en-vrnmt.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 1_data_prep_gen-eral.R\TU/lmr/m/n/12 , \TU/lmr/bx/n/12 2_seg-men-ta-tion_test_area_1.R\TU/lmr/m/n/12 ,
- []
-
-
-Overfull \hbox (11.00499pt too wide) in paragraph at lines 298--299
-\TU/lmr/bx/n/12 5_clas-si-fi-ca-tion_val-i-da-tion_test_area_1.R \TU/lmr/m/n/12 and \TU/lmr/bx/n/12 6_data_prep_clas-si-fi-ca-tion_ROI.R\TU/lmr/m/n/12 ,
- []
-
-
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [12]
-warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[13]
-<figures/Figure_6.png, id=140, 817.6146pt x 333.4056pt>
-File: figures/Figure_6.png Graphic file (type png)
-<use figures/Figure_6.png>
-Package luatex.def Info: figures/Figure_6.png  used on input line 341.
-(luatex.def)             Requested size: 486.2684pt x 198.28975pt.
+<figures/Figure_3.png, id=206, 644.4075pt x 574.145pt>
+File: figures/Figure_3.png Graphic file (type png)
+<use figures/Figure_3.png>
+Package luatex.def Info: figures/Figure_3.png  used on input line 297.
+(luatex.def)             Requested size: 364.71039pt x 324.94446pt.
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[14]
-Overfull \hbox (1.91383pt too wide) in paragraph at lines 355--355
+[13<./figures/Figure_3.PNG>]
+<figures/Figure_4.png, id=217, 1194.98445pt x 844.95676pt>
+File: figures/Figure_4.png Graphic file (type png)
+<use figures/Figure_4.png>
+Package luatex.def Info: figures/Figure_4.png  used on input line 310.
+(luatex.def)             Requested size: 364.67941pt x 257.8597pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[14<./figures/Figure_4.png>]
+<figures/Figure_5.png, id=228, 750.805pt x 971.63pt>
+File: figures/Figure_5.png Graphic file (type png)
+<use figures/Figure_5.png>
+Package luatex.def Info: figures/Figure_5.png  used on input line 336.
+(luatex.def)             Requested size: 364.70134pt x 471.96646pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[15]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[16<./figures/Figure_5.png>]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 355.
+<Index_files/figure-latex/Figure-6-1.pdf, id=237, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-6-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-6-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-6-1.pdf  used on input line 362.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 370.
+<figures/Figure_7.png, id=238, 480.29437pt x 147.55125pt>
+File: figures/Figure_7.png Graphic file (type png)
+<use figures/Figure_7.png>
+Package luatex.def Info: figures/Figure_7.png  used on input line 378.
+(luatex.def)             Requested size: 364.69771pt x 112.03879pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[17]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[18<./Index_files/figure-latex/Figure-6-1.pdf>]
+File: figures/Figure_7.png Graphic file (type png)
+<use figures/Figure_7.png>
+Package luatex.def Info: figures/Figure_7.png  used on input line 392.
+(luatex.def)             Requested size: 486.26605pt x 149.38579pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[19<./figures/Figure_7.png>]
+Overfull \hbox (1.91383pt too wide) in paragraph at lines 406--406
 []\TU/lmtt/m/n/12 ## Bounding box:  xmin: -40638.55 ymin: 216053.3 xmax: -40615.55 ymax: 216083.1[] 
  []
 
 
-Overfull \hbox (20.50179pt too wide) in paragraph at lines 355--355
+Overfull \hbox (20.50179pt too wide) in paragraph at lines 406--406
 []\TU/lmtt/m/n/12 ## Projected CRS: MGI_Austria_GK_West_with_axis_order_normalized_for_visualization[] 
  []
 
-<Index_files/figure-latex/Figure-6-1.pdf, id=145, 469.755pt x 325.215pt>
-File: Index_files/figure-latex/Figure-6-1.pdf Graphic file (type pdf)
-<use Index_files/figure-latex/Figure-6-1.pdf>
-Package luatex.def Info: Index_files/figure-latex/Figure-6-1.pdf  used on input line 359.
+<Index_files/figure-latex/Figure-9-1.pdf, id=259, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-9-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-9-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-9-1.pdf  used on input line 410.
 (luatex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[15<./figures/Figure_6.png>]
+[20]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[16<./Index_files/figure-latex/Figure-6-1.pdf>]
+[21<./Index_files/figure-latex/Figure-9-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 424--425
+[]\TU/lmr/m/n/12 In the first run the val-ues \TU/lmtt/m/n/12 a=seq(0.05, 0.1, 0.01), b=seq(0.05, 0.1, 0.01),
+ []
+
+
+Underfull \hbox (badness 2538) in paragraph at lines 424--425
+\TU/lmtt/m/n/12 h=seq(3.5, 6, 0.5), MIN=seq(0.1, 0.5, 0.1) \TU/lmr/m/n/12 were tested, to go a bit be-low and
+ []
+
+
+Underfull \hbox (badness 1590) in paragraph at lines 429--431
+\TU/lmtt/m/n/12 a=seq(0.01, 0.1, 0.01), b=seq(0.01, 0.1, 0.01)\TU/lmr/m/n/12 , to find bet-ter seg-ment sizes and
+ []
+
+
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[17]
-Overfull \hbox (46.99557pt too wide) in alignment at lines 384--399
+[22]
+Overfull \hbox (46.99557pt too wide) in alignment at lines 434--449
  [][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--410
-
- []
-
-
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[18]
-LaTeX Font Info:    Calculating math sizes for size <6.5> on input line 416.
+[23]
+LaTeX Font Info:    Calculating math sizes for size <6.5> on input line 464.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.5pt on input line 416.
+(Font)              scaled to size 6.5pt on input line 464.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 4.54997pt on input line 416.
+(Font)              scaled to size 4.54997pt on input line 464.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 3.25pt on input line 416.
+(Font)              scaled to size 3.25pt on input line 464.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.5006pt on input line 416.
+(Font)              scaled to size 6.5006pt on input line 464.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 4.55038pt on input line 416.
+(Font)              scaled to size 4.55038pt on input line 464.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 3.25029pt on input line 416.
+(Font)              scaled to size 3.25029pt on input line 464.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.4993pt on input line 416.
+(Font)              scaled to size 6.4993pt on input line 464.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.54948pt on input line 416.
+(Font)              scaled to size 4.54948pt on input line 464.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 3.24965pt on input line 416.
+(Font)              scaled to size 3.24965pt on input line 464.
 
-Overfull \hbox (39.16896pt too wide) in paragraph at lines 416--543
+Overfull \hbox (39.16896pt too wide) in paragraph at lines 464--591
  [][] 
  []
 
 
-Overfull \hbox (35.67194pt too wide) in paragraph at lines 416--543
+Overfull \hbox (35.67194pt too wide) in paragraph at lines 464--591
  [] 
  []
 
 
-Overfull \hbox (39.16896pt too wide) in paragraph at lines 416--543
+Overfull \hbox (39.16896pt too wide) in paragraph at lines 464--591
  [] 
  []
 
 
-Overfull \hbox (35.67194pt too wide) in paragraph at lines 416--543
+Overfull \hbox (35.67194pt too wide) in paragraph at lines 464--591
  [] 
  []
 
 
-Overfull \hbox (39.16896pt too wide) in paragraph at lines 416--543
+Overfull \hbox (39.16896pt too wide) in paragraph at lines 464--591
  [] 
  []
 
 
-Overfull \hbox (35.67194pt too wide) in paragraph at lines 416--543
+Overfull \hbox (35.67194pt too wide) in paragraph at lines 464--591
  [] 
  []
 
 
-Overfull \hbox (35.47046pt too wide) in paragraph at lines 416--543
+Overfull \hbox (35.47046pt too wide) in paragraph at lines 464--591
  [] 
  []
 
 
-Overfull \hbox (31.97343pt too wide) in paragraph at lines 416--543
+Overfull \hbox (31.97343pt too wide) in paragraph at lines 464--591
  [] 
- []
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[19]
-Overfull \hbox (43.01257pt too wide) in alignment at lines 557--564
- [][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 1019) in paragraph at lines 569--572
-[]\TU/lmr/m/n/12 But what hap-pens with heights above 4 m? 4.5, 5 and 5.1 m (\TU/lmr/bx/n/12 segm_ROI_9 \TU/lmr/m/n/12 to
- []
-
-
-Overfull \hbox (51.40175pt too wide) in paragraph at lines 582--582
-[]\TU/lmtt/m/n/12 ##   `C:\Users\kelto\Documents\detectATE\analysis\results\segm\segm_ROI\segm_ROI_8.shp'[] 
- []
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[20]
-<Index_files/figure-latex/Figure-7-1.pdf, id=182, 469.755pt x 325.215pt>
-File: Index_files/figure-latex/Figure-7-1.pdf Graphic file (type pdf)
-<use Index_files/figure-latex/Figure-7-1.pdf>
-Package luatex.def Info: Index_files/figure-latex/Figure-7-1.pdf  used on input line 584.
-(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[21<./Index_files/figure-latex/Figure-7-1.pdf>]
-warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[22]
-warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[23]
-No file Index.bbl.
-
-Underfull \hbox (badness 10000) in paragraph at lines 621--623
-[]$\TU/lmr/m/n/12 https://scholar.google.com/scholar_lookup?title=Spatial+and+compositional+pattern+
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 621--623
-\TU/lmr/m/n/12 of+alpine+treeline%2C+Glacier+National+Park%2C+Montana&author=Allen%2C+T.
- []
-
-
-Underfull \hbox (badness 5563) in paragraph at lines 633--635
-\TU/lmr/m/it/12 re-search \TU/lmr/m/n/12 . []$https://scholar.google.com/citations?view_op=view_citation&hl=en&user=
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 633--635
-\TU/lmr/m/n/12 kgaHKiwAAAAJ&alert_preview_top_rm=2&citation_for_view=kgaHKiwAAAAJ:
  []
 
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [24]
+Overfull \hbox (43.01257pt too wide) in alignment at lines 607--614
+ [][][][][][][][][][][][][][] 
+ []
+
+
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [25]
-Underfull \hbox (badness 1297) in paragraph at lines 696--698
-\TU/lmr/m/it/12 tec-tion of his-tor-i-cal aerial pho-tographs re-veals al-ti-tu-di-nal for-est ex-pan-sion\TU/lmr/m/n/12 . []$https:
+<Index_files/figure-latex/Figure-10-1.pdf, id=295, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-10-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-10-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-10-1.pdf  used on input line 655.
+(luatex.def)             Requested size: 534.88834pt x 370.3073pt.
+
+Overfull \hbox (48.63072pt too wide) in paragraph at lines 655--656
+ [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 696--698
-\TU/lmr/m/n/12 //www.semanticscholar.org/paper/OBJECT-BASED-CHANGE-DETECTION-OF-
- []
-
-
-Overfull \hbox (16.3265pt too wide) in paragraph at lines 696--698
-\TU/lmr/m/n/12 HISTORICAL-AERIAL-Middleton-N%C3%A4rhi/373b86df6f5979767ef6adbcfcc0b987fa37693f$[] 
+Underfull \hbox (badness 3009) in paragraph at lines 662--669
+\TU/lmtt/m/n/12 RI, CI, BI, SI, HI, TGI, GLI, NGRDI, NDVI, TDVI, SR, MSR, Red, Green, Blue \TU/lmr/m/n/12 and
  []
 
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [26]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[27] 
+[27<./Index_files/figure-latex/Figure-10-1.pdf>]
+Underfull \hbox (badness 1365) in paragraph at lines 670--672
+\TU/lmr/m/n/12 First \TU/lmtt/m/n/12 ALL_ind_stack_1 \TU/lmr/m/n/12 was tested with ho-mo-gene-ity thresh-olds be-tween 0.4 and 0.9.
+ []
+
+
+Underfull \hbox (badness 1320) in paragraph at lines 673--674
+[]\TU/lmr/m/n/12 To cre-ate dif-fer-ent tex-tu-ral rep-re-sen-ta-tions of the train-ing data for the clas-si-fi-ca-tion,
+ []
+
+
+Underfull \hbox (badness 1033) in paragraph at lines 673--674
+\TU/lmr/m/n/12 dif-fer-ent spa-tial fil-ters are ap-plied to the in-dex stacks \TU/lmtt/m/n/12 ALL_ind_stack_1_homog09 \TU/lmr/m/n/12 and
+ []
+
+
+Underfull \hbox (badness 1496) in paragraph at lines 675--680
+\TU/lmr/m/n/12 case of \TU/lmtt/m/n/12 clean_ALL_ind_stack_1_homog09_filt\TU/lmr/m/n/12 : \TU/lmtt/m/n/12 GLI_modal3, GLI_sobel_v3, MSR_min3
+ []
+
+
+Underfull \hbox (badness 1286) in paragraph at lines 675--680
+\TU/lmr/m/n/12 and \TU/lmtt/m/n/12 MSR_sobel_v3\TU/lmr/m/n/12 . In case of \TU/lmtt/m/n/12 clean_ALL_RGBMS_stack_1_homog09_filt\TU/lmr/m/n/12 : \TU/lmtt/m/n/12 GLI_max3,
+ []
+
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[28]
+Overfull \hbox (113.20168pt too wide) in paragraph at lines 690--690
+[]\TU/lmtt/m/n/12 ## Source: "C:\Users\kelto\Documents\detectATE\analysis\data\train\train_1.shp", layer: "train_1"[] 
+ []
+
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[29]
+Overfull \hbox (113.20168pt too wide) in paragraph at lines 698--698
+[]\TU/lmtt/m/n/12 ## Source: "C:\Users\kelto\Documents\detectATE\analysis\data\train\train_2.shp", layer: "train_2"[] 
+ []
+
+<Index_files/figure-latex/Figure-11-1.pdf, id=341, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-11-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-11-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-11-1.pdf  used on input line 702.
+(luatex.def)             Requested size: 364.6943pt x 252.48067pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[30<./Index_files/figure-latex/Figure-11-1.pdf>]
+<figures/Figure_12.png, id=354, 887.315pt x 685.56125pt>
+File: figures/Figure_12.png Graphic file (type png)
+<use figures/Figure_12.png>
+Package luatex.def Info: figures/Figure_12.png  used on input line 720.
+(luatex.def)             Requested size: 364.68156pt x 281.76189pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[31<./figures/Figure_12.png>]
+Underfull \hbox (badness 2142) in paragraph at lines 739--741
+[]\TU/lmr/m/n/12 The ma-chine learn-ing model build-ing and clas-si-fi-ca-tion is ex-e-cuted by the func-tion
+ []
+
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[32]
+Overfull \hbox (129.63875pt too wide) in paragraph at lines 762--770
+\TU/lmr/m/n/12 8.1 Load spec-tral in-dex stacks \TU/lmtt/m/n/12 clean_ALL_ind_stack_ROI_homog093_filt\TU/lmr/m/n/12 , \TU/lmtt/m/n/12 clean_ALL_ind_stack_ROI_homog093_filt
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 762--770
+
+ []
+
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[33]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[34]
+Overfull \hbox (51.40175pt too wide) in paragraph at lines 803--803
+[]\TU/lmtt/m/n/12 ##   `C:\Users\kelto\Documents\detectATE\analysis\results\segm\segm_ROI\segm_ROI_8.shp'[] 
+ []
+
+
+Overfull \hbox (20.50179pt too wide) in paragraph at lines 803--803
+[]\TU/lmtt/m/n/12 ## Projected CRS: MGI_Austria_GK_West_with_axis_order_normalized_for_visualization[] 
+ []
+
+<Index_files/figure-latex/Figure-13-1.pdf, id=372, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-13-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-13-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-13-1.pdf  used on input line 807.
+(luatex.def)             Requested size: 364.6943pt x 252.48067pt.
+
+Underfull \hbox (badness 1394) in paragraph at lines 820--821
+\TU/lmr/m/n/12 of \TU/lmtt/m/n/12 IKARUS::BestPredFFS\TU/lmr/m/n/12 , the \TU/lmr/m/it/12 ‘For-ward Fea-ture Se-lec-tion’\TU/lmr/m/n/12 , it be-comes clear, that the
+ []
+
+
+Underfull \hbox (badness 4479) in paragraph at lines 820--821
+\TU/lmr/m/n/12 to the spec-tral pre-dic-tors (\TU/lmtt/m/n/12 clean_ALL_ind_stack_1_homog09_filt/predictors 1 \TU/lmr/m/n/12 and
+ []
+
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[35]
+<Index_files/figure-latex/Figure-14-1.pdf, id=381, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-14-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-14-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-14-1.pdf  used on input line 824.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[36<./Index_files/figure-latex/Figure-13-1.pdf>]
+<Index_files/figure-latex/Figure-15-1.pdf, id=395, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-15-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-15-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-15-1.pdf  used on input line 835.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[37<./Index_files/figure-latex/Figure-14-1.pdf>]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[38<./Index_files/figure-latex/Figure-15-1.pdf>]
+<Index_files/figure-latex/Figure-16-1.pdf, id=413, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-16-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-16-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-16-1.pdf  used on input line 853.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+<Index_files/figure-latex/Figure-17-1.pdf, id=414, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-17-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-17-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-17-1.pdf  used on input line 866.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[39]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[40<./Index_files/figure-latex/Figure-16-1.pdf>]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[41<./Index_files/figure-latex/Figure-17-1.pdf>]
+<Index_files/figure-latex/Figure-18-1.pdf, id=437, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-18-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-18-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-18-1.pdf  used on input line 877.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[42<./Index_files/figure-latex/Figure-18-1.pdf>]
+<Index_files/figure-latex/Figure-19-1.pdf, id=449, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-19-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-19-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-19-1.pdf  used on input line 890.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[43<./Index_files/figure-latex/Figure-19-1.pdf>]
+Overfull \hbox (51.40175pt too wide) in paragraph at lines 913--913
+[]\TU/lmtt/m/n/12 ##   `C:\Users\kelto\Documents\detectATE\analysis\results\segm\segm_ROI\segm_ROI_8.shp'[] 
+ []
+
+
+Overfull \hbox (20.50179pt too wide) in paragraph at lines 913--913
+[]\TU/lmtt/m/n/12 ## Projected CRS: MGI_Austria_GK_West_with_axis_order_normalized_for_visualization[] 
+ []
+
+<Index_files/figure-latex/Figure-20-1.pdf, id=460, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-20-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-20-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-20-1.pdf  used on input line 917.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[44<./Index_files/figure-latex/Figure-20-1.pdf>]
+<Index_files/figure-latex/Figure-21-1.pdf, id=473, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-21-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-21-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-21-1.pdf  used on input line 946.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[45]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[46<./Index_files/figure-latex/Figure-21-1.pdf>]
+<Index_files/figure-latex/Figure-22-1.pdf, id=492, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-22-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-22-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-22-1.pdf  used on input line 971.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[47<./Index_files/figure-latex/Figure-22-1.pdf>]
+<Index_files/figure-latex/Figure-23-1.pdf, id=506, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-23-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-23-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-23-1.pdf  used on input line 1003.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+<Index_files/figure-latex/Figure-24-1.pdf, id=507, 469.755pt x 325.215pt>
+File: Index_files/figure-latex/Figure-24-1.pdf Graphic file (type pdf)
+<use Index_files/figure-latex/Figure-24-1.pdf>
+Package luatex.def Info: Index_files/figure-latex/Figure-24-1.pdf  used on input line 1028.
+(luatex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[48]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[49<./Index_files/figure-latex/Figure-23-1.pdf>]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[50<./Index_files/figure-latex/Figure-24-1.pdf>]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[51]
+Overfull \hbox (21.82219pt too wide) in alignment at lines 1081--1085
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (21.82219pt too wide) in alignment at lines 1085--1095
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (27.7022pt too wide) in alignment at lines 1097--1101
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (27.7022pt too wide) in alignment at lines 1101--1111
+ [][][][][][] 
+ []
+
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[52]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[53]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[54]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[55]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[56]
+No file Index.bbl.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1216--1218
+[]$\TU/lmr/m/n/12 https://scholar.google.com/scholar_lookup?title=Spatial+and+compositional+pattern+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1216--1218
+\TU/lmr/m/n/12 of+alpine+treeline%2C+Glacier+National+Park%2C+Montana&author=Allen%2C+T.
+ []
+
+
+Underfull \hbox (badness 5563) in paragraph at lines 1228--1230
+\TU/lmr/m/it/12 re-search \TU/lmr/m/n/12 . []$https://scholar.google.com/citations?view_op=view_citation&hl=en&user=
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1230
+\TU/lmr/m/n/12 kgaHKiwAAAAJ&alert_preview_top_rm=2&citation_for_view=kgaHKiwAAAAJ:
+ []
+
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[57]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[58]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[59]
+Underfull \hbox (badness 1297) in paragraph at lines 1300--1302
+\TU/lmr/m/it/12 tec-tion of his-tor-i-cal aerial pho-tographs re-veals al-ti-tu-di-nal for-est ex-pan-sion\TU/lmr/m/n/12 . []$https:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1300--1302
+\TU/lmr/m/n/12 //www.semanticscholar.org/paper/OBJECT-BASED-CHANGE-DETECTION-OF-
+ []
+
+
+Overfull \hbox (16.3265pt too wide) in paragraph at lines 1300--1302
+\TU/lmr/m/n/12 HISTORICAL-AERIAL-Middleton-N%C3%A4rhi/373b86df6f5979767ef6adbcfcc0b987fa37693f$[] 
+ []
+
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[60]
+warning  (pdf backend): ignoring duplicate destination with the name 'page.'
+[61] 
 AED: lastpage setting LastPage
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
-[28] (./Index.aux)
+[62] (./Index.aux)
 Package rerunfilecheck Info: File `Index.out' has not changed.
-(rerunfilecheck)             Checksum: 1FE05D0E438E899A57E2AD17449F03EC;4216.
+(rerunfilecheck)             Checksum: 2E1A7611E4CF8F9523A02B4188CC892D;9271.
 )
 (\end occurred inside a group at level 1)
 
@@ -1246,19 +1520,19 @@ Package rerunfilecheck Info: File `Index.out' has not changed.
 ### bottom level
 
 Here is how much of LuaTeX's memory you used:
- 22564 strings out of 477742
+ 23002 strings out of 477742
  195462,953878 words of node,token memory allocated
- 896 words of node memory still in use:
-   7 hlist, 2 vlist, 3 rule, 2 glue, 4 kern, 1 glyph, 22 attribute, 101 glue_spec, 22 attribute_list, 2 write, 1 user_defined, 13 pdf_action nodes
-   avail lists: 1:2,2:3445,3:324,4:63,5:1543,6:23,7:16138,8:233,9:4656,10:28,11:586
- 42280 multiletter control sequences out of 65536+600000
- 65 fonts using 13556643 bytes
- 86i,10n,121p,1219b,5086s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf>
-Output written on Index.pdf (28 pages, 2926260 bytes).
+ 946 words of node memory still in use:
+   7 hlist, 2 vlist, 3 rule, 2 glue, 4 kern, 1 glyph, 27 attribute, 101 glue_spec, 27 attribute_list, 2 write, 1 user_defined, 18 pdf_action nodes
+   avail lists: 1:2,2:3443,3:343,4:64,5:1507,6:38,7:15238,8:233,9:4648,10:27,11:611
+ 42503 multiletter control sequences out of 65536+600000
+ 68 fonts using 13825751 bytes
+ 86i,10n,121p,1411b,5086s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmonolt10-bold.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf><c:/Users/kelto/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf>
+Output written on Index.pdf (62 pages, 16695682 bytes).
 
-PDF statistics: 364 PDF objects out of 1000 (max. 8388607)
- 297 compressed objects within 3 object streams
- 83 named destinations out of 1000 (max. 131072)
- 137 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 753 PDF objects out of 1000 (max. 8388607)
+ 571 compressed objects within 6 object streams
+ 154 named destinations out of 1000 (max. 131072)
+ 281 words of extra memory for PDF output out of 10000 (max. 100000000)
 
