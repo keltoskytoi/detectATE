@@ -1,6 +1,6 @@
 ####--------------------------------SHORTCUTS-------------------------------####
 #create shortcuts to the folders where de data is stored
-lschm <-list.files(paste0(path_analysis_results_chm), pattern=".tif")
+lschm <-list.files(paste0(path_analysis_results_chm), glob2rx(pattern="*.tif"))
 ################################################################################
 ####---------------------------#1.LOAD CHM ROI#-----------------------------####
 #if you haven't imported the chm_ROI yet(= didn't start with script 1_data_prep_general.R,),
@@ -8,11 +8,8 @@ lschm <-list.files(paste0(path_analysis_results_chm), pattern=".tif")
 
 #always check the order of files in the folder!
 lschm
-#[1] "chm_1.tif"         "chm_1.tif.aux.xml" "chm_2.tif"         "chm_2.tif.aux.xml"
-#[5] "chm_3.tif"         "chm_3.tif.aux.xml" "chm_4.tif"         "chm_4.tif.aux.xml"
-#[9] "chm_ROI.tif"
-
-chm_ROI <- raster(paste0(path_analysis_results_chm, lschm[[9]]))
+#"chm_1.tif"   "chm_2.tif"   "chm_3.tif"   "chm_4.tif"   "chm_ROI.tif"
+chm_ROI <- raster(paste0(path_analysis_results_chm, lschm[[5]]))
 
 ####--------------------------#2.SEGMENT CHM ROI#---------------------------####
 #cv1 #ech calculation takes approximately 20 minutes

@@ -1,2 +1,5 @@
-Abstract
+# **Abstract**
 
+The proposed workflow in this thesis paper was developed in the framework of the Project Seminar **'Treelines of the World'**. The overall objective of this project was to detect *Treelines* using an automated remote sensing approach. To approach this question, an overview of methodological approach to the detection of ATEs was laid down in **Chapter 2 - Overview**, to understand how this question has been approached so far. It was found that the fundamental step towards the automated detection of ATEs is the detection of trees. 
+
+Thus the aim of the proposed combined workflow developed in this project was to detect trees with shallow learning. An **Object-based Image Analysis (OBIA)** sub-workflow was developed to detect trees in LiDAR data sets and a **Pixel-based Image Analysis (PBIA)** to detect trees in Aerial or Satellite Imagery. If both data sets are available, then the results of the *'Classification'* can be compared with the result of the *'Segmentation'* based on cell-statistics.

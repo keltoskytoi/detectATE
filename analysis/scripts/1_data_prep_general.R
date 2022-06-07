@@ -1,9 +1,9 @@
 ####--------------------------------SHORTCUTS-------------------------------####
 #create shortcuts to the folders where de data and results are stored
-lsdsm <-list.files(paste0(path_analysis_data_dsm), pattern=".tif")
-lsdem <-list.files(paste0(path_analysis_data_dem), pattern=".tif")
-lschm <-list.files(paste0(path_analysis_results_chm), pattern=".tif")
-lsRGBIR <- list.files(paste0(path_analysis_data_RGB_IR), pattern=".tif")
+lsdsm <-list.files(paste0(path_analysis_data_dsm), glob2rx(pattern="*.tif"))
+lsdem <-list.files(paste0(path_analysis_data_dem), glob2rx(pattern="*.tif"))
+lschm <-list.files(paste0(path_analysis_results_chm), glob2rx(pattern="*.tif"))
+lsRGBIR <- list.files(paste0(path_analysis_data_RGB_IR), glob2rx(pattern="*.tif"))
 ################################################################################
 ####-----------------------------#1.CREATE CHM#-----------------------------####
 #----------------------------read dem & dsm of the ROI-------------------------#
@@ -15,8 +15,7 @@ chm <- dsm-dem
 mapview(chm)
 crs(chm)
 #Deprecated Proj.4 representation:
-#+proj=tmerc +lat_0=0 +lon_0=10.3333333333333 +k=1 +x_0=0 +y_0=-5000000
-#+ellps=bessel +units=m +no_defs
+#+proj=tmerc +lat_0=0 +lon_0=10.3333333333333 +k=1 +x_0=0 +y_0=-5000000 +ellps=bessel +units=m +no_defs
 #---------------------------rename layer of the chm as desired-----------------#
 names(chm) <-"chm_ROI"
 #-----------------------------export the chm of the ROI------------------------#
@@ -28,8 +27,7 @@ chm <- raster::raster(paste0(path_analysis_results_chm, "chm_ROI.tif"))
 #check crs
 crs(chm)
 #Deprecated Proj.4 representation:
-#+proj=tmerc +lat_0=0 +lon_0=10.3333333333333 +k=1 +x_0=0 +y_0=-5000000
-#+ellps=bessel +units=m +no_defs
+#+proj=tmerc +lat_0=0 +lon_0=10.3333333333333 +k=1 +x_0=0 +y_0=-5000000 +ellps=bessel +units=m +no_defs
 mapview(chm)
 
 ####-----------------#2.LOAD TEST AREAS (CHM&SPECTRAL)#---------------------####
@@ -50,35 +48,30 @@ mapview(chm)
 # == ALWAYS check the file order in the folders!
 
 lschm
-#[1] "chm_1.tif"         "chm_1.tif.aux.xml" "chm_2.tif"         "chm_2.tif.aux.xml"
-#[5] "chm_3.tif"         "chm_3.tif.aux.xml" "chm_4.tif"         "chm_4.tif.aux.xml"
-#[9] "chm_ROI.tif"
+#"chm_1.tif"   "chm_2.tif"   "chm_3.tif"   "chm_4.tif"   "chm_ROI.tif"
 
 chm_1 <- raster(paste0(path_analysis_results_chm, lschm[[1]]))
-chm_2 <- raster(paste0(path_analysis_results_chm, lschm[[3]]))
-chm_3 <- raster(paste0(path_analysis_results_chm, lschm[[5]]))
-chm_4 <- raster(paste0(path_analysis_results_chm, lschm[[7]]))
-chm_ROI <- raster(paste0(path_analysis_results_chm, lschm[[9]]))
+chm_2 <- raster(paste0(path_analysis_results_chm, lschm[[2]]))
+chm_3 <- raster(paste0(path_analysis_results_chm, lschm[[3]]))
+chm_4 <- raster(paste0(path_analysis_results_chm, lschm[[4]]))
+chm_ROI <- raster(paste0(path_analysis_results_chm, lschm[[5]]))
 
 #-------------check the RGB + IR spectral data in the respective folder--------#
 lsRGBIR
-#[1] "IR_1.tif"          "IR_1.tif.aux.xml"  "IR_2.tif"          "IR_2.tif.aux.xml"
-#[5] "IR_3.tif"          "IR_3.tif.aux.xml"  "IR_4.tif"          "IR_4.tif.aux.xml"
-#[9] "IR_ROI.tif"        "RGB_1.tif"         "RGB_1.tif.aux.xml" "RGB_2.tif"
-#[13] "RGB_2.tif.aux.xml" "RGB_3.tif"         "RGB_3.tif.aux.xml" "RGB_4.tif"
-#[17] "RGB_4.tif.aux.xml" "RGB_ROI.tif"
+#"IR_1.tif"    "IR_2.tif"    "IR_3.tif"    "IR_4.tif"    "IR_ROI.tif"
+#"RGB_1.tif"   "RGB_2.tif"   "RGB_3.tif"   "RGB_4.tif"   "RGB_ROI.tif"
 
-RGB_1 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[10]]))
-RGB_2 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[12]]))
-RGB_3 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[14]]))
-RGB_4 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[16]]))
-RGB_ROI <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[18]]))
+RGB_1 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[6]]))
+RGB_2 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[7]]))
+RGB_3 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[8]]))
+RGB_4 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[9]]))
+RGB_ROI <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[10]]))
 
 IR_1 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[1]]))
-IR_2 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[3]]))
-IR_3 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[5]]))
-IR_4 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[7]]))
-IR_ROI <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[9]]))
+IR_2 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[2]]))
+IR_3 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[3]]))
+IR_4 <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[4]]))
+IR_ROI <- raster(paste0(path_analysis_data_RGB_IR, lsRGBIR[[5]]))
 
 #let's plot our ROIs and test areas to check if the are in the right place!
 mapview::mapview(chm_ROI) + RGB_ROI + IR_ROI

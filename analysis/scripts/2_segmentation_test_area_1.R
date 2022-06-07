@@ -1,6 +1,6 @@
 ####--------------------------------SHORTCUTS-------------------------------####
 #create shortcuts to the folders where de data and results are stored
-lschm <-list.files(paste0(path_analysis_results_chm), pattern=".tif")
+lschm <-list.files(paste0(path_analysis_results_chm), glob2rx(pattern="*.tif"))
 lstreepos <- list.files(paste0(path_analysis_data_treepos), pattern=".shp")
 ################################################################################
 ####-----#The aim is to find an accurate segmentation for test area 1#------####
@@ -24,7 +24,7 @@ writeOGR(obj=vp_1, dsn="C:/Users/kelto/Documents/detectATE/analysis/data/treepos
          layer="vp_1", driver="ESRI Shapefile", verbose = TRUE, overwrite_layer = TRUE)
 crs(chm_1) #+proj=tmerc +lat_0=0 +lon_0=10.3333333333333 +k=1 +x_0=0 +y_0=-5000000 +ellps=bessel +units=m +no_defs
 crs(vp_1) #+proj=tmerc +lat_0=0 +lon_0=10.3333333333333 +k=1 +x_0=0 +y_0=-5000000 +ellps=bessel +units=m +no_defs
-####---------------------#3.SEGMENTATION OF TEST AREA 1#--------------------####
+####---------------------#3.CENITH::TreeSeg TEST AREA 1#--------------------####
 #it was determined,, that h = 4-5 is a good height to get the top of the young trees
 #but not the shrubs and Krummholz
 #The aim is to find the best fitting values for a, b (horizontal & vertical values
@@ -65,10 +65,10 @@ test_3 <- TreeSeg(chm_1, a=0.05, b=0.05, h=4.5, MIN=1, CHMfilter = 3)
 writeOGR(obj=test_3, dsn="C:/Users/kelto/Documents/detectATE/analysis/results/segm/segm_ta1",
          layer="chm1_test_3", driver="ESRI Shapefile", verbose = TRUE, overwrite_layer = TRUE)
 
-####----------------------------#BEST SEG VAL#------------------------------####
+####-------------------#4.CENITH::BestSegVal TEST AREA 1#-------------------####
 #To find the best fitting values, a broader range of values are used for h, to test all possibilities.Thus we will set the height
 #between 3,5 and 6 m - to show how it works
-#------------------------------3.1 FIRST RUN-----------------------------------#
+#------------------------------4.1 FIRST RUN-----------------------------------#
 #Let test a whole sequence of variables to get the most out of the function!
 best_seg_vp_1 <-BestSegVal(chm=chm_1, a=seq(0.05, 0.1, 0.01), b=seq(0.05, 0.1, 0.01),
                            h=seq(3.5, 6, 0.5), MIN=seq(0.1, 0.5, 0.1), filter=3,
@@ -83,7 +83,7 @@ best_seg_vp_1 <-BestSegVal(chm=chm_1, a=seq(0.05, 0.1, 0.01), b=seq(0.05, 0.1, 0
 #save csv file to the respective folder to preserve the original result
 write.csv(best_seg_vp_1, paste0(path_analysis_results_segm_segm_table, "best_seg_vp_1.csv"))
 
-#----------------------------3.1a INVESTIGATE DATA-----------------------------#
+#----------------------------4.1a INVESTIGATE DATA-----------------------------#
 #read the just exported .csv (will be handy in the future to work with it)
 best_seg_vp_1 <- read.csv(paste0(path_analysis_results_segm_table, "best_seg_vp_1.csv"), header = TRUE, sep=",")
 
@@ -146,7 +146,7 @@ writeOGR(obj=test_vp3, dsn="C:/Users/kelto/Documents/detectATE/analysis/results/
 #CHMfilter = 3, but leaving all the other values in the broad range to enable a
 #systematic analysis.
 
-#------------------------------3.2 SECOND RUN----------------------------------#
+#------------------------------4.2 SECOND RUN----------------------------------#
 best_seg_vp_1_v2 <-BestSegVal(chm=chm_1, a=seq(0.01, 0.1, 0.01), b=seq(0.01, 0.1, 0.01),
                               h=seq(3.5, 6, 0.5), MIN=0.1, filter=3,
                               vp=vp_1, skipCheck = FALSE)
@@ -159,7 +159,7 @@ best_seg_vp_1_v2 <-BestSegVal(chm=chm_1, a=seq(0.01, 0.1, 0.01), b=seq(0.01, 0.1
 #save csv file to the respective folder
 write.csv(best_seg_vp_1_v2, paste0(path_analysis_results_segm_segm_table, "best_seg_vp_1_v2.csv"))
 
-#----------------------------3.1a INVESTIGATE DATA-----------------------------#
+#----------------------------4.1a INVESTIGATE DATA-----------------------------#
 #read the just exported .csv (will be handy in the future to work with it)
 best_seg_vp_1_v2 <- read.csv(paste0(path_analysis_results_segm_segm_table, "best_seg_vp_1_v2.csv"), header = TRUE, sep=",")
 
